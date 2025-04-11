@@ -24,8 +24,32 @@ I have published articles in **JBHI**, **ISBI**, **ICASSP**, and served as the r
 # 🔥 News
 ---
 - *2025.01.03*: 🎉🎉 Our paper has been accepted by [ISBI 2025](https://biomedicalimaging.org/2025/) (**Oral Presentation**)!
+- *2024.12.24*: 🎉🎉 Our paper has been accepted by [ISMRM 2025 Workshop on 40 Years of Diffusion](https://www.ismrm.org/workshops/2025/Diffusion40/)!
 - *2024.12.21*: 🎉🎉 Our paper has been accepted by [ICASSP 2025](https://2025.ieeeicassp.org/)!
 - *2024.12.21*: 🎉🎉 Won **Zhejiang Provincial Government Scholarship**!
-- *2024.08.08*: 🎉🎉 Won **National First Prize** in China Students Service Outsourcingnnovation and Entrepreneurship Competition!
-（**Among the 8801 participating teams in China, 0.34%**）
+- *2024.10.08*: 🎉🎉 Our paper has been accepted by [JBHI](https://www.embs.org/jbhi/) (**Referenced by KAN2.0**)!
+- *2024.08.08*: 🎉🎉 Won **National First Prize** in China Students Service Outsourcingnnovation and Entrepreneurship Competition!          （**Among the 8801 participating teams in China, 0.34%**）
 - *2024.07.18*: 🎉🎉 Won **National Second Prize** in Chinese Collegiate Computing Competition!
+
+# 📝 Publications
+<!-- <div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+[Deep Residual Learning for Image Recognition](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)
+
+**Kaiming He**, Xiangyu Zhang, Shaoqing Ren, Jian Sun
+
+[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
+- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+</div>
+</div> -->
+
+<span style="color:#b02418; font-weight:bold;">✝</span> co-first author | <span style="color:#b02418; font-weight:bold;">*</span> corresponding author <br> 
+
+#### Selected JOURNAL PAPERS [Full list is available in Google Scholar]
+- [Sckansformer: Fine-grained classification of bone marrow cells via kansformer backbone and hierarchical attention mechanisms](https://ieeexplore.ieee.org/abstract/document/10713291), Yifei Chen<sup>✝</sup>, Zhu Zhu<sup>✝, *</sup>, <span style="color:#b02418; font-weight:bold;">Shenghao Zhu</span>, Linwei Qiu, Binfeng Zou, Fan Jia, Yunpeng Zhu, Chenyan Zhang, Zhaojie Fang, Feiwei Qin<sup>*</sup>, Jin Fan, Changmiao Wang, Gang Yu, Yu Gao, **IEEE Journal of Biomedical and Health Informatics 2024**
+
+#### Selected CONFERENCE PAPERS [Full list is available in Google Scholar]
+- [Toward Robust Early Detection of Alzheimer's Disease via an Integrated Multimodal Learning Approach](https://ieeexplore.ieee.org/abstract/document/10888363), Yifei Chen, <span style="color:#b02418; font-weight:bold;">Shenghao Zhu</span>, Zhaojie Fang, Chang Liu, Binfeng Zou, Yuhe Wang, Shuo Chang, Fan Jia, Feiwei Qin<sup>*</sup>, Jin Fan, Yong Peng, Changmiao Wang, **ICASSP 2025**
+
+- (**Oral**) [XLSTM-HVED: Cross-Modal Brain Tumor Segmentation and MRI Reconstruction Method Using Vision XLSTM and Heteromodal Variational Encoder-Decoder](https://justlfc03.github.io/), <span style="color:#b02418; font-weight:bold;">Shenghao Zhu</span>, Yifei Chen, Shuo Jiang, Weihong Chen, Chang Liu, Yuanhan Wang, Xu Chen, Yifan Ke, Feiwei Qin<sup>*</sup>, Changmiao Wang, Zhu Zhu<sup>*</sup>, **ISBI 2025**
