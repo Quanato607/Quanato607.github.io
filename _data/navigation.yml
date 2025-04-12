@@ -6,15 +6,16 @@
 
 main:
   - title: "About Me"
-    url: /about/#about-me
+    url: "/#about-me"
   - title: "Educations"
-    url: /about/#educations
+    url: "/#educations"
   - title: "News"
-    url: /about/#news
+    url: "/#news"
   - title: "Papers"
-    url: /about/#papers
+    url: "/#papers"
   - title: "Funding"
-    url: /about/#funding
+    url: "/#funding"
   - title: "Academic Services"
-    url: /about/#academic-services
+    url: "/#academic-services"
+
 
