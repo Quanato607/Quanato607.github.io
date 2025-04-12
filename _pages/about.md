@@ -58,4 +58,9 @@ I have published articles in **JBHI**, **ISBI**, **ICASSP**, and served as the r
 
 - [Toward Robust Early Detection of Alzheimer's Disease via an Integrated Multimodal Learning Approach](https://ieeexplore.ieee.org/abstract/document/10888363), Yifei Chen, <span style="color:#b02418; font-weight:bold;">Shenghao Zhu</span>, Zhaojie Fang, Chang Liu, Binfeng Zou, Yuhe Wang, Shuo Chang, Fan Jia, Feiwei Qin<sup>*</sup>, Jin Fan, Yong Peng, Changmiao Wang, **ICASSP 2025**
 
+# 💰 Funding
+#### Undergraduate [Selected]
+- *2024* National Undergraduate Innovation and Entrepreneurship Training Program (**Project Lead**)
 
+# 💬 Academic Services
++ *Journal Reviewers* of: Sci. Rep., I-ITS.
