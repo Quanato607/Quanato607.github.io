@@ -66,4 +66,4 @@ I have published articles in **JBHI**, **ISBI**, **ICASSP**, and served as the r
 
 # 💬 Academic Services
 ---
-+ *Journal Reviewers* of: Sci. Rep., T-ITS.
++ *Journal Reviewers* of: T-ITS.
