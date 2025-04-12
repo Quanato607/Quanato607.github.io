@@ -27,12 +27,12 @@ At present, I am researching medical imaging, mainly focusing on: **missing mode
 
 I have published articles in **JBHI**, **ISBI**, **ICASSP**, and served as the reviewer of **the top journal of the first region**. The specific articles can be found on my [**Google Scholar**](https://scholar.google.com.hk/citations?user=583w39sAAAAJ&hl=zh-CN&oi=sra) home page. I hope I can make unremitting efforts in **scientific research** and share with you.
 
-
+<span class='anchor' id='educations'></span>
 # 📖 Educations
 ---
 - *2022.09 - 2026.06*, Undergraduate student: Computer Science of Technology, Hangzhou Dianzi University, Hangzhou, China. 
 
-
+<span class='anchor' id='news'></span>
 # 🔥 News
 ---
 - *2025.01.03*: 🎉🎉 Our paper has been accepted by [ISBI 2025](https://biomedicalimaging.org/2025/) (**Oral Presentation**)!
@@ -43,6 +43,7 @@ I have published articles in **JBHI**, **ISBI**, **ICASSP**, and served as the r
 - *2024.08.08*: 🎉🎉 Won **National First Prize** in China Students Service Outsourcingnnovation and Entrepreneurship Competition!          （**Among the 8801 participating teams in China, 0.34%**）
 - *2024.07.18*: 🎉🎉 Won **National Second Prize** in Chinese Collegiate Computing Competition!
 
+<span class='anchor' id='papers'></span>
 # 📝 Papers
 ---
 <!-- <div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
@@ -71,11 +72,13 @@ I have published articles in **JBHI**, **ISBI**, **ICASSP**, and served as the r
 
 - [Toward Robust Early Detection of Alzheimer's Disease via an Integrated Multimodal Learning Approach](https://ieeexplore.ieee.org/abstract/document/10888363), Yifei Chen, <span style="color:#b02418; font-weight:bold;">Shenghao Zhu</span>, Zhaojie Fang, Chang Liu, Binfeng Zou, Yuhe Wang, Shuo Chang, Fan Jia, Feiwei Qin<sup>*</sup>, Jin Fan, Yong Peng, Changmiao Wang, **ICASSP 2025**
 
+<span class='anchor' id='funding'></span>
 # 💰 Funding
 ---
 #### Undergraduate [Selected]
 - *2024* National Undergraduate Innovation and Entrepreneurship Training Program (**Project Lead**)
 
+<span class='anchor' id='academic-services'></span>
 # 💬 Academic Services
 ---
 + *Journal Reviewers* of: T-ITS.
