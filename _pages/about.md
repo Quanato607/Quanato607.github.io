@@ -31,7 +31,7 @@ I have published articles in **JBHI**, **ISBI**, **ICASSP**, and served as the r
 - *2024.08.08*: 🎉🎉 Won **National First Prize** in China Students Service Outsourcingnnovation and Entrepreneurship Competition!          （**Among the 8801 participating teams in China, 0.34%**）
 - *2024.07.18*: 🎉🎉 Won **National Second Prize** in Chinese Collegiate Computing Competition!
 
-# 📝 Publications
+# 📝 Papers
 <!-- <div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
