@@ -49,6 +49,10 @@ I have published articles in **JBHI**, **ISBI**, **ICASSP**, and served as the r
 #### Selected JOURNAL PAPERS [Full list is available in Google Scholar]
 - [Sckansformer: Fine-grained classification of bone marrow cells via kansformer backbone and hierarchical attention mechanisms](https://ieeexplore.ieee.org/abstract/document/10713291), Yifei Chen<sup>✝</sup>, Zhu Zhu<sup>✝, *</sup>, <span style="color:#b02418; font-weight:bold;">Shenghao Zhu</span>, Linwei Qiu, Binfeng Zou, Fan Jia, Yunpeng Zhu, Chenyan Zhang, Zhaojie Fang, Feiwei Qin<sup>*</sup>, Jin Fan, Changmiao Wang, Gang Yu, Yu Gao, **IEEE Journal of Biomedical and Health Informatics 2024**
 
+- [GFE-Mamba: Mamba-based AD Multi-modal Progression Assessment via Generative Feature Extraction from MCI](https://arxiv.org/pdf/2407.15719), Zhaojie Fang<sup>✝</sup>, <span style="color:#b02418; font-weight:bold;">Shenghao Zhu</span><sup>✝</sup>, Yifei Chen<sup>✝</sup>, Binfeng Zou, Fan Jia, Linwei Qiu, Chang Liu, Yiyu Huang, Xiang Feng, Feiwei Qin<sup>*</sup>, Changmiao Wang, Yeru Wang, Jin Fan, Changbiao Chu, Wan-Zhen Wu, Hu Zhao, **Under Review**
+
+- [TC-KANRecon: High-Quality and Accelerated MRI Reconstruction via Adaptive KAN Mechanisms and Intelligent Feature Scaling](https://arxiv.org/pdf/2408.05705), Ruiquan Ge<sup>*</sup>, Xiao Yu<sup>*</sup>, Yifei Chen<sup>*</sup>, Fan Jia, <span style="color:#b02418; font-weight:bold;">Shenghao Zhu</span>, Guanyu Zhou, Yiyu Huang, Chenyan Zhang, Dong Zeng, Changmiao Wang, Qiegen Liu, Shanzhou Niu, **Under Review**
+
 #### Selected CONFERENCE PAPERS [Full list is available in Google Scholar]
 - [Toward Robust Early Detection of Alzheimer's Disease via an Integrated Multimodal Learning Approach](https://ieeexplore.ieee.org/abstract/document/10888363), Yifei Chen, <span style="color:#b02418; font-weight:bold;">Shenghao Zhu</span>, Zhaojie Fang, Chang Liu, Binfeng Zou, Yuhe Wang, Shuo Chang, Fan Jia, Feiwei Qin<sup>*</sup>, Jin Fan, Yong Peng, Changmiao Wang, **ICASSP 2025**
 
