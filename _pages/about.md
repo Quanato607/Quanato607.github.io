@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: ""
+title: "🎉👋😊 Welcome to my Page 😊👋🎉"
 excerpt: ""
 author_profile: true
 redirect_from: 
