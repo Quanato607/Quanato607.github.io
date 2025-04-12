@@ -63,4 +63,4 @@ I have published articles in **JBHI**, **ISBI**, **ICASSP**, and served as the r
 - *2024* National Undergraduate Innovation and Entrepreneurship Training Program (**Project Lead**)
 
 # 💬 Academic Services
-+ *Journal Reviewers* of: Sci. Rep., I-ITS.
++ *Journal Reviewers* of: Sci. Rep., T-ITS.
