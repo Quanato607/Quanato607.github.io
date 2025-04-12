@@ -15,7 +15,7 @@ name                     : &name "Shenghao Zhu"
 description              : &description "Still young over the world."
 url                      : https://quanato607.github.io
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "https://github.com/Quanato607"
+repository               : "Quanato607/Quanato607.github.io"
 google_scholar_stats_use_cdn : true
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
