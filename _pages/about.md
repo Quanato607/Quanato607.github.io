@@ -75,6 +75,9 @@ I have published articles in **JBHI**, **ISBI**, **ICASSP**, and served as the r
 
 - [Toward Robust Early Detection of Alzheimer's Disease via an Integrated Multimodal Learning Approach](https://ieeexplore.ieee.org/abstract/document/10888363), Yifei Chen, <span style="color:#b02418; font-weight:bold;">Shenghao Zhu</span>, Zhaojie Fang, Chang Liu, Binfeng Zou, Yuhe Wang, Shuo Chang, Fan Jia, Feiwei Qin<sup>*</sup>, Jin Fan, Yong Peng, Changmiao Wang, **ICASSP 2025**
 
+#### Selected CONFERENCE ABSTRACTS [Full list is available in Google Scholar]
+- [DiffKAN3D: Efficient and Accurate 3D Diffusion MRI Parameter Estimation for Real-Time Clinical Applications](https://justlfc03.github.io/), Yifei Chen</span>, Zihan Li, <span style="color:#b02418; font-weight:bold;">Shenghao Zhu</span>, Ziyu Li, Jialan Zheng, Hongjia Yang, Mingxuan Liu, Qiyuan Tian<sup>*</sup>, **ISMRM 2025 Workshop on 40 Years of Diffusion**
+
 <span class='anchor' id='funding'></span>
 # 💰 Funding
 ---
