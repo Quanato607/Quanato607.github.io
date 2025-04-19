@@ -25,7 +25,7 @@ I was advised by [Prof. Feiwei Qin（秦飞巍）](https://computer.hdu.edu.cn/2
 
 At present, I am researching medical imaging, mainly focusing on: **knowledge distillation** and **medical large models**.
 
-I have published articles in **JBHI**, **ISBI**, **ICASSP**, and served as the reviewer of **T-ITS**. The specific articles can be found on my [**Google Scholar**](https://scholar.google.com.hk/citations?user=583w39sAAAAJ&hl=zh-CN&oi=sra) home page. I hope I can make unremitting efforts in **scientific research** and share with you.
+I have published articles in **JBHI**, **ISBI**, **ICASSP**, and served as the reviewer of **JBHI, T-ITS**. The specific articles can be found on my [**Google Scholar**](https://scholar.google.com.hk/citations?user=583w39sAAAAJ&hl=zh-CN&oi=sra) home page. I hope I can make unremitting efforts in **scientific research** and share with you.
 
 <a href='https://scholar.google.com./citations?user=583w39sAAAAJ&hl=zh-CN'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=Citations"></a>
 [![](https://img.shields.io/github/stars/Quanato607?style=social)](https://github.com/Quanato607)
@@ -87,4 +87,4 @@ I have published articles in **JBHI**, **ISBI**, **ICASSP**, and served as the r
 <span class='anchor' id='academic-services'></span>
 # 💬 Academic Services
 ---
-+ *Journal Reviewers* of: T-ITS.
++ *Journal Reviewers* of: JBHI, T-ITS.
