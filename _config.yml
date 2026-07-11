@@ -167,6 +167,8 @@ exclude:
   - google-scholar-stats
   - markdown_generator
   - talkmap
+  - docs
+  - scripts
   - _pages/archive-layout-with-content.md
   - _pages/category-archive.html
   - _pages/collection-archive.html
