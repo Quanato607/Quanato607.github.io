@@ -6,7 +6,7 @@
 
 **Architecture:** Preserve the current Academic Pages/Jekyll theme and its one-page anchored homepage. Store factual content in `_pages/about.md`, site identity in `_config.yml`, navigation in `_data/navigation.yml`, and browser-icon references in the existing head include and manifest. Add a small Python validation script for factual, cleanup, and icon invariants; add a deterministic Pillow-based icon-export script after the AI source image is approved.
 
-**Tech Stack:** Jekyll, Liquid, Markdown/Kramdown, YAML, Python 3, PyYAML, Pillow, built-in image generation.
+**Tech Stack:** Jekyll, Liquid, Markdown/Kramdown, YAML, Python 3 standard library, Pillow, built-in image generation.
 
 ## Global Constraints
 
@@ -43,10 +43,10 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 
-import yaml
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -63,22 +63,20 @@ def read(path: str) -> str:
 
 
 def check_config() -> None:
-    config = yaml.safe_load(read("_config.yml"))
-    require(config.get("locale") == "en-US", "_config.yml locale must be en-US")
-    require(config.get("title") == "Shenghao Zhu | Multimodal Medical AI", "site title is stale")
-    require(config.get("future") is False, "future posts must be disabled")
-    author = config.get("author", {})
-    require(author.get("name") == "Shenghao Zhu", "author name is incorrect")
-    require(author.get("employer") == "Ant Group", "current employer must be Ant Group")
-    scholar = author.get("googlescholar", "")
-    require("6zr4pucAAAAJ" in scholar, "Google Scholar profile ID is incorrect")
-    require("583w39sAAAAJ" not in scholar, "stale Scholar ID remains in config")
-    collections = config.get("collections", {})
+    config = read("_config.yml")
+    require(bool(re.search(r'^locale\s*:\s*"en-US"\s*$', config, re.MULTILINE)), "_config.yml locale must be en-US")
+    require(bool(re.search(r'^title\s*:\s*"Shenghao Zhu \| Multimodal Medical AI"\s*$', config, re.MULTILINE)), "site title is stale")
+    require(bool(re.search(r'^future\s*:\s*false\s*$', config, re.MULTILINE)), "future posts must be disabled")
+    require(bool(re.search(r'^\s+name\s*:\s*"Shenghao Zhu"\s*$', config, re.MULTILINE)), "author name is incorrect")
+    require(bool(re.search(r'^\s+employer\s*:\s*"Ant Group"\s*$', config, re.MULTILINE)), "current employer must be Ant Group")
+    require("6zr4pucAAAAJ" in config, "Google Scholar profile ID is incorrect")
+    require("583w39sAAAAJ" not in config, "stale Scholar ID remains in config")
     for name in ["teaching", "publications", "portfolio", "talks"]:
-        require(collections.get(name, {}).get("output") is False, f"{name} collection must not publish")
-    excluded = set(config.get("exclude", []))
+        pattern = rf'^  {name}:\s*$\n\s+output:\s*false\s*$'
+        require(bool(re.search(pattern, config, re.MULTILINE)), f"{name} collection must not publish")
     for item in {"_posts", "_publications", "_talks", "_teaching", "_portfolio", "google-scholar-stats"}:
-        require(item in excluded, f"{item} must be excluded from the build")
+        pattern = rf'^\s*-\s*{re.escape(item)}\s*$'
+        require(bool(re.search(pattern, config, re.MULTILINE)), f"{item} must be excluded from the build")
 
 
 def check_content() -> None:
