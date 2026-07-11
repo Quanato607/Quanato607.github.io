@@ -1,21 +1,15 @@
-# The following is the order of the links in the header of the website.
-#
-# Changing the order here will adjust the order and you can also add additional
-# links. Removing a link prevents it from showing in the header, but does not
-# prevent it from being included in the site.
-
 main:
-  - title: "About Me"
-    url: "/#about-me"
-  - title: "Educations"
-    url: "/#educations"
+  - title: "About"
+    url: "/#about"
+  - title: "Research Experience"
+    url: "/#research-experience"
+  - title: "Selected Publications"
+    url: "/#selected-publications"
   - title: "News"
     url: "/#news"
-  - title: "Papers"
-    url: "/#papers"
-  - title: "Funding"
-    url: "/#funding"
-  - title: "Academic Services"
-    url: "/#academic-services"
-
-
+  - title: "Education & Awards"
+    url: "/#education-awards"
+  - title: "Service"
+    url: "/#academic-service"
+  - title: "CV"
+    url: "/cv/"
