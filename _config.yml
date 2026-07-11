@@ -169,6 +169,8 @@ exclude:
   - talkmap
   - docs
   - scripts
+  - CONTRIBUTING.md
+  - docker-compose.yaml
   - _pages/archive-layout-with-content.md
   - _pages/category-archive.html
   - _pages/collection-archive.html

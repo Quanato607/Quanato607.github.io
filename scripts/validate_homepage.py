@@ -6,6 +6,7 @@ import json
 import re
 import sys
 from pathlib import Path
+from urllib.parse import urlparse
 
 from PIL import Image
 
@@ -34,7 +35,18 @@ def check_config() -> None:
     for name in ["teaching", "publications", "portfolio", "talks"]:
         pattern = rf'^  {name}:\s*$\n\s+output:\s*false\s*$'
         require(bool(re.search(pattern, config, re.MULTILINE)), f"{name} collection must not publish")
-    for item in {"_posts", "_publications", "_talks", "_teaching", "_portfolio", "google-scholar-stats"}:
+    for item in {
+        "_posts",
+        "_publications",
+        "_talks",
+        "_teaching",
+        "_portfolio",
+        "google-scholar-stats",
+        "docs",
+        "scripts",
+        "CONTRIBUTING.md",
+        "docker-compose.yaml",
+    }:
         pattern = rf'^\s*-\s*{re.escape(item)}\s*$'
         require(bool(re.search(pattern, config, re.MULTILINE)), f"{item} must be excluded from the build")
 
@@ -107,11 +119,37 @@ def check_icons() -> None:
     require("/images/favicon-512x512.png" in icon_sources, "manifest is missing 512px icon")
 
 
+def check_generated() -> None:
+    site = ROOT / "_site"
+    require(site.is_dir(), "_site must exist; run a fresh Jekyll build")
+    require((site / "sitemap.xml").is_file(), "generated sitemap.xml is missing")
+    for relative in ["docs", "scripts", "CONTRIBUTING.md", "docker-compose.yaml"]:
+        require(not (site / relative).exists(), f"generated site exposes {relative}")
+    generated_html = [
+        (path, path.read_text(encoding="utf-8")) for path in site.rglob("*.html")
+    ]
+    broken_sitemap_links = [
+        path for path, html in generated_html if 'href="/sitemap/"' in html
+    ]
+    sitemap_links = [
+        (path, href)
+        for path, html in generated_html
+        for href in re.findall(r'href="([^"]+)"', html)
+        if urlparse(href).path == "/sitemap.xml"
+    ]
+    require(not broken_sitemap_links, "generated HTML contains broken /sitemap/ link")
+    require(
+        bool(sitemap_links),
+        "generated HTML is missing the /sitemap.xml footer link",
+    )
+
+
 CHECKS = {
     "config": check_config,
     "content": check_content,
     "cleanup": check_cleanup,
     "icons": check_icons,
+    "generated": check_generated,
 }
 
 
