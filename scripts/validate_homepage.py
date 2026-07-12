@@ -62,6 +62,8 @@ def check_content() -> None:
         "Tsinghua University",
         "Medical Image Analysis",
         "MICCAI 2025",
+        "ReBorn: Turning Full-Modality Segmentation Models into Missing-Modality Survivors",
+        "CVPR 2026 Findings, transferred",
         "ISBI 2025",
         "Zhejiang Provincial Government Scholarship",
         "IEEE T-ITS",
