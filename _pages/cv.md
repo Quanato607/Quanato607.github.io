@@ -19,7 +19,7 @@ Medical AI researcher working on robust multimodal learning, missing-modality se
 
 ## Current Role
 
-- Medical AI Research Intern, Ant Group, March–July 2026.
+- Medical AI Research Intern, Ant Group, March 2026 – Present.
 
 ## Research Profiles
 

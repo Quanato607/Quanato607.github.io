@@ -57,13 +57,14 @@ def check_content() -> None:
     readme = read("README.md")
     required_about = [
         "Medical AI Research Intern at Ant Group",
+        "March 2026 – Present",
         "missing-modality segmentation",
         "Westlake University",
         "Tsinghua University",
         "Medical Image Analysis",
         "MICCAI 2025",
         "ReBorn: Turning Full-Modality Segmentation Models into Missing-Modality Survivors",
-        "CVPR 2026 Findings, transferred",
+        "CVPR 2026 Findings",
         "ISBI 2025",
         "Zhejiang Provincial Government Scholarship",
         "IEEE T-ITS",
@@ -72,6 +73,9 @@ def check_content() -> None:
         require(phrase in about, f"homepage is missing: {phrase}")
     for stale in ["junior undergraduate", "Still young over the world", "medical multi-turn dialogue", "583w39sAAAAJ"]:
         require(stale.lower() not in about.lower(), f"stale homepage text remains: {stale}")
+    require("transferred" not in about.lower(), "transferred status must not appear on the homepage")
+    require("March 2026 – July 2026" not in about, "Ant Group end date is stale on the homepage")
+    require("March 2026 – Present" in cv_page, "Ant Group role must be current on the CV page")
     require("/files/Shenghao_Zhu_CV.pdf" in about, "homepage CV link is missing")
     require("/files/Shenghao_Zhu_CV.pdf" in cv_page, "CV page download link is missing")
     require("GitHub University" not in cv_page, "placeholder CV content remains")

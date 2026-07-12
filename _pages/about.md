@@ -19,14 +19,14 @@ I have conducted research at Ant Group, Westlake University, Tsinghua University
 # Research Experience {#research-experience}
 
 ### Ant Group — Medical AI Research Intern
-*March 2026 – July 2026 · Supervisor: Dr. Le Lu*
+*March 2026 – Present · Supervisor: Dr. Le Lu*
 
 Research on longitudinal treatment-response analysis for lung-cancer brain metastasis, integrating serial brain-MRI lesion segmentation with lesion-trajectory modeling to characterize tumor-burden changes and support response assessment.
 
 ### Westlake University — Visiting Student, Medical Artificial Intelligence Lab
 *August 2025 – March 2026 · Supervisor: Prof. Yefeng Zheng*
 
-Studied training strategies for segmentation with arbitrary missing modalities, including Pareto training, model-split weight-moving training, and gradient-entropy-balanced optimization. This work led to ReBorn, listed as **CVPR 2026 Findings (transferred)**, with me as first author.
+Studied training strategies for segmentation with arbitrary missing modalities, including Pareto training, model-split weight-moving training, and gradient-entropy-balanced optimization. This work led to ReBorn, listed in **CVPR 2026 Findings**, with me as first author.
 
 ### Tsinghua University — Online Research Intern, BIRTH Lab
 *June 2024 – August 2025 · Supervisor: Prof. Qiyuan Tian*
@@ -44,7 +44,7 @@ Worked on multimodal MRI fusion, missing-modality segmentation, MRI reconstructi
 
 1. **No Modality Left Behind: Adapting to Missing Modalities via Knowledge Distillation for Brain Tumor Segmentation.** **Shenghao Zhu**, Yifei Chen, Weihong Chen, et al. *Medical Image Analysis*, 2026. **First author.** [Paper](https://doi.org/10.1016/j.media.2026.104108) · [Code](https://github.com/Quanato607/AdaMM)
 2. **Bridging the Gap in Missing Modalities: Leveraging Knowledge Distillation and Style Matching for Brain Tumor Segmentation.** **Shenghao Zhu**, Yifei Chen, Weihong Chen, et al. MICCAI 2025. **First author.** [Code](https://github.com/Quanato607/MST-KDNet)
-3. **ReBorn: Turning Full-Modality Segmentation Models into Missing-Modality Survivors.** **Shenghao Zhu**, Yifei Chen, Weihong Chen, et al. **CVPR 2026 Findings, transferred; first author.**
+3. **ReBorn: Turning Full-Modality Segmentation Models into Missing-Modality Survivors.** **Shenghao Zhu**, Yifei Chen, Weihong Chen, et al. **CVPR 2026 Findings; first author.**
 4. **XLSTM-HVED: Cross-Modal Brain Tumor Segmentation and MRI Reconstruction Method Using Vision XLSTM and Heteromodal Variational Encoder-Decoder.** **Shenghao Zhu**, Yifei Chen, Shuo Jiang, et al. IEEE ISBI 2025, **Oral Presentation; first author.** [Paper](https://arxiv.org/abs/2412.07804) · [Code](https://github.com/Quanato607/XLSTM-HVED)
 5. **Toward Robust Early Detection of Alzheimer's Disease via an Integrated Multimodal Learning Approach.** Yifei Chen, **Shenghao Zhu**, et al. IEEE ICASSP 2025. **Second author.** [Paper](https://ieeexplore.ieee.org/document/10888363) · [Code](https://github.com/JustlfC03/MSTNet)
 6. **SCKansformer: Fine-Grained Classification of Bone Marrow Cells via Kansformer Backbone and Hierarchical Attention Mechanisms.** Yifei Chen, Zhu Zhu, **Shenghao Zhu**, et al. IEEE JBHI, 2024. **Coauthor.** [Paper](https://ieeexplore.ieee.org/document/10713291) · [Code](https://github.com/JustlfC03/SCKansformer)
@@ -52,7 +52,7 @@ Worked on multimodal MRI fusion, missing-modality segmentation, MRI reconstructi
 
 # News {#news}
 
-- **2026:** AdaMM was published in *Medical Image Analysis*; ReBorn was transferred to CVPR 2026 Findings.
+- **2026:** AdaMM was published in *Medical Image Analysis*; ReBorn was listed in CVPR 2026 Findings.
 - **2025:** MST-KDNet appeared at MICCAI 2025; XLSTM-HVED was presented orally at IEEE ISBI 2025; MSTNet appeared at IEEE ICASSP 2025.
 - **2025:** Received the Zhejiang Provincial Government Scholarship.
 - **2024:** Received the Zhejiang Provincial Government Scholarship and a National First Prize in the China College Students' Service Outsourcing Innovation and Entrepreneurship Competition.
