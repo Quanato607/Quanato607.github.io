@@ -33,10 +33,13 @@ redirect_from:
 <section class="home-section" id="news" aria-labelledby="news-heading">
   <h2 class="section-heading" id="news-heading"><span aria-hidden="true">🔥</span> News</h2>
   <ul class="news-list">
-    <li><time datetime="2026">2026</time><span>AdaMM was published in <em>Medical Image Analysis</em>; ReBorn was listed in <strong>CVPR 2026 Findings</strong>.</span></li>
-    <li><time datetime="2025">2025</time><span>MST-KDNet appeared at MICCAI; XLSTM-HVED was presented orally at IEEE ISBI; MSTNet appeared at IEEE ICASSP.</span></li>
-    <li><time datetime="2025">2025</time><span>Received the Zhejiang Provincial Government Scholarship.</span></li>
-    <li><time datetime="2024">2024</time><span>Received the Zhejiang Provincial Government Scholarship and a National First Prize in the China College Students' Service Outsourcing Innovation and Entrepreneurship Competition.</span></li>
+    <li><time datetime="2026-05">2026.05</time><span>Our paper <strong>AdaMM</strong> was published in <em>Medical Image Analysis</em>.</span></li>
+    <li><time datetime="2026-02">2026.02</time><span>We have one paper accepted to <strong>CVPR 2026 Findings</strong> (<strong>ReBorn</strong>).</span></li>
+    <li><time datetime="2025-06">2025.06</time><span>We have one paper accepted at <strong>MICCAI 2025</strong> (<strong>MST-KDNet</strong>).</span></li>
+    <li><time datetime="2025-01">2025.01</time><span>We have one paper accepted at <strong>IEEE ISBI 2025</strong> as an oral presentation (<strong>XLSTM-HVED</strong>).</span></li>
+    <li><time datetime="2024-12">2024.12</time><span>We have one paper accepted at <strong>IEEE ICASSP 2025</strong> (<strong>MSTNet</strong>).</span></li>
+    <li><time datetime="2024-10">2024.10</time><span>We have one paper accepted for publication in <em>IEEE Journal of Biomedical and Health Informatics</em> (<strong>SCKansformer</strong>).</span></li>
+    <li><time datetime="2024-07">2024.07</time><span>Our <strong>GFE-Mamba</strong> preprint was released on arXiv.</span></li>
   </ul>
 </section>
 
@@ -72,12 +75,9 @@ redirect_from:
     </article>
 
     <article class="publication-item">
-      <div class="publication-media publication-media--reborn" role="img" aria-label="ReBorn publication visual">
+      <div class="publication-media publication-media--wide-figure">
+        <img src="/images/publications/reborn.png" alt="ReBorn framework for robust segmentation under modality degradation" loading="lazy">
         <span class="venue-badge">CVPR 2026 Findings</span>
-        <span class="reborn-title">ReBorn</span>
-        <span class="reborn-subtitle">Full-modality models<br>→ Missing-modality survivors</span>
-        <span class="reborn-orbit reborn-orbit--one"></span>
-        <span class="reborn-orbit reborn-orbit--two"></span>
       </div>
       <div class="publication-content">
         <h3>ReBorn: Turning Full-Modality Segmentation Models into Missing-Modality Survivors</h3>

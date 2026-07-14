@@ -68,6 +68,9 @@ def check_content() -> None:
         "MICCAI 2025",
         "ReBorn: Turning Full-Modality Segmentation Models into Missing-Modality Survivors",
         "CVPR 2026 Findings",
+        "We have one paper accepted at <strong>MICCAI 2025</strong>",
+        "Our paper <strong>AdaMM</strong> was published",
+        "Our <strong>GFE-Mamba</strong> preprint was released on arXiv",
         "ISBI 2025",
         "Zhejiang Provincial Government Scholarship",
         "IEEE T-ITS",
@@ -133,6 +136,7 @@ def check_design() -> None:
     publication_images = [
         "adamm.png",
         "mst-kdnet.png",
+        "reborn.png",
         "xlstm-hved.png",
         "mstnet.png",
         "sckansformer.png",

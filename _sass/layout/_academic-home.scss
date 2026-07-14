@@ -373,7 +373,7 @@
 
     li {
       display: grid;
-      grid-template-columns: 50px minmax(0, 1fr);
+      grid-template-columns: 62px minmax(0, 1fr);
       gap: 10px;
       margin: 0;
       padding: 4px 0;
@@ -455,58 +455,9 @@
     border-radius: 5px 0 5px 0;
   }
 
-  .publication-media--reborn {
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-direction: column;
-    padding: 41px 20px 18px;
-    color: var(--academic-navy);
-    background:
-      radial-gradient(circle at 78% 32%, rgba(22, 138, 148, 0.14), transparent 25%),
-      linear-gradient(135deg, #fbfcfd 0%, #eef4f5 100%);
-    border-color: #dfe6e9;
-  }
-
-  .reborn-title {
-    position: relative;
-    z-index: 2;
-    font-size: 27px;
-    font-weight: 750;
-    line-height: 1;
-    letter-spacing: -0.035em;
-  }
-
-  .reborn-subtitle {
-    position: relative;
-    z-index: 2;
-    margin-top: 9px;
-    color: #66717b;
-    font-size: 9px;
-    line-height: 1.45;
-    text-transform: uppercase;
-    letter-spacing: 0.055em;
-  }
-
-  .reborn-orbit {
-    position: absolute;
-    display: block;
-    border: 1px solid rgba(22, 138, 148, 0.34);
-    border-radius: 50%;
-  }
-
-  .reborn-orbit--one {
-    right: 16px;
-    bottom: -38px;
-    width: 114px;
-    height: 114px;
-  }
-
-  .reborn-orbit--two {
-    right: 42px;
-    bottom: -12px;
-    width: 63px;
-    height: 63px;
-    background: rgba(22, 138, 148, 0.07);
+  .publication-media--wide-figure img {
+    height: auto;
+    padding: 0;
   }
 
   .publication-content h3 {
@@ -834,7 +785,7 @@
     }
 
     .news-list li {
-      grid-template-columns: 43px minmax(0, 1fr);
+      grid-template-columns: 55px minmax(0, 1fr);
       gap: 8px;
     }
 
