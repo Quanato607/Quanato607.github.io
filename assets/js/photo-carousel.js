@@ -2,7 +2,6 @@
   "use strict";
 
   var carousels = document.querySelectorAll("[data-photo-carousel]");
-  var deferredImages = Array.prototype.slice.call(document.querySelectorAll("img[data-src]"));
   var reducedMotion = window.matchMedia
     ? window.matchMedia("(prefers-reduced-motion: reduce)")
     : { matches: false };
@@ -33,31 +32,6 @@
     Array.prototype.forEach.call(images, function (image, index) {
       image.style.backgroundImage = emojiPattern(randomEmoji(index));
     });
-  }
-
-  function loadDeferredImages() {
-    deferredImages.forEach(function (image, index) {
-      window.setTimeout(function () {
-        var source = image.getAttribute("data-src");
-
-        if (!source) {
-          return;
-        }
-
-        image.setAttribute("fetchpriority", "low");
-        image.src = source;
-        image.removeAttribute("data-src");
-      }, index * 140);
-    });
-  }
-
-  function afterWindowLoad(callback) {
-    if (document.readyState === "complete") {
-      window.setTimeout(callback, 0);
-      return;
-    }
-
-    window.addEventListener("load", callback, { once: true });
   }
 
   decorateImageMats();
@@ -202,11 +176,5 @@
       },
       { passive: true }
     );
-  });
-
-  afterWindowLoad(function () {
-    if (deferredImages.length) {
-      loadDeferredImages();
-    }
   });
 })();

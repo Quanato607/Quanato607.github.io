@@ -130,10 +130,11 @@ def check_design() -> None:
         'data-photo-carousel',
         'Places I’ve Been',
         'Erbao 二宝',
-        'data-src="/images/gallery/places/travel-02-sunlit-waterfront.jpg"',
-        'data-src="/images/gallery/cats/cat-02-cardboard-box.jpg"',
+        'src="/images/gallery/places/travel-02-sunlit-waterfront.jpg"',
+        'src="/images/gallery/cats/cat-02-cardboard-box.jpg"',
     ]:
         require(marker in about, f"homepage design marker is missing: {marker}")
+    require("data-src=" not in about, "gallery images should load normally without deferred data-src placeholders")
     require('"layout/academic-home"' in main_scss, "academic homepage stylesheet is not imported")
     require(".academic-home" in design_scss, "academic homepage styles are not scoped")
     require("publication-item" in design_scss, "publication row styles are missing")
@@ -141,8 +142,9 @@ def check_design() -> None:
     require("prefers-reduced-motion" in design_scss, "photo carousel must respect reduced motion")
     require("page.photo_carousels" in scripts_include, "photo carousel script must load conditionally")
     require("/assets/js/photo-carousel.js" in scripts_include, "photo carousel script include is missing")
-    for behavior in ["data-photo-carousel", "data-src", "emojiPattern", "ArrowLeft", "ArrowRight", "Home", "End"]:
+    for behavior in ["data-photo-carousel", "emojiPattern", "ArrowLeft", "ArrowRight", "Home", "End"]:
         require(behavior in carousel_js, f"photo carousel behavior is missing: {behavior}")
+    require("data-src" not in carousel_js, "deferred carousel loading should be removed")
     require(".publication-links" not in design_scss, "obsolete publication-link styles must be removed")
     require("profile-links" not in about, "research profile links should not be duplicated in the intro")
     require('aria-label="Toggle navigation"' in masthead, "mobile navigation button has no accessible label")
@@ -171,33 +173,22 @@ def check_design() -> None:
             with Image.open(path) as image:
                 require(500 <= image.width <= 800, f"{relative} should be optimized to 500–800px wide, got {image.width}px")
 
-    gallery_images = {
+    used_gallery_images = {
         "places": [
             "travel-01-statue-of-liberty.jpg",
             "travel-02-sunlit-waterfront.jpg",
             "travel-03-reflecting-pool.jpg",
-            "travel-04-blue-hour-street.jpg",
-            "travel-05-lake-reflection.jpg",
-            "travel-06-wooden-tea-house.jpg",
-            "travel-07-tropical-city-evening.jpg",
-            "travel-08-garden-pond.jpg",
-            "travel-09-sunny-garden.jpg",
-            "travel-10-low-tide-lighthouse.jpg",
-            "travel-11-green-field-mountains.jpg",
-            "travel-12-rocky-tidal-flat.jpg",
-            "travel-13-turquoise-lake.jpg",
         ],
         "cats": [
             "cat-01-close-up.jpg",
             "cat-02-cardboard-box.jpg",
             "cat-03-stretched-paws.jpg",
-            "cat-04-chair-nap.jpg",
         ],
     }
-    for category, filenames in gallery_images.items():
+    for category, filenames in used_gallery_images.items():
         folder = ROOT / "images" / "gallery" / category
         actual = sorted(path.name for path in folder.glob("*.jpg")) if folder.is_dir() else []
-        require(actual == sorted(filenames), f"{category} gallery image set is incomplete")
+        require(set(filenames).issubset(set(actual)), f"{category} gallery image set is incomplete")
         for filename in filenames:
             relative = f"images/gallery/{category}/{filename}"
             path = ROOT / relative
@@ -206,6 +197,8 @@ def check_design() -> None:
             if path.is_file():
                 with Image.open(path) as image:
                     require(max(image.size) <= 1920, f"{relative} is too large for the homepage: {image.size}")
+        used_count = sum(1 for filename in actual if f"/images/gallery/{category}/{filename}" in about)
+        require(used_count == 3, f"{category} gallery should use exactly 3 images, got {used_count}")
 
 
 def check_cleanup() -> None:
