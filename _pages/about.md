@@ -33,7 +33,7 @@ redirect_from:
 <section class="home-section" id="news" aria-labelledby="news-heading">
   <h2 class="section-heading" id="news-heading"><span aria-hidden="true">🔥</span> News</h2>
   <ul class="news-list">
-    <li><time datetime="2026-05">2026.05</time><span>Our paper <strong>AdaMM</strong> was published in <em>Medical Image Analysis</em>.</span></li>
+    <li><time datetime="2026-05">2026.05</time><span>Our paper <strong>AdaMM</strong> was published in <em>Medical Image Analysis</em> (Impact Factor: 11.8).</span></li>
     <li><time datetime="2026-02">2026.02</time><span>We have one paper accepted to <strong>CVPR 2026 Findings</strong> (<strong>ReBorn</strong>).</span></li>
     <li><time datetime="2025-06">2025.06</time><span>We have one paper accepted at <strong>MICCAI 2025</strong> (<strong>MST-KDNet</strong>).</span></li>
     <li><time datetime="2025-01">2025.01</time><span>We have one paper accepted at <strong>IEEE ISBI 2025</strong> as an oral presentation (<strong>XLSTM-HVED</strong>).</span></li>

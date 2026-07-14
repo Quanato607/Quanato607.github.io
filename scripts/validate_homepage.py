@@ -72,6 +72,7 @@ def check_content() -> None:
         "CVPR 2026 Findings",
         "We have one paper accepted at <strong>MICCAI 2025</strong>",
         "Our paper <strong>AdaMM</strong> was published",
+        "<em>Medical Image Analysis</em> (Impact Factor: 11.8)",
         "Our <strong>GFE-Mamba</strong> preprint was released on arXiv",
         "ISBI 2025",
         "Zhejiang Provincial Government Scholarship",
