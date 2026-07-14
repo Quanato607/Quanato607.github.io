@@ -31,6 +31,7 @@ def check_config() -> None:
     require(bool(re.search(r'^masthead_title\s*:\s*"Homepage"\s*$', config, re.MULTILINE)), "compact masthead label is missing")
     require(bool(re.search(r'^future\s*:\s*false\s*$', config, re.MULTILINE)), "future posts must be disabled")
     require(bool(re.search(r'^\s+name\s*:\s*"Shenghao Zhu"\s*$', config, re.MULTILINE)), "author name is incorrect")
+    require(bool(re.search(r'^\s+bio\s*:\s*"Ph\.D\. Applicant · Fall 2027"\s*$', config, re.MULTILINE)), "Fall 2027 applicant status is missing")
     require(bool(re.search(r'^\s+employer\s*:\s*"Ant Group"\s*$', config, re.MULTILINE)), "current employer must be Ant Group")
     require("6zr4pucAAAAJ" in config, "Google Scholar profile ID is incorrect")
     require(bool(re.search(r'^\s+cv\s*:\s*"/files/Shenghao_Zhu_CV.pdf"\s*$', config, re.MULTILINE)), "sidebar CV link is missing")
@@ -72,7 +73,7 @@ def check_content() -> None:
         "CVPR 2026 Findings",
         "We have one paper accepted at <strong>MICCAI 2025</strong>",
         "Our paper <strong>AdaMM</strong> was published",
-        "<em>Medical Image Analysis</em> (Impact Factor: 11.8)",
+        "<em>Medical Image Analysis</em> (Impact Factor: 14.0)",
         "Our <strong>GFE-Mamba</strong> preprint was released on arXiv",
         "ISBI 2025",
         "Zhejiang Provincial Government Scholarship",
