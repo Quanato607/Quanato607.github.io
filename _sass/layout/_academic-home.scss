@@ -309,12 +309,11 @@
 
   .research-snapshot__mark {
     position: absolute;
-    top: -63px;
-    right: -48px;
-    width: 270px;
+    top: -4px;
+    right: -22px;
+    width: 214px;
     opacity: 0.13;
     filter: invert(1);
-    transform: rotate(-5deg);
     pointer-events: none;
   }
 
@@ -482,38 +481,6 @@
   .publication-venue {
     color: var(--academic-rose);
     font-weight: 600;
-  }
-
-  .publication-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 6px !important;
-
-    a {
-      display: inline-flex;
-      align-items: center;
-      min-height: 24px;
-      padding: 2px 7px;
-      color: var(--academic-link);
-      font-size: 10.5px;
-      font-weight: 700;
-      line-height: 1.35;
-      text-decoration: none;
-      background: #f1f7f7;
-      border: 1px solid #d9e9e9;
-      border-radius: 4px;
-    }
-
-    a:hover {
-      color: #155e68;
-      background: #e8f3f3;
-    }
-
-    a:focus-visible {
-      outline: 2px solid var(--academic-teal);
-      outline-offset: 2px;
-    }
   }
 
   .experience-list {
@@ -722,18 +689,13 @@
     }
 
     .research-snapshot__mark {
-      top: -28px;
-      right: -48px;
-      width: 205px;
+      top: 4px;
+      right: -36px;
+      width: 172px;
     }
 
     .home-section {
       margin-top: 30px;
-    }
-
-    .publication-links a {
-      min-height: 32px;
-      padding: 5px 10px;
     }
 
     .experience-item,

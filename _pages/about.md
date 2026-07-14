@@ -1,7 +1,7 @@
 ---
 permalink: /
 title: "Shenghao Zhu"
-excerpt: "Medical AI researcher working on robust multimodal learning for incomplete clinical inputs."
+excerpt: "Medical AI researcher exploring medical image analysis and multi-turn agents for accessible precision medicine."
 author_profile: true
 body_class: academic-home
 hide_title: true
@@ -12,19 +12,19 @@ redirect_from:
 
 <section class="home-intro" id="about" aria-labelledby="about-heading">
   <h2 class="sr-only" id="about-heading">About Shenghao Zhu</h2>
-  <p>Hello! I am a <strong>Medical AI Research Intern at Ant Group</strong>. I received my B.S. in Computer Science and Technology from Hangzhou Dianzi University in May 2026.</p>
-  <p>My research focuses on <strong>robust multimodal medical AI</strong>, particularly missing-modality segmentation, multimodal fusion, knowledge distillation, and longitudinal medical image analysis. I am interested in building efficient and reliable systems that remain useful when clinical inputs are incomplete or heterogeneous.</p>
+  <p>Hello! I am a <strong>Medical AI Research Intern at Ant Group</strong>. I received my B.S. in Computer Science and Technology from Hangzhou Dianzi University in May 2026. My long-term goal is to build reliable, clinically grounded AI systems that make precision medicine accessible to more people.</p>
+  <p>My research interests span <strong>medical image analysis</strong> and <strong>multi-turn agents</strong>. I am particularly interested in robust multimodal learning under incomplete clinical inputs, and in agents that integrate heterogeneous evidence and refine their reasoning through sustained interaction.</p>
 </section>
 
 <section class="research-snapshot" aria-labelledby="snapshot-title">
   <div class="research-snapshot__content">
     <p class="research-snapshot__eyebrow">Research Snapshot</p>
-    <h2 id="snapshot-title">Robust Multimodal Medical AI</h2>
-    <p>Learning reliable representations from incomplete and heterogeneous clinical inputs.</p>
+    <h2 id="snapshot-title">Medical Image Analysis / Multi-Turn Agents</h2>
+    <p>Connecting medical evidence across modalities and interactions to make precise, trustworthy care more accessible.</p>
     <ul class="research-tags" aria-label="Research areas">
-      <li>Missing Modality</li>
-      <li>Knowledge Distillation</li>
-      <li>Longitudinal MRI</li>
+      <li>Medical Image Analysis</li>
+      <li>Precision Medicine</li>
+      <li>Multi-Turn Agents</li>
     </ul>
   </div>
   <img class="research-snapshot__mark" src="/images/shenghao-calligraphy.png" alt="" aria-hidden="true">
@@ -57,7 +57,6 @@ redirect_from:
         <h3>No Modality Left Behind: Adapting to Missing Modalities via Knowledge Distillation for Brain Tumor Segmentation</h3>
         <p class="publication-authors"><strong>Shenghao Zhu</strong>, Yifei Chen, Weihong Chen, et al.</p>
         <p class="publication-venue"><em>Medical Image Analysis</em>, 2026 · First author</p>
-        <p class="publication-links"><a href="https://doi.org/10.1016/j.media.2026.104108">Paper</a><a href="https://github.com/Quanato607/AdaMM">Code</a></p>
       </div>
     </article>
 
@@ -70,7 +69,6 @@ redirect_from:
         <h3>Bridging the Gap in Missing Modalities: Leveraging Knowledge Distillation and Style Matching for Brain Tumor Segmentation</h3>
         <p class="publication-authors"><strong>Shenghao Zhu</strong>, Yifei Chen, Weihong Chen, et al.</p>
         <p class="publication-venue">MICCAI 2025 · First author</p>
-        <p class="publication-links"><a href="https://github.com/Quanato607/MST-KDNet">Code</a></p>
       </div>
     </article>
 
@@ -95,7 +93,6 @@ redirect_from:
         <h3>XLSTM-HVED: Cross-Modal Brain Tumor Segmentation and MRI Reconstruction Method Using Vision XLSTM and Heteromodal Variational Encoder-Decoder</h3>
         <p class="publication-authors"><strong>Shenghao Zhu</strong>, Yifei Chen, Shuo Jiang, et al.</p>
         <p class="publication-venue">IEEE ISBI 2025 · Oral Presentation · First author</p>
-        <p class="publication-links"><a href="https://arxiv.org/abs/2412.07804">Paper</a><a href="https://github.com/Quanato607/XLSTM-HVED">Code</a></p>
       </div>
     </article>
 
@@ -108,7 +105,6 @@ redirect_from:
         <h3>Toward Robust Early Detection of Alzheimer's Disease via an Integrated Multimodal Learning Approach</h3>
         <p class="publication-authors">Yifei Chen, <strong>Shenghao Zhu</strong>, et al.</p>
         <p class="publication-venue">IEEE ICASSP 2025 · Second author</p>
-        <p class="publication-links"><a href="https://ieeexplore.ieee.org/document/10888363">Paper</a><a href="https://github.com/JustlfC03/MSTNet">Code</a></p>
       </div>
     </article>
 
@@ -121,7 +117,6 @@ redirect_from:
         <h3>SCKansformer: Fine-Grained Classification of Bone Marrow Cells via Kansformer Backbone and Hierarchical Attention Mechanisms</h3>
         <p class="publication-authors">Yifei Chen, Zhu Zhu, <strong>Shenghao Zhu</strong>, et al.</p>
         <p class="publication-venue">IEEE Journal of Biomedical and Health Informatics, 2024 · Coauthor</p>
-        <p class="publication-links"><a href="https://ieeexplore.ieee.org/document/10713291">Paper</a><a href="https://github.com/JustlfC03/SCKansformer">Code</a></p>
       </div>
     </article>
 
@@ -134,7 +129,6 @@ redirect_from:
         <h3>GFE-Mamba: Mamba-Based AD Multimodal Progression Assessment via Generative Feature Extraction from MCI</h3>
         <p class="publication-authors">Zhaojie Fang<sup>†</sup>, <strong>Shenghao Zhu<sup>†</sup></strong>, Yifei Chen<sup>†</sup>, et al.</p>
         <p class="publication-venue"><em>Information Fusion</em>, under review · Co-first author</p>
-        <p class="publication-links"><a href="https://arxiv.org/abs/2407.15719">Preprint</a><a href="https://github.com/Tinysqua/GFE-Mamba">Code</a></p>
       </div>
     </article>
   </div>

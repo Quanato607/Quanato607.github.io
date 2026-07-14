@@ -61,7 +61,9 @@ def check_content() -> None:
     required_about = [
         "Medical AI Research Intern at Ant Group",
         "March 2026 – Present",
-        "missing-modality segmentation",
+        "Medical Image Analysis / Multi-Turn Agents",
+        "precision medicine accessible to more people",
+        "refine their reasoning through sustained interaction",
         "Westlake University",
         "Tsinghua University",
         "Medical Image Analysis",
@@ -80,6 +82,7 @@ def check_content() -> None:
     for stale in ["junior undergraduate", "Still young over the world", "medical multi-turn dialogue", "583w39sAAAAJ"]:
         require(stale.lower() not in about.lower(), f"stale homepage text remains: {stale}")
     require("Online Research Intern" not in about, "online qualifier must be removed from the BIRTH Lab role")
+    require('class="publication-links"' not in about, "paper and code links must be removed from publication entries")
     for verbose_experience in [
         "Research on longitudinal treatment-response analysis",
         "Studied training strategies for segmentation",
@@ -124,6 +127,7 @@ def check_design() -> None:
     require('"layout/academic-home"' in main_scss, "academic homepage stylesheet is not imported")
     require(".academic-home" in design_scss, "academic homepage styles are not scoped")
     require("publication-item" in design_scss, "publication row styles are missing")
+    require(".publication-links" not in design_scss, "obsolete publication-link styles must be removed")
     require("profile-links" not in about, "research profile links should not be duplicated in the intro")
     require('aria-label="Toggle navigation"' in masthead, "mobile navigation button has no accessible label")
     require('aria-expanded="false"' in masthead, "mobile navigation button has no initial expanded state")
