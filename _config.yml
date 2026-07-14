@@ -10,6 +10,7 @@
 locale                   : "en-US"
 site_theme               : "default"
 title                    : "Shenghao Zhu | Multimodal Medical AI"
+masthead_title           : "Homepage"
 title_separator          : "-"
 name                     : &name "Shenghao Zhu"
 description              : &description "Shenghao Zhu researches robust multimodal medical AI, missing-modality segmentation, knowledge distillation, and longitudinal medical imaging."
@@ -28,8 +29,9 @@ author:
   bio              : "Medical AI Researcher"
   location         : "Hangzhou, China"
   employer         : "Ant Group"
-  uri              : "https://quanato607.github.io"
+  uri              :
   email            : "22320220@hdu.edu.cn"
+  cv               : "/files/Shenghao_Zhu_CV.pdf"
 
   # Academic websites
   # arxiv            : # URL - Update with the correct link to your profile
