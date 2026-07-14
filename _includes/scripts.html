@@ -1,3 +1,7 @@
 <script src="{{ base_path }}/assets/js/main.min.js"></script>
 
+{% if page.photo_carousels %}
+  <script src="{{ '/assets/js/photo-carousel.js' | relative_url }}" defer></script>
+{% endif %}
+
 {% include analytics.html %}

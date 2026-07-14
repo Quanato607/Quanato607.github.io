@@ -112,6 +112,8 @@ def check_design() -> None:
     navigation = read("_data/navigation.yml")
     main_scss = read("assets/css/main.scss")
     design_scss = read("_sass/layout/_academic-home.scss")
+    scripts_include = read("_includes/scripts.html")
+    carousel_js = read("assets/js/photo-carousel.js")
     masthead = read("_includes/masthead.html")
     navigation_js = read("assets/js/plugins/jquery.greedy-navigation.js")
     default_layout = read("_layouts/default.html")
@@ -124,11 +126,21 @@ def check_design() -> None:
         'class="experience-item"',
         'id="honors-awards"',
         'id="education"',
+        'id="personal-gallery"',
+        'data-photo-carousel',
+        'Places I’ve Been',
+        'My Cat',
     ]:
         require(marker in about, f"homepage design marker is missing: {marker}")
     require('"layout/academic-home"' in main_scss, "academic homepage stylesheet is not imported")
     require(".academic-home" in design_scss, "academic homepage styles are not scoped")
     require("publication-item" in design_scss, "publication row styles are missing")
+    require(".photo-carousel" in design_scss, "photo carousel styles are missing")
+    require("prefers-reduced-motion" in design_scss, "photo carousel must respect reduced motion")
+    require("page.photo_carousels" in scripts_include, "photo carousel script must load conditionally")
+    require("/assets/js/photo-carousel.js" in scripts_include, "photo carousel script include is missing")
+    for behavior in ["data-photo-carousel", "ArrowLeft", "ArrowRight", "Home", "End"]:
+        require(behavior in carousel_js, f"photo carousel behavior is missing: {behavior}")
     require(".publication-links" not in design_scss, "obsolete publication-link styles must be removed")
     require("profile-links" not in about, "research profile links should not be duplicated in the intro")
     require('aria-label="Toggle navigation"' in masthead, "mobile navigation button has no accessible label")
@@ -156,6 +168,42 @@ def check_design() -> None:
         if path.is_file():
             with Image.open(path) as image:
                 require(500 <= image.width <= 800, f"{relative} should be optimized to 500–800px wide, got {image.width}px")
+
+    gallery_images = {
+        "places": [
+            "travel-01-statue-of-liberty.jpg",
+            "travel-02-sunlit-waterfront.jpg",
+            "travel-03-reflecting-pool.jpg",
+            "travel-04-blue-hour-street.jpg",
+            "travel-05-lake-reflection.jpg",
+            "travel-06-wooden-tea-house.jpg",
+            "travel-07-tropical-city-evening.jpg",
+            "travel-08-garden-pond.jpg",
+            "travel-09-sunny-garden.jpg",
+            "travel-10-low-tide-lighthouse.jpg",
+            "travel-11-green-field-mountains.jpg",
+            "travel-12-rocky-tidal-flat.jpg",
+            "travel-13-turquoise-lake.jpg",
+        ],
+        "cats": [
+            "cat-01-close-up.jpg",
+            "cat-02-cardboard-box.jpg",
+            "cat-03-stretched-paws.jpg",
+            "cat-04-chair-nap.jpg",
+        ],
+    }
+    for category, filenames in gallery_images.items():
+        folder = ROOT / "images" / "gallery" / category
+        actual = sorted(path.name for path in folder.glob("*.jpg")) if folder.is_dir() else []
+        require(actual == sorted(filenames), f"{category} gallery image set is incomplete")
+        for filename in filenames:
+            relative = f"images/gallery/{category}/{filename}"
+            path = ROOT / relative
+            require(path.is_file(), f"gallery image is missing: {relative}")
+            require(f"/{relative}" in about, f"gallery image is not used: {relative}")
+            if path.is_file():
+                with Image.open(path) as image:
+                    require(max(image.size) <= 1920, f"{relative} is too large for the homepage: {image.size}")
 
 
 def check_cleanup() -> None:
@@ -210,6 +258,8 @@ def check_generated() -> None:
         homepage_html = index.read_text(encoding="utf-8")
         require('class="research-snapshot"' in homepage_html, "generated homepage is stale: research snapshot is missing")
         require('class="publication-item"' in homepage_html, "generated homepage is stale: publication rows are missing")
+        require('id="personal-gallery"' in homepage_html, "generated homepage is stale: personal gallery is missing")
+        require("/assets/js/photo-carousel.js" in homepage_html, "generated homepage is missing the photo carousel script")
         require("Online Research Intern" not in homepage_html, "generated homepage still contains the online qualifier")
         newest_source = max(
             (ROOT / path).stat().st_mtime
@@ -219,7 +269,9 @@ def check_generated() -> None:
                 "_data/navigation.yml",
                 "_includes/author-profile.html",
                 "_includes/masthead.html",
+                "_includes/scripts.html",
                 "_sass/layout/_academic-home.scss",
+                "assets/js/photo-carousel.js",
                 "assets/css/main.scss",
                 "_layouts/default.html",
                 "_layouts/single.html",

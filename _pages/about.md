@@ -5,6 +5,7 @@ excerpt: "Medical AI researcher exploring medical image analysis and multi-turn 
 author_profile: true
 body_class: academic-home
 hide_title: true
+photo_carousels: true
 redirect_from:
   - /about/
   - /about.html
@@ -192,3 +193,60 @@ redirect_from:
     <p><strong>Tools:</strong> PyTorch, OpenCV, Linux, LaTeX, SGLang, and vLLM.</p>
   </section>
 </div>
+
+<section class="home-section personal-gallery" id="personal-gallery" aria-labelledby="personal-gallery-heading">
+  <h2 class="section-heading" id="personal-gallery-heading"><span aria-hidden="true">📷</span> Life Beyond Research</h2>
+
+  <div class="personal-gallery__grid">
+    <section class="photo-carousel photo-carousel--places" data-photo-carousel role="region" aria-roledescription="carousel" aria-labelledby="places-carousel-heading">
+      <header class="photo-carousel__header">
+        <div>
+          <p class="photo-carousel__eyebrow">Wander Notes</p>
+          <h3 id="places-carousel-heading">Places I’ve Been</h3>
+        </div>
+        <div class="photo-carousel__controls" data-carousel-controls hidden>
+          <span class="photo-carousel__status" data-carousel-status aria-live="polite" aria-atomic="true">1 / 13</span>
+          <button class="photo-carousel__button" type="button" data-carousel-prev aria-controls="places-carousel-track" aria-label="Previous travel photo"><span aria-hidden="true">←</span></button>
+          <button class="photo-carousel__button" type="button" data-carousel-next aria-controls="places-carousel-track" aria-label="Next travel photo"><span aria-hidden="true">→</span></button>
+        </div>
+      </header>
+
+      <ul class="photo-carousel__track" id="places-carousel-track" data-carousel-track tabindex="0" aria-label="Places I’ve visited. Use the Left and Right arrow keys to browse.">
+        <li class="photo-carousel__slide"><img src="/images/gallery/places/travel-01-statue-of-liberty.jpg" alt="The Statue of Liberty beneath a wide blue sky, viewed from the water." width="1080" height="1440" loading="lazy" decoding="async" draggable="false"></li>
+        <li class="photo-carousel__slide"><img src="/images/gallery/places/travel-02-sunlit-waterfront.jpg" alt="A sailboat on a sunlit waterfront with a suspension bridge in the background." width="1080" height="1440" loading="lazy" decoding="async" draggable="false"></li>
+        <li class="photo-carousel__slide"><img src="/images/gallery/places/travel-03-reflecting-pool.jpg" alt="A square memorial reflecting pool surrounded by trees and city buildings." width="1080" height="1440" loading="lazy" decoding="async" draggable="false"></li>
+        <li class="photo-carousel__slide"><img src="/images/gallery/places/travel-04-blue-hour-street.jpg" alt="A tree-lined city street at blue hour beneath glowing lamps." width="1707" height="1280" loading="lazy" decoding="async" draggable="false"></li>
+        <li class="photo-carousel__slide"><img src="/images/gallery/places/travel-05-lake-reflection.jpg" alt="A calm lake reflecting clouds and distant mountains beneath overhanging branches." width="1280" height="1707" loading="lazy" decoding="async" draggable="false"></li>
+        <li class="photo-carousel__slide"><img src="/images/gallery/places/travel-06-wooden-tea-house.jpg" alt="The wooden facade of a traditional tea house along a busy street." width="1707" height="1280" loading="lazy" decoding="async" draggable="false"></li>
+        <li class="photo-carousel__slide"><img src="/images/gallery/places/travel-07-tropical-city-evening.jpg" alt="A palm-lined city intersection at dusk under a dramatic blue sky." width="1707" height="1280" loading="lazy" decoding="async" draggable="false"></li>
+        <li class="photo-carousel__slide"><img src="/images/gallery/places/travel-08-garden-pond.jpg" alt="A leafy garden pond with a small stone bridge beneath a bright sky." width="1707" height="1280" loading="lazy" decoding="async" draggable="false"></li>
+        <li class="photo-carousel__slide"><img src="/images/gallery/places/travel-09-sunny-garden.jpg" alt="A sunny garden with flowering shrubs, green trees, and a clear blue sky." width="1080" height="1920" loading="lazy" decoding="async" draggable="false"></li>
+        <li class="photo-carousel__slide"><img src="/images/gallery/places/travel-10-low-tide-lighthouse.jpg" alt="A lighthouse overlooking a broad rocky shoreline at low tide." width="1707" height="1280" loading="lazy" decoding="async" draggable="false"></li>
+        <li class="photo-carousel__slide"><img src="/images/gallery/places/travel-11-green-field-mountains.jpg" alt="A green field beneath forested mountains dotted with wind turbines." width="1707" height="1280" loading="lazy" decoding="async" draggable="false"></li>
+        <li class="photo-carousel__slide"><img src="/images/gallery/places/travel-12-rocky-tidal-flat.jpg" alt="People exploring a rocky tidal flat beneath a wide blue sky." width="1707" height="1280" loading="lazy" decoding="async" draggable="false"></li>
+        <li class="photo-carousel__slide"><img src="/images/gallery/places/travel-13-turquoise-lake.jpg" alt="A turquoise mountain lake framed by bamboo and forested hills." width="1280" height="1707" loading="lazy" decoding="async" draggable="false"></li>
+      </ul>
+    </section>
+
+    <section class="photo-carousel photo-carousel--cats" data-photo-carousel role="region" aria-roledescription="carousel" aria-labelledby="cats-carousel-heading">
+      <header class="photo-carousel__header">
+        <div>
+          <p class="photo-carousel__eyebrow">Home Companion</p>
+          <h3 id="cats-carousel-heading">My Cat</h3>
+        </div>
+        <div class="photo-carousel__controls" data-carousel-controls hidden>
+          <span class="photo-carousel__status" data-carousel-status aria-live="polite" aria-atomic="true">1 / 4</span>
+          <button class="photo-carousel__button" type="button" data-carousel-prev aria-controls="cats-carousel-track" aria-label="Previous cat photo"><span aria-hidden="true">←</span></button>
+          <button class="photo-carousel__button" type="button" data-carousel-next aria-controls="cats-carousel-track" aria-label="Next cat photo"><span aria-hidden="true">→</span></button>
+        </div>
+      </header>
+
+      <ul class="photo-carousel__track" id="cats-carousel-track" data-carousel-track tabindex="0" aria-label="Photos of my cat. Use the Left and Right arrow keys to browse.">
+        <li class="photo-carousel__slide"><img src="/images/gallery/cats/cat-01-close-up.jpg" alt="A black-and-white cat being gently scratched under the chin." width="1280" height="1707" loading="lazy" decoding="async" draggable="false"></li>
+        <li class="photo-carousel__slide"><img src="/images/gallery/cats/cat-02-cardboard-box.jpg" alt="A blue-eyed black-and-white cat resting in a cardboard box." width="1080" height="1920" loading="lazy" decoding="async" draggable="false"></li>
+        <li class="photo-carousel__slide"><img src="/images/gallery/cats/cat-03-stretched-paws.jpg" alt="A black-and-white cat reclining with its front paws stretched forward." width="1280" height="1707" loading="lazy" decoding="async" draggable="false"></li>
+        <li class="photo-carousel__slide"><img src="/images/gallery/cats/cat-04-chair-nap.jpg" alt="A fluffy white cat curled asleep on a chair." width="960" height="1280" loading="lazy" decoding="async" draggable="false"></li>
+      </ul>
+    </section>
+  </div>
+</section>

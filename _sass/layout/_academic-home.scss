@@ -569,6 +569,177 @@
     }
   }
 
+  .personal-gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .photo-carousel {
+    --gallery-accent: var(--academic-teal);
+    --gallery-wash: #eff8f8;
+    --gallery-mat: #e8f0f1;
+
+    min-width: 0;
+    padding: 13px;
+    overflow: hidden;
+    background: linear-gradient(180deg, var(--gallery-wash), #fff 42%);
+    border: 1px solid var(--academic-rule);
+    border-radius: 12px;
+    box-shadow: 0 7px 19px rgba(15, 23, 42, 0.06);
+  }
+
+  .photo-carousel--cats {
+    --gallery-accent: var(--academic-rose);
+    --gallery-wash: #fcf3f5;
+    --gallery-mat: #f5e9ec;
+  }
+
+  .photo-carousel__header {
+    display: flex;
+    min-height: 42px;
+    margin-bottom: 10px;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+
+    h3 {
+      margin: 1px 0 0;
+      color: var(--academic-ink);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+  }
+
+  .photo-carousel__header .photo-carousel__eyebrow {
+    margin: 0;
+    color: var(--gallery-accent);
+    font-size: 9.5px;
+    font-weight: 750;
+    line-height: 1.25;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  .photo-carousel__controls {
+    display: flex;
+    flex: 0 0 auto;
+    gap: 5px;
+    align-items: center;
+  }
+
+  .photo-carousel__controls[hidden] {
+    display: none;
+  }
+
+  .photo-carousel__status {
+    min-width: 40px;
+    color: var(--academic-muted);
+    font-size: 10px;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    text-align: center;
+  }
+
+  .photo-carousel__button {
+    display: inline-grid;
+    width: 34px;
+    height: 34px;
+    margin: 0;
+    padding: 0;
+    place-items: center;
+    color: var(--academic-ink);
+    font: inherit;
+    font-size: 15px;
+    line-height: 1;
+    appearance: none;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--academic-rule);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: color 0.16s ease, background-color 0.16s ease, border-color 0.16s ease;
+
+    &:hover:not(:disabled) {
+      color: #fff;
+      background: var(--gallery-accent);
+      border-color: var(--gallery-accent);
+    }
+
+    &:disabled {
+      opacity: 0.35;
+      cursor: default;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--gallery-accent);
+      outline-offset: 2px;
+    }
+  }
+
+  .photo-carousel__track {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    padding: 0 0 5px;
+    gap: 10px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-color: #b7c0c8 transparent;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+    list-style: none;
+
+    &:focus-visible {
+      outline: 2px solid var(--gallery-accent);
+      outline-offset: 3px;
+    }
+
+    &::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #b7c0c8;
+      border-radius: 999px;
+    }
+  }
+
+  .photo-carousel.is-enhanced .photo-carousel__track {
+    padding-bottom: 0;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .photo-carousel__slide {
+    flex: 0 0 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 8px;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #e1e6ea;
+    border-radius: 9px;
+    box-shadow: 0 5px 14px rgba(15, 23, 42, 0.09);
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+
+    img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: contain;
+      background: var(--gallery-mat);
+      border-radius: 6px;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+  }
+
   .page__footer {
     margin-top: 0;
     color: var(--academic-muted);
@@ -712,6 +883,20 @@
       grid-template-columns: minmax(0, 1fr);
       gap: 0;
     }
+
+    .personal-gallery__grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 20px;
+    }
+
+    .photo-carousel {
+      padding: 11px;
+    }
+
+    .photo-carousel__button {
+      width: 38px;
+      height: 38px;
+    }
   }
 }
 
@@ -753,6 +938,18 @@
 
     .research-tags li {
       font-size: 9.5px;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .academic-home {
+    .photo-carousel__button {
+      transition: none;
+    }
+
+    .photo-carousel__track {
+      scroll-behavior: auto;
     }
   }
 }
