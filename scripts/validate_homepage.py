@@ -129,7 +129,9 @@ def check_design() -> None:
         'id="personal-gallery"',
         'data-photo-carousel',
         'Places I’ve Been',
-        'My Cat',
+        'Erbao 二宝',
+        'data-src="/images/gallery/places/travel-02-sunlit-waterfront.jpg"',
+        'data-src="/images/gallery/cats/cat-02-cardboard-box.jpg"',
     ]:
         require(marker in about, f"homepage design marker is missing: {marker}")
     require('"layout/academic-home"' in main_scss, "academic homepage stylesheet is not imported")
@@ -139,7 +141,7 @@ def check_design() -> None:
     require("prefers-reduced-motion" in design_scss, "photo carousel must respect reduced motion")
     require("page.photo_carousels" in scripts_include, "photo carousel script must load conditionally")
     require("/assets/js/photo-carousel.js" in scripts_include, "photo carousel script include is missing")
-    for behavior in ["data-photo-carousel", "ArrowLeft", "ArrowRight", "Home", "End"]:
+    for behavior in ["data-photo-carousel", "data-src", "emojiPattern", "ArrowLeft", "ArrowRight", "Home", "End"]:
         require(behavior in carousel_js, f"photo carousel behavior is missing: {behavior}")
     require(".publication-links" not in design_scss, "obsolete publication-link styles must be removed")
     require("profile-links" not in about, "research profile links should not be duplicated in the intro")

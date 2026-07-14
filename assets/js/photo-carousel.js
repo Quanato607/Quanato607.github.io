@@ -2,9 +2,65 @@
   "use strict";
 
   var carousels = document.querySelectorAll("[data-photo-carousel]");
+  var deferredImages = Array.prototype.slice.call(document.querySelectorAll("img[data-src]"));
   var reducedMotion = window.matchMedia
     ? window.matchMedia("(prefers-reduced-motion: reduce)")
     : { matches: false };
+  var emojiPalette = ["🌿", "✨", "☁️", "🌊", "🍃", "🌙", "🧭", "🐾", "🫧", "🌸"];
+
+  function randomEmoji(index) {
+    return emojiPalette[(index + Math.floor(Math.random() * emojiPalette.length)) % emojiPalette.length];
+  }
+
+  function emojiPattern(emoji) {
+    var svg =
+      '<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">' +
+      '<rect width="96" height="96" fill="transparent"/>' +
+      '<text x="18" y="34" font-size="18" opacity=".18">' +
+      emoji +
+      "</text>" +
+      '<text x="58" y="72" font-size="16" opacity=".14" transform="rotate(-14 58 72)">' +
+      emoji +
+      "</text>" +
+      "</svg>";
+
+    return "url(\"data:image/svg+xml," + encodeURIComponent(svg) + "\")";
+  }
+
+  function decorateImageMats() {
+    var images = document.querySelectorAll(".photo-carousel__slide img");
+
+    Array.prototype.forEach.call(images, function (image, index) {
+      image.style.backgroundImage = emojiPattern(randomEmoji(index));
+    });
+  }
+
+  function loadDeferredImages() {
+    deferredImages.forEach(function (image, index) {
+      window.setTimeout(function () {
+        var source = image.getAttribute("data-src");
+
+        if (!source) {
+          return;
+        }
+
+        image.setAttribute("fetchpriority", "low");
+        image.src = source;
+        image.removeAttribute("data-src");
+      }, index * 140);
+    });
+  }
+
+  function afterWindowLoad(callback) {
+    if (document.readyState === "complete") {
+      window.setTimeout(callback, 0);
+      return;
+    }
+
+    window.addEventListener("load", callback, { once: true });
+  }
+
+  decorateImageMats();
 
   Array.prototype.forEach.call(carousels, function (carousel) {
     var track = carousel.querySelector("[data-carousel-track]");
@@ -146,5 +202,11 @@
       },
       { passive: true }
     );
+  });
+
+  afterWindowLoad(function () {
+    if (deferredImages.length) {
+      loadDeferredImages();
+    }
   });
 })();

@@ -733,10 +733,16 @@
       width: 100%;
       aspect-ratio: 4 / 3;
       object-fit: contain;
-      background: var(--gallery-mat);
+      background-color: var(--gallery-mat);
+      background-position: center;
+      background-size: 96px 96px;
       border-radius: 6px;
       user-select: none;
       -webkit-user-drag: none;
+    }
+
+    img[data-src] {
+      opacity: 0.78;
     }
   }
 
