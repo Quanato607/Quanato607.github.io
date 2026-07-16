@@ -62,18 +62,6 @@ redirect_from:
     </article>
 
     <article class="publication-item">
-      <div class="publication-media">
-        <img src="/images/publications/mst-kdnet.png" alt="MST-KDNet framework for brain tumor segmentation with missing modalities" loading="lazy">
-        <span class="venue-badge">MICCAI 2025</span>
-      </div>
-      <div class="publication-content">
-        <h3>Bridging the Gap in Missing Modalities: Leveraging Knowledge Distillation and Style Matching for Brain Tumor Segmentation</h3>
-        <p class="publication-authors"><strong>Shenghao Zhu</strong>, Yifei Chen, Weihong Chen, et al.</p>
-        <p class="publication-venue">MICCAI 2025 · First author</p>
-      </div>
-    </article>
-
-    <article class="publication-item">
       <div class="publication-media publication-media--wide-figure">
         <img src="/images/publications/reborn.png" alt="ReBorn framework for robust segmentation under modality degradation" loading="lazy">
         <span class="venue-badge">CVPR 2026 Findings</span>
@@ -82,6 +70,18 @@ redirect_from:
         <h3>ReBorn: Turning Full-Modality Segmentation Models into Missing-Modality Survivors</h3>
         <p class="publication-authors"><strong>Shenghao Zhu</strong>, Yifei Chen, Weihong Chen, et al.</p>
         <p class="publication-venue">CVPR 2026 Findings · First author</p>
+      </div>
+    </article>
+
+    <article class="publication-item">
+      <div class="publication-media">
+        <img src="/images/publications/mst-kdnet.png" alt="MST-KDNet framework for brain tumor segmentation with missing modalities" loading="lazy">
+        <span class="venue-badge">MICCAI 2025</span>
+      </div>
+      <div class="publication-content">
+        <h3>Bridging the Gap in Missing Modalities: Leveraging Knowledge Distillation and Style Matching for Brain Tumor Segmentation</h3>
+        <p class="publication-authors"><strong>Shenghao Zhu</strong>, Yifei Chen, Weihong Chen, et al.</p>
+        <p class="publication-venue">MICCAI 2025 · First author</p>
       </div>
     </article>
 

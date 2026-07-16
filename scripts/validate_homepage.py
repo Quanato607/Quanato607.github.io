@@ -135,6 +135,10 @@ def check_design() -> None:
     ]:
         require(marker in about, f"homepage design marker is missing: {marker}")
     require("data-src=" not in about, "gallery images should load normally without deferred data-src placeholders")
+    require(
+        about.index("CVPR 2026 Findings · First author") < about.index("MICCAI 2025 · First author"),
+        "CVPR Findings publication should appear above the MICCAI publication",
+    )
     require('"layout/academic-home"' in main_scss, "academic homepage stylesheet is not imported")
     require(".academic-home" in design_scss, "academic homepage styles are not scoped")
     require("publication-item" in design_scss, "publication row styles are missing")
