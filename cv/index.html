@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curriculum Vitae | Shenghao Zhu</title>
+  <meta name="description" content="Curriculum Vitae of Shenghao Zhu — Visiting Research Student at the University of Michigan, Medical Image Analysis, Longitudinal World Models, and Multi-Turn Clinical Consultation.">
+  <link rel="canonical" href="https://quanato607.github.io/cv/">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192x192.png">
+  <link rel="icon" href="/images/favicon.ico" sizes="any">
+  <link rel="manifest" href="/images/manifest.json">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("sz-theme");
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/modern-home.css">
+</head>
+<body>
+  <div class="ambient-backdrop" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand-link" href="/">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span>Shenghao Zhu</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a class="nav-link" href="/#about">About</a>
+        <a class="nav-link" href="/#research-vision">Research Vision</a>
+        <a class="nav-link" href="/#selected-publications">Publications</a>
+        <a class="nav-link" href="/#experience">News &amp; Experience</a>
+        <a class="nav-link" href="/#personal-gallery">Life</a>
+        <a class="nav-link is-active" href="/cv/">CV</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+          </svg>
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+        </button>
+
+        <a class="cv-pill-btn" href="/files/Shenghao_Zhu_CV.pdf" download aria-label="Download CV PDF">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+          <span>CV PDF</span>
+        </a>
+
+        <button class="icon-btn mobile-menu-btn" id="mobile-menu-btn" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-drawer" id="mobile-drawer">
+    <nav aria-label="Mobile navigation">
+      <a href="/#about">About</a>
+      <a href="/#research-vision">Research Vision</a>
+      <a href="/#selected-publications">Selected Publications</a>
+      <a href="/#experience">News &amp; Experience</a>
+      <a href="/#personal-gallery">Life Beyond Research</a>
+      <a class="is-active" href="/cv/">Curriculum Vitae</a>
+    </nav>
+  </div>
+
+  <main class="container">
+    <section class="glass-card cv-shell" aria-labelledby="cv-title">
+      <div class="section-header" style="margin-bottom: 0;">
+        <div>
+          <p class="section-eyebrow">Curriculum Vitae</p>
+          <h1 class="section-title" id="cv-title">Shenghao Zhu</h1>
+          <p class="section-subtitle">B.Eng. in Computer Science and Technology (HDU ’26) · Visiting Research Student at University of Michigan</p>
+        </div>
+
+        <div class="hero-actions" style="margin-top: 0;">
+          <a class="action-btn action-btn--primary" href="/files/Shenghao_Zhu_CV.pdf" target="_blank" rel="noopener">Download Full CV (PDF)</a>
+          <a class="action-btn" href="https://scholar.google.com/citations?user=6zr4pucAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+          <button class="action-btn" type="button" data-copy-email>22320220@hdu.edu.cn</button>
+        </div>
+      </div>
+
+      <div class="credentials-grid">
+        <article class="glass-card cred-card">
+          <h3>Education</h3>
+          <ul class="cred-list">
+            <li><strong>Hangzhou Dianzi University</strong> (Aug. 2022 – Jul. 2026)</li>
+            <li>B.Eng. in Computer Science and Technology</li>
+            <li>GPA: 4.28 / 5.0 · Average: 88.48 / 100</li>
+            <li>IELTS Academic: 7.0 (L 7.5, R 7.0, W 7.0, S 6.0)</li>
+          </ul>
+        </article>
+
+        <article class="glass-card cred-card">
+          <h3>Research Positions</h3>
+          <ul class="cred-list">
+            <li><strong>University of Michigan</strong> · Visiting Student (Oct. 2026 – Present), Prof. Liyue Shen</li>
+            <li><strong>Ant Group</strong> · Medical AI Research Intern (Mar. – Sep. 2026), Dr. Le Lu</li>
+            <li><strong>Westlake University</strong> · Visiting Student (Aug. 2025 – Mar. 2026), Prof. Yefeng Zheng</li>
+            <li><strong>Tsinghua University BIRTH Lab</strong> · Research Intern (Jun. 2024 – Aug. 2025), Prof. Qiyuan Tian</li>
+            <li><strong>HDU 3DV Lab &amp; SRIBD</strong> · Research Intern (Aug. 2023 – Jun. 2024), Prof. Yong Peng &amp; Prof. Feiwei Qin</li>
+          </ul>
+        </article>
+
+        <article class="glass-card cred-card">
+          <h3>Key Publications</h3>
+          <ul class="cred-list">
+            <li><strong>IDEA-RL &amp; XPatient</strong> · Multi-Turn Clinical Consultation (2026), First author</li>
+            <li><strong>AdaMM</strong> · <em>Medical Image Analysis</em> 2026, First author</li>
+            <li><strong>ReBorn</strong> · CVPR 2026 Findings, First author</li>
+            <li><strong>MST-KDNet</strong> · MICCAI 2025, First author</li>
+            <li><strong>XLSTM-HVED</strong> · IEEE ISBI 2025 Oral, First author</li>
+          </ul>
+        </article>
+      </div>
+
+      <object class="cv-frame" data="/files/Shenghao_Zhu_CV.pdf" type="application/pdf" aria-label="Shenghao Zhu Curriculum Vitae PDF">
+        <p style="padding: 20px; margin: 0; color: var(--ink-secondary);">
+          Inline PDF preview is unavailable in this browser.
+          <a href="/files/Shenghao_Zhu_CV.pdf" target="_blank" rel="noopener">Open Shenghao_Zhu_CV.pdf directly</a>.
+        </p>
+      </object>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© 2026 Shenghao Zhu · Updated November 2026</span>
+      <div class="footer-links">
+        <a href="/">Homepage</a>
+        <a href="https://scholar.google.com/citations?user=6zr4pucAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://github.com/Quanato607" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:22320220@hdu.edu.cn">Email</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="/assets/js/modern-home.js" defer></script>
+</body>
+</html>

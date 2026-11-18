@@ -1,0 +1,850 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shenghao Zhu | Medical Image Analysis &amp; Multi-Turn Clinical Agents</title>
+  <meta name="description" content="Academic homepage of Shenghao Zhu (University of Michigan Visiting Student, HDU B.Eng. 2026): research on missing-modality medical image analysis, longitudinal tumor-progression world models, and multi-turn clinical consultation.">
+  <link rel="canonical" href="https://quanato607.github.io/">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Shenghao Zhu | Multimodal Medical AI">
+  <meta property="og:title" content="Shenghao Zhu | Medical Image Analysis &amp; Multi-Turn Clinical Agents">
+  <meta property="og:description" content="Researching missing-modality medical image analysis, longitudinal tumor-progression world models, and multi-turn clinical consultation.">
+  <meta property="og:url" content="https://quanato607.github.io/">
+  <meta property="og:image" content="https://quanato607.github.io/images/profile.png">
+  <meta name="theme-color" content="#1e40af">
+
+  <!-- Icons & Manifest -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192x192.png">
+  <link rel="icon" href="/images/favicon.ico" sizes="any">
+  <link rel="manifest" href="/images/manifest.json">
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+
+  <!-- Prevent theme flash -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("sz-theme");
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        var theme = saved || (prefersDark ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/modern-home.css">
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Shenghao Zhu",
+      "url": "https://quanato607.github.io/",
+      "image": "https://quanato607.github.io/images/profile.png",
+      "email": "mailto:22320220@hdu.edu.cn",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "University of Michigan"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Hangzhou Dianzi University"
+      },
+      "sameAs": [
+        "https://scholar.google.com/citations?user=6zr4pucAAAAJ&hl=en",
+        "https://github.com/Quanato607"
+      ]
+    }
+  </script>
+</head>
+<body>
+  <div class="ambient-backdrop" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand-link" href="/">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span>Shenghao Zhu</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a class="nav-link is-active" href="#about" data-section="about">About</a>
+        <a class="nav-link" href="#research-vision" data-section="research-vision">Research Vision</a>
+        <a class="nav-link" href="#selected-publications" data-section="selected-publications">Publications</a>
+        <a class="nav-link" href="#experience" data-section="experience">News &amp; Experience</a>
+        <a class="nav-link" href="#personal-gallery" data-section="personal-gallery">Life</a>
+        <a class="nav-link" href="/cv/">CV</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+          </svg>
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+        </button>
+
+        <a class="cv-pill-btn" href="/files/Shenghao_Zhu_CV.pdf" target="_blank" rel="noopener" aria-label="Open CV PDF">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+          <span>CV PDF</span>
+        </a>
+
+        <button class="icon-btn mobile-menu-btn" id="mobile-menu-btn" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-drawer" id="mobile-drawer">
+    <nav aria-label="Mobile navigation">
+      <a href="#about" data-section="about">About</a>
+      <a href="#research-vision" data-section="research-vision">Research Vision</a>
+      <a href="#selected-publications" data-section="selected-publications">Selected Publications</a>
+      <a href="#experience" data-section="experience">News &amp; Experience</a>
+      <a href="#credentials" data-section="credentials">Education &amp; Service</a>
+      <a href="#personal-gallery" data-section="personal-gallery">Life Beyond Research</a>
+      <a href="/cv/">Curriculum Vitae</a>
+    </nav>
+  </div>
+
+  <main class="container">
+    <!-- Hero Bento -->
+    <section id="about" class="hero-bento" aria-labelledby="hero-heading">
+      <div class="glass-card hero-main">
+        <div>
+          <span class="status-pill">
+            <span class="status-dot" aria-hidden="true"></span>
+            Visiting Research Student @ University of Michigan · Fall 2027 Applicant
+          </span>
+
+          <h1 class="hero-title" id="hero-heading">Shenghao Zhu</h1>
+          <p class="hero-role">Medical Image Analysis · Longitudinal Tumor World Models · Multi-Turn Clinical Consultation</p>
+
+          <div class="hero-bio">
+            <p>
+              I am a Computer Science and Technology graduate of <strong>Hangzhou Dianzi University</strong> (B.Eng., July 2026; GPA 4.28/5.0) and currently a Visiting Research Student with <strong>Prof. Liyue Shen</strong> at the <strong>University of Michigan</strong>. Previously, I interned as a Medical AI Researcher with <strong>Dr. Le Lu</strong> at <strong>Ant Group</strong>, following research internships at <strong>Westlake University</strong> and <strong>Tsinghua University</strong>.
+            </p>
+            <p>
+              My research bridges two complementary fronts: (1) <strong>medical image-assisted diagnosis and longitudinal patient world models</strong> for missing-modality 3D MRI and forecasting subsequent tumor progression (<em>PD</em> and <em>BN20</em> scores), and (2) <strong>multi-turn clinical consultation</strong> via fact-grounded patient simulation (<em>XPatient</em>) and evidence-attributed reinforcement learning (<em>IDEA-RL</em>). Going forward, I aim to unify quantitative image analysis with longitudinal clinical questioning so diagnostic agents know both what evidence to inspect and when to ask.
+            </p>
+          </div>
+
+          <div class="hero-signature">
+            <span class="hero-signature__rule" aria-hidden="true"></span>
+            <img class="hero-signature__img" src="/images/github-calligraphy-signature.png" alt="Shenghao Zhu calligraphic signature" width="441" height="470">
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a class="action-btn action-btn--primary" href="https://scholar.google.com/citations?user=6zr4pucAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 3 1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3Zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9ZM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72Z"/>
+            </svg>
+            <span>Google Scholar</span>
+          </a>
+
+          <a class="action-btn" href="mailto:22320220@hdu.edu.cn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect width="20" height="16" x="2" y="4" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+            <span>Email</span>
+          </a>
+
+          <button class="action-btn" type="button" data-copy-email aria-label="Copy email address 22320220@hdu.edu.cn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+              <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+            </svg>
+            <span>22320220@hdu.edu.cn</span>
+          </button>
+
+          <a class="action-btn" href="https://github.com/Quanato607" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5Z"/>
+            </svg>
+            <span>GitHub</span>
+          </a>
+
+          <a class="action-btn" href="/cv/">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+            </svg>
+            <span>Web CV</span>
+          </a>
+        </div>
+      </div>
+
+      <aside class="glass-card hero-side" aria-label="Research profile summary">
+        <div>
+          <div class="profile-card-top">
+            <div class="profile-avatar-wrap">
+              <img class="profile-avatar" src="/images/profile.png" alt="Portrait of Shenghao Zhu" width="1097" height="1096">
+            </div>
+            <div class="profile-meta">
+              <h2>Shenghao Zhu (朱晟豪)</h2>
+              <p>B.Eng. Computer Science, HDU ’26<br>Ann Arbor / Hangzhou</p>
+            </div>
+          </div>
+
+          <div class="affiliation-chips" style="margin-top: 16px;">
+            <span class="aff-chip aff-chip--live">UMich · Visiting Student</span>
+            <span class="aff-chip">Ant Group · Former Intern</span>
+            <span class="aff-chip">Westlake · Former Visitor</span>
+            <span class="aff-chip">Tsinghua BIRTH Lab</span>
+          </div>
+        </div>
+
+        <div class="impact-grid">
+          <div class="impact-tile">
+            <span class="impact-value">242+</span>
+            <span class="impact-label">Google Scholar Citations</span>
+          </div>
+          <div class="impact-tile">
+            <span class="impact-value">8</span>
+            <span class="impact-label">h-index (i10-index 7)</span>
+          </div>
+          <div class="impact-tile">
+            <span class="impact-value">5</span>
+            <span class="impact-label">First-Author Core Works</span>
+          </div>
+        </div>
+
+        <div class="synthesis-callout">
+          <strong>Research Synthesis Goal</strong>
+          Coupling robust 3D imaging &amp; longitudinal tumor-progression models with active multi-turn diagnostic consultation under incomplete clinical evidence.
+        </div>
+      </aside>
+    </section>
+
+    <!-- Interactive Research Vision Architecture Explorer -->
+    <section id="research-vision" class="section-block reveal" aria-labelledby="vision-heading">
+      <div class="section-header">
+        <div>
+          <p class="section-eyebrow">Interactive Research Architecture</p>
+          <h2 class="section-title" id="vision-heading">From Incomplete Imaging to Longitudinal Clinical Agents</h2>
+          <p class="section-subtitle">Select any pillar in the pipeline below to inspect technical mechanisms and jump directly to matching publications.</p>
+        </div>
+      </div>
+
+      <div class="glass-card vision-explorer">
+        <div class="vision-tabs" role="tablist" aria-label="Research pillars">
+          <button class="vision-tab is-active" type="button" role="tab" aria-selected="true" data-pillar="pillar-1">
+            <span class="vision-tab__num">PILLAR 01</span>
+            <span class="vision-tab__title">Missing-Modality 3D Imaging</span>
+            <span class="vision-tab__meta">MedIA ’26 · CVPR Findings ’26 · MICCAI ’25 · ISBI Oral</span>
+          </button>
+          <button class="vision-tab" type="button" role="tab" aria-selected="false" data-pillar="pillar-2">
+            <span class="vision-tab__num">PILLAR 02</span>
+            <span class="vision-tab__title">Tumor-Progression World Models</span>
+            <span class="vision-tab__meta">Ant Group Serial MRI · PD &amp; BN20 Forecasting</span>
+          </button>
+          <button class="vision-tab" type="button" role="tab" aria-selected="false" data-pillar="pillar-3">
+            <span class="vision-tab__num">PILLAR 03</span>
+            <span class="vision-tab__title">Multi-Turn Consultation &amp; Synthesis</span>
+            <span class="vision-tab__meta">UMich · XPatient &amp; IDEA-RL</span>
+          </button>
+        </div>
+
+        <div class="vision-stage">
+          <div class="vision-diagram-wrap">
+            <svg class="vision-svg" viewBox="0 0 760 270" role="img" aria-label="Three-pillar research synthesis diagram">
+              <defs>
+                <marker id="vArrowBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M0,1 L9,5 L0,9 z" style="fill: var(--accent);"/>
+                </marker>
+                <marker id="vArrowIndigo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M0,1 L9,5 L0,9 z" style="fill: var(--indigo);"/>
+                </marker>
+                <marker id="vArrowBurgundy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M0,1 L9,5 L0,9 z" style="fill: var(--burgundy);"/>
+                </marker>
+              </defs>
+
+              <!-- Animated flow paths -->
+              <path class="vision-flow-line" d="M236 105 L268 105" style="stroke: var(--accent);" stroke-width="2.5" fill="none" marker-end="url(#vArrowBlue)"/>
+              <path class="vision-flow-line" d="M490 105 L522 105" style="stroke: var(--indigo);" stroke-width="2.5" fill="none" marker-end="url(#vArrowIndigo)"/>
+              <path class="vision-flow-line" d="M636 184 C636 244, 126 244, 126 184" style="stroke: var(--burgundy);" stroke-width="2" fill="none" marker-end="url(#vArrowBurgundy)"/>
+              <text x="380" y="252" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" style="fill: var(--burgundy);">
+                SYNTHESIS LOOP: IMAGING BIOMARKERS + LONGITUDINAL CONSULTATION
+              </text>
+
+              <!-- Node 1 -->
+              <g class="vision-node is-active" data-pillar="pillar-1" tabindex="0" role="button" aria-label="Select Pillar 1: Missing-Modality 3D Imaging">
+                <rect class="node-box" x="16" y="24" width="220" height="156" rx="16"/>
+                <rect x="28" y="36" width="66" height="22" rx="11" style="fill: var(--accent-soft);"/>
+                <text x="61" y="51" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="700" style="fill: var(--accent);">PILLAR 01</text>
+                <text x="28" y="82" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="700" style="fill: var(--ink);">3D Medical Imaging</text>
+                <text x="28" y="102" font-family="Plus Jakarta Sans, sans-serif" font-size="11.5" style="fill: var(--ink-muted);">• Missing-modality MRI</text>
+                <text x="28" y="121" font-family="Plus Jakarta Sans, sans-serif" font-size="11.5" style="fill: var(--ink-muted);">• Adapter distillation</text>
+                <text x="28" y="140" font-family="Plus Jakarta Sans, sans-serif" font-size="11.5" style="fill: var(--ink-muted);">• Pareto survival &amp; XLSTM</text>
+                <text x="28" y="164" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="700" style="fill: var(--accent);">AdaMM · ReBorn · MST-KDNet</text>
+              </g>
+
+              <!-- Node 2 -->
+              <g class="vision-node is-dimmed" data-pillar="pillar-2" tabindex="0" role="button" aria-label="Select Pillar 2: Tumor-Progression World Models">
+                <rect class="node-box" x="270" y="24" width="220" height="156" rx="16"/>
+                <rect x="282" y="36" width="66" height="22" rx="11" style="fill: var(--indigo-soft);"/>
+                <text x="315" y="51" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="700" style="fill: var(--indigo);">PILLAR 02</text>
+                <text x="282" y="82" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="700" style="fill: var(--ink);">Patient World Models</text>
+                <text x="282" y="102" font-family="Plus Jakarta Sans, sans-serif" font-size="11.5" style="fill: var(--ink-muted);">• Serial brain-met MRI</text>
+                <text x="282" y="121" font-family="Plus Jakarta Sans, sans-serif" font-size="11.5" style="fill: var(--ink-muted);">• Tumor progression (PD)</text>
+                <text x="282" y="140" font-family="Plus Jakarta Sans, sans-serif" font-size="11.5" style="fill: var(--ink-muted);">• BN20 &amp; therapy trajectory</text>
+                <text x="282" y="164" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="700" style="fill: var(--indigo);">Ant Group · GFE-Mamba</text>
+              </g>
+
+              <!-- Node 3 -->
+              <g class="vision-node is-dimmed" data-pillar="pillar-3" tabindex="0" role="button" aria-label="Select Pillar 3: Multi-Turn Clinical Consultation">
+                <rect class="node-box" x="524" y="24" width="220" height="156" rx="16"/>
+                <rect x="536" y="36" width="66" height="22" rx="11" style="fill: var(--burgundy-soft);"/>
+                <text x="569" y="51" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="700" style="fill: var(--burgundy);">PILLAR 03</text>
+                <text x="536" y="82" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="700" style="fill: var(--ink);">Multi-Turn Consultation</text>
+                <text x="536" y="102" font-family="Plus Jakarta Sans, sans-serif" font-size="11.5" style="fill: var(--ink-muted);">• Fact-grounded XPatient</text>
+                <text x="536" y="121" font-family="Plus Jakarta Sans, sans-serif" font-size="11.5" style="fill: var(--ink-muted);">• First-acquisition IDEA-RL</text>
+                <text x="536" y="140" font-family="Plus Jakarta Sans, sans-serif" font-size="11.5" style="fill: var(--ink-muted);">• Active inquiry + imaging</text>
+                <text x="536" y="164" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="700" style="fill: var(--burgundy);">XPatient · IDEA-RL</text>
+              </g>
+            </svg>
+          </div>
+
+          <div class="vision-detail-panel" aria-live="polite">
+            <div>
+              <span class="vision-detail-badge" id="vision-detail-badge">Pillar 01 · Incomplete Imaging Robustness</span>
+              <h3 id="vision-detail-title" style="margin-top: 10px;">Missing-Modality 3D Medical Image Analysis</h3>
+              <p id="vision-detail-summary" style="margin-top: 8px;"></p>
+              <ul class="vision-detail-points" id="vision-detail-points" style="margin-top: 12px;"></ul>
+            </div>
+            <div class="vision-detail-footer">
+              <button class="vision-link-btn" id="vision-filter-btn" type="button">Filter matching papers →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Selected Publications -->
+    <section id="selected-publications" class="section-block reveal" aria-labelledby="publications-heading">
+      <div class="section-header">
+        <div>
+          <p class="section-eyebrow">Publications &amp; Preprints</p>
+          <h2 class="section-title" id="publications-heading">Selected Research Output</h2>
+          <p class="section-subtitle">Click any figure to zoom in, copy BibTeX citations, or explore open-source code repositories.</p>
+        </div>
+        <p class="pub-legend"><span>†</span> co-first author · First-author works lead each track</p>
+      </div>
+
+      <div class="pub-controls">
+        <div class="filter-bar" role="group" aria-label="Filter publications by category">
+          <button class="filter-pill is-active" type="button" data-filter="all" aria-pressed="true">
+            All <span class="filter-count">8</span>
+          </button>
+          <button class="filter-pill" type="button" data-filter="first-author" aria-pressed="false">
+            First-Author Highlights <span class="filter-count">5</span>
+          </button>
+          <button class="filter-pill" type="button" data-filter="imaging-world" aria-pressed="false">
+            Medical Imaging &amp; World Models <span class="filter-count">7</span>
+          </button>
+          <button class="filter-pill" type="button" data-filter="agents-rl" aria-pressed="false">
+            Multi-Turn Agents &amp; RL <span class="filter-count">1</span>
+          </button>
+        </div>
+        <span class="pub-legend" id="pub-visible-status" aria-live="polite">Showing 8 of 8 works</span>
+      </div>
+
+      <div class="pub-grid">
+        <!-- 1. XPatient & IDEA-RL -->
+        <article class="pub-card" data-categories="first-author agents-rl">
+          <div class="pub-media" data-lightbox-trigger data-lightbox-title="IDEA-RL &amp; XPatient Overview" data-lightbox-caption="XPatient grounds asking, examination, and diagnosis in a case evidence graph across trajectories, while IDEA-RL assigns outcome-associated process credit to first evidence acquisition.">
+            <img src="/images/publications/idea-rl.png" alt="Overview of XPatient clinical evidence graph and IDEA-RL trajectory credit assignment" loading="lazy">
+            <span class="venue-pill venue-pill--burgundy">IDEA-RL · 2026</span>
+            <span class="zoom-hint">Click to zoom</span>
+          </div>
+          <div class="pub-body">
+            <div class="pub-tag-row">
+              <span class="pub-mini-tag pub-mini-tag--highlight">First Author</span>
+              <span class="pub-mini-tag">Multi-Turn Consultation</span>
+              <span class="pub-mini-tag">Process RL</span>
+            </div>
+            <h3 class="pub-title">IDEA-RL &amp; XPatient: Fact-Grounded Patient Simulation and Evidence-Attributed Policy Optimization for Multi-Turn Clinical Consultation</h3>
+            <p class="pub-authors"><strong>Shenghao Zhu</strong>, et al. (Advised by Prof. Liyue Shen, University of Michigan)</p>
+            <p class="pub-venue">2026 · First author</p>
+            <p class="pub-takeaway">Constrains simulated patient responses to case facts and aligns shared evidence identities across trajectories to assign outcome-associated process credit to first acquisition without a learned critic.</p>
+            <div class="pub-footer">
+              <button class="pub-btn" type="button" data-bibtex-id="xpatient" data-bibtex-title="IDEA-RL &amp; XPatient">BibTeX</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. AdaMM (MedIA 2026) -->
+        <article class="pub-card" data-categories="first-author imaging-world">
+          <div class="pub-media" data-lightbox-trigger data-lightbox-title="AdaMM (Medical Image Analysis 2026)" data-lightbox-caption="AdaMM unifies arbitrary missing-modality brain tumor segmentation into one compact adapter-distilled student network.">
+            <img src="/images/publications/adamm.png" alt="AdaMM framework for missing-modality brain tumor segmentation" loading="lazy">
+            <span class="venue-pill venue-pill--sapphire">MedIA 2026 · IF 14.0</span>
+            <span class="zoom-hint">Click to zoom</span>
+          </div>
+          <div class="pub-body">
+            <div class="pub-tag-row">
+              <span class="pub-mini-tag pub-mini-tag--highlight">First Author</span>
+              <span class="pub-mini-tag">3D Brain MRI</span>
+              <span class="pub-mini-tag">Knowledge Distillation</span>
+            </div>
+            <h3 class="pub-title">No Modality Left Behind: Adapting to Missing Modalities via Knowledge Distillation for Brain Tumor Segmentation</h3>
+            <p class="pub-authors"><strong>Shenghao Zhu</strong>, Yifei Chen, Weihong Chen, et al. · Qiyuan Tian*</p>
+            <p class="pub-venue"><em>Medical Image Analysis</em>, 2026 · First author</p>
+            <p class="pub-takeaway">Integrates lightweight modality adapters into a unified student model to handle arbitrary missing-MRI subsets while cutting parameter footprint and inference latency.</p>
+            <div class="pub-footer">
+              <a class="pub-btn" href="https://github.com/Quanato607/AdaMM" target="_blank" rel="noopener">Code (35★)</a>
+              <a class="pub-btn" href="https://doi.org/10.1016/j.media.2026.104108" target="_blank" rel="noopener">DOI</a>
+              <button class="pub-btn" type="button" data-bibtex-id="adamm" data-bibtex-title="AdaMM">BibTeX</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. ReBorn (CVPR 2026 Findings) -->
+        <article class="pub-card" data-categories="first-author imaging-world">
+          <div class="pub-media" data-lightbox-trigger data-lightbox-title="ReBorn (CVPR 2026 Findings)" data-lightbox-caption="ReBorn converts full-modality segmentation backbones into missing-modality survivors via Pareto and gradient-entropy optimization.">
+            <img src="/images/publications/reborn.png" alt="ReBorn framework for robust segmentation under modality degradation" loading="lazy">
+            <span class="venue-pill venue-pill--indigo">CVPR 2026 Findings</span>
+            <span class="zoom-hint">Click to zoom</span>
+          </div>
+          <div class="pub-body">
+            <div class="pub-tag-row">
+              <span class="pub-mini-tag pub-mini-tag--highlight">First Author</span>
+              <span class="pub-mini-tag">Missing Modality</span>
+              <span class="pub-mini-tag">Pareto Optimization</span>
+            </div>
+            <h3 class="pub-title">ReBorn: Turning Full-Modality Segmentation Models into Missing-Modality Survivors</h3>
+            <p class="pub-authors"><strong>Shenghao Zhu</strong>, Yifei Chen, Weihong Chen, et al. · Yefeng Zheng*</p>
+            <p class="pub-venue">CVPR 2026 Findings · First author</p>
+            <p class="pub-takeaway">Combines missing-modality Pareto training, model split weight moving, and gradient entropy balancing to preserve full-modality models under severe modality drop.</p>
+            <div class="pub-footer">
+              <a class="pub-btn" href="https://github.com/Quanato607/ReBorn" target="_blank" rel="noopener">Code</a>
+              <button class="pub-btn" type="button" data-bibtex-id="reborn" data-bibtex-title="ReBorn">BibTeX</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. MST-KDNet (MICCAI 2025) -->
+        <article class="pub-card" data-categories="first-author imaging-world">
+          <div class="pub-media" data-lightbox-trigger data-lightbox-title="MST-KDNet (MICCAI 2025)" data-lightbox-caption="MST-KDNet introduces multi-scale Transformer attention alignment and adversarial style matching for missing-modality MRI.">
+            <img src="/images/publications/mst-kdnet.png" alt="MST-KDNet framework for brain tumor segmentation with missing modalities" loading="lazy">
+            <span class="venue-pill venue-pill--sapphire">MICCAI 2025</span>
+            <span class="zoom-hint">Click to zoom</span>
+          </div>
+          <div class="pub-body">
+            <div class="pub-tag-row">
+              <span class="pub-mini-tag pub-mini-tag--highlight">First Author</span>
+              <span class="pub-mini-tag">Transformer KD</span>
+              <span class="pub-mini-tag">Style Matching</span>
+            </div>
+            <h3 class="pub-title">Bridging the Gap in Missing Modalities: Leveraging Knowledge Distillation and Style Matching for Brain Tumor Segmentation</h3>
+            <p class="pub-authors"><strong>Shenghao Zhu</strong>, Yifei Chen, Weihong Chen, et al. · Feiwei Qin*</p>
+            <p class="pub-venue">MICCAI 2025 · First author</p>
+            <p class="pub-takeaway">Aligns cross-modal multi-scale Transformer attention, dual-mode logit transfer, and global feature style matching across incomplete MRI inputs.</p>
+            <div class="pub-footer">
+              <a class="pub-btn" href="https://github.com/Quanato607/MST-KDNet" target="_blank" rel="noopener">Code (24★)</a>
+              <button class="pub-btn" type="button" data-bibtex-id="mstkdnet" data-bibtex-title="MST-KDNet">BibTeX</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5. XLSTM-HVED (IEEE ISBI 2025 Oral) -->
+        <article class="pub-card" data-categories="first-author imaging-world">
+          <div class="pub-media" data-lightbox-trigger data-lightbox-title="XLSTM-HVED (IEEE ISBI 2025 Oral)" data-lightbox-caption="XLSTM-HVED unifies multimodal brain tumor segmentation and missing MRI reconstruction.">
+            <img src="/images/publications/xlstm-hved.png" alt="XLSTM-HVED model for cross-modal segmentation and MRI reconstruction" loading="lazy">
+            <span class="venue-pill venue-pill--indigo">ISBI 2025 Oral</span>
+            <span class="zoom-hint">Click to zoom</span>
+          </div>
+          <div class="pub-body">
+            <div class="pub-tag-row">
+              <span class="pub-mini-tag pub-mini-tag--highlight">First Author · Oral</span>
+              <span class="pub-mini-tag">MRI Reconstruction</span>
+              <span class="pub-mini-tag">Vision XLSTM</span>
+            </div>
+            <h3 class="pub-title">XLSTM-HVED: Cross-Modal Brain Tumor Segmentation and MRI Reconstruction Method Using Vision XLSTM and Heteromodal Variational Encoder-Decoder</h3>
+            <p class="pub-authors"><strong>Shenghao Zhu</strong>, Yifei Chen, Shuo Jiang, et al. · Zhu Zhu*</p>
+            <p class="pub-venue">IEEE ISBI 2025 · Oral Presentation · First author</p>
+            <p class="pub-takeaway">Pairs heteromodal variational encoders with Vision XLSTM attention and feature recalibration for joint tumor segmentation and missing-sequence MRI synthesis.</p>
+            <div class="pub-footer">
+              <a class="pub-btn" href="https://github.com/Quanato607/XLSTM-HVED" target="_blank" rel="noopener">Code (18★)</a>
+              <a class="pub-btn" href="https://arxiv.org/abs/2412.07804" target="_blank" rel="noopener">arXiv</a>
+              <button class="pub-btn" type="button" data-bibtex-id="xlstmhved" data-bibtex-title="XLSTM-HVED">BibTeX</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6. GFE-Mamba (Information Fusion, Under Review) -->
+        <article class="pub-card" data-categories="imaging-world">
+          <div class="pub-media" data-lightbox-trigger data-lightbox-title="GFE-Mamba (Information Fusion, Under Review)" data-lightbox-caption="GFE-Mamba integrates MRI-to-PET synthesis and multimodal Mamba progression modeling for MCI-to-AD conversion.">
+            <img src="/images/publications/gfe-mamba.png" alt="GFE-Mamba multimodal progression assessment framework" loading="lazy">
+            <span class="venue-pill">Under Review</span>
+            <span class="zoom-hint">Click to zoom</span>
+          </div>
+          <div class="pub-body">
+            <div class="pub-tag-row">
+              <span class="pub-mini-tag">Co-First Author</span>
+              <span class="pub-mini-tag">Progression Modeling</span>
+              <span class="pub-mini-tag">MRI-to-PET</span>
+            </div>
+            <h3 class="pub-title">GFE-Mamba: Mamba-Based AD Multimodal Progression Assessment via Generative Feature Extraction from MCI</h3>
+            <p class="pub-authors">Zhaojie Fang<sup>†</sup>, <strong>Shenghao Zhu<sup>†</sup></strong>, Yifei Chen<sup>†</sup>, et al.</p>
+            <p class="pub-venue"><em>Information Fusion</em>, under review · Co-first author</p>
+            <p class="pub-takeaway">Combines MRI-to-PET synthesis, multimodal Mamba sequence classification, and clinical records for Alzheimer’s disease progression forecasting.</p>
+            <div class="pub-footer">
+              <a class="pub-btn" href="https://github.com/Tinysqua/GFE-Mamba" target="_blank" rel="noopener">Code (31★)</a>
+              <button class="pub-btn" type="button" data-bibtex-id="gfemamba" data-bibtex-title="GFE-Mamba">BibTeX</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 7. MSTNet (ICASSP 2025) -->
+        <article class="pub-card" data-categories="imaging-world">
+          <div class="pub-media" data-lightbox-trigger data-lightbox-title="MSTNet (IEEE ICASSP 2025)" data-lightbox-caption="MSTNet fuses clinical, cognitive, demographic, EEG, and MRI features for early Alzheimer's detection.">
+            <img src="/images/publications/mstnet.png" alt="MSTNet multimodal architecture for early Alzheimer's disease detection" loading="lazy">
+            <span class="venue-pill">ICASSP 2025</span>
+            <span class="zoom-hint">Click to zoom</span>
+          </div>
+          <div class="pub-body">
+            <div class="pub-tag-row">
+              <span class="pub-mini-tag">Second Author</span>
+              <span class="pub-mini-tag">EEG + MRI + Clinical</span>
+            </div>
+            <h3 class="pub-title">Toward Robust Early Detection of Alzheimer’s Disease via an Integrated Multimodal Learning Approach</h3>
+            <p class="pub-authors">Yifei Chen, <strong>Shenghao Zhu</strong>, Zhaojie Fang, et al.</p>
+            <p class="pub-venue">IEEE ICASSP 2025 · Second author</p>
+            <p class="pub-takeaway">Fuses heterogeneous clinical, cognitive, demographic, EEG, and structural MRI signals for early Alzheimer’s disease detection.</p>
+            <div class="pub-footer">
+              <a class="pub-btn" href="https://github.com/JustlfC03/MSTNet" target="_blank" rel="noopener">Code (69★)</a>
+              <button class="pub-btn" type="button" data-bibtex-id="mstnet" data-bibtex-title="MSTNet">BibTeX</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 8. SCKansformer (IEEE JBHI 2024) -->
+        <article class="pub-card" data-categories="imaging-world">
+          <div class="pub-media" data-lightbox-trigger data-lightbox-title="SCKansformer (IEEE JBHI 2024)" data-lightbox-caption="SCKansformer combines KAN-based nonlinear priors with spatial/channel reconstruction for bone marrow cell classification.">
+            <img src="/images/publications/sckansformer.png" alt="SCKansformer architecture for fine-grained bone marrow cell classification" loading="lazy">
+            <span class="venue-pill venue-pill--amber">JBHI 2024 · Top 1%</span>
+            <span class="zoom-hint">Click to zoom</span>
+          </div>
+          <div class="pub-body">
+            <div class="pub-tag-row">
+              <span class="pub-mini-tag">Coauthor</span>
+              <span class="pub-mini-tag">Top 1% Highly Cited</span>
+            </div>
+            <h3 class="pub-title">SCKansformer: Fine-Grained Classification of Bone Marrow Cells via Kansformer Backbone and Hierarchical Attention Mechanisms</h3>
+            <p class="pub-authors">Yifei Chen, Zhu Zhu, <strong>Shenghao Zhu</strong>, et al.</p>
+            <p class="pub-venue"><em>IEEE Journal of Biomedical and Health Informatics</em>, 2024 · Coauthor</p>
+            <p class="pub-takeaway">Introduces KAN-based nonlinear priors and hierarchical spatial/channel attention for fine-grained hematological cell morphology classification.</p>
+            <div class="pub-footer">
+              <a class="pub-btn" href="https://github.com/JustlfC03/SCKansformer" target="_blank" rel="noopener">Code (49★)</a>
+              <button class="pub-btn" type="button" data-bibtex-id="sckansformer" data-bibtex-title="SCKansformer">BibTeX</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- News & Experience Split -->
+    <section id="experience" class="section-block reveal" aria-labelledby="experience-heading">
+      <div class="section-header">
+        <div>
+          <p class="section-eyebrow">Trajectory &amp; Milestones</p>
+          <h2 class="section-title" id="experience-heading">News &amp; Research Experience</h2>
+        </div>
+      </div>
+
+      <div class="timeline-grid">
+        <!-- News Feed -->
+        <div class="glass-card panel-card" id="news">
+          <div class="panel-heading-row">
+            <h3>Recent News</h3>
+            <span class="pub-mini-tag pub-mini-tag--highlight">Updated Nov 2026</span>
+          </div>
+          <ul class="news-feed">
+            <li class="news-entry">
+              <span class="news-date">2026.10</span>
+              <span>Joined the <strong>University of Michigan</strong> as a Visiting Research Student with <strong>Prof. Liyue Shen</strong>, developing <strong>XPatient &amp; IDEA-RL</strong> for multi-turn diagnostic consultation.</span>
+            </li>
+            <li class="news-entry">
+              <span class="news-date">2026.05</span>
+              <span>Our first-author paper <strong>AdaMM</strong> was published in <em>Medical Image Analysis</em> (Impact Factor: 14.0).</span>
+            </li>
+            <li class="news-entry">
+              <span class="news-date">2026.03</span>
+              <span>Started Medical AI Research Internship at <strong>Ant Group</strong> with <strong>Dr. Le Lu</strong> on longitudinal brain-metastasis modeling and patient world models.</span>
+            </li>
+            <li class="news-entry">
+              <span class="news-date">2026.02</span>
+              <span>First-author paper <strong>ReBorn</strong> was accepted to <strong>CVPR 2026 Findings</strong>.</span>
+            </li>
+            <li class="news-entry">
+              <span class="news-date">2025.06</span>
+              <span>First-author paper <strong>MST-KDNet</strong> accepted at <strong>MICCAI 2025</strong>.</span>
+            </li>
+            <li class="news-entry is-extra-hidden" data-extra-news>
+              <span class="news-date">2025.01</span>
+              <span>First-author paper <strong>XLSTM-HVED</strong> accepted at <strong>IEEE ISBI 2025</strong> as an Oral Presentation.</span>
+            </li>
+            <li class="news-entry is-extra-hidden" data-extra-news>
+              <span class="news-date">2024.12</span>
+              <span>Co-authored paper <strong>MSTNet</strong> accepted at <strong>IEEE ICASSP 2025</strong>.</span>
+            </li>
+            <li class="news-entry is-extra-hidden" data-extra-news>
+              <span class="news-date">2024.10</span>
+              <span><strong>SCKansformer</strong> accepted in <em>IEEE Journal of Biomedical and Health Informatics</em>.</span>
+            </li>
+          </ul>
+          <button class="toggle-news-btn" id="toggle-news-btn" type="button" aria-expanded="false">Show all 8 updates</button>
+        </div>
+
+        <!-- Research Experience Timeline -->
+        <div class="glass-card panel-card">
+          <div class="panel-heading-row">
+            <h3>Research Experience</h3>
+          </div>
+          <div class="exp-timeline">
+            <article class="exp-item exp-item--current">
+              <div class="exp-top">
+                <h4 class="exp-org">University of Michigan</h4>
+                <span class="exp-period">Oct. 2026 – Present</span>
+              </div>
+              <p class="exp-role">Visiting Research Student · Supervisor: Prof. Liyue Shen</p>
+              <p class="exp-detail">Developing <strong>XPatient</strong> (fact-constrained patient simulator) and <strong>IDEA-RL</strong> (outcome-associated process credit for first evidence acquisition) for multi-turn diagnostic consultation.</p>
+            </article>
+
+            <article class="exp-item">
+              <div class="exp-top">
+                <h4 class="exp-org">Ant Group</h4>
+                <span class="exp-period">Mar. 2026 – Sep. 2026</span>
+              </div>
+              <p class="exp-role">Medical AI Research Intern · Supervisor: Dr. Le Lu</p>
+              <p class="exp-detail">Longitudinal treatment-response modeling for lung-cancer brain metastasis (serial brain MRI lesion segmentation + trajectory modeling) and patient world models predicting <em>PD</em> and <em>BN20</em> progression.</p>
+            </article>
+
+            <article class="exp-item">
+              <div class="exp-top">
+                <h4 class="exp-org">Westlake University</h4>
+                <span class="exp-period">Aug. 2025 – Mar. 2026</span>
+              </div>
+              <p class="exp-role">Visiting Student, Medical AI Lab · Supervisor: Prof. Yefeng Zheng</p>
+              <p class="exp-detail">Researched Pareto optimization and split-weight survival strategies converting full-modality segmentation backbones under severe modality drop (<em>ReBorn</em>).</p>
+            </article>
+
+            <article class="exp-item">
+              <div class="exp-top">
+                <h4 class="exp-org">Tsinghua University (BIRTH Lab)</h4>
+                <span class="exp-period">Jun. 2024 – Aug. 2025</span>
+              </div>
+              <p class="exp-role">Research Intern · Supervisor: Prof. Qiyuan Tian</p>
+              <p class="exp-detail">Built unified adapter-based cross-modal knowledge distillation (<em>AdaMM</em>) and multi-scale Transformer feature/style distillation (<em>MST-KDNet</em>) for incomplete brain MRI.</p>
+            </article>
+
+            <article class="exp-item">
+              <div class="exp-top">
+                <h4 class="exp-org">HDU 3DV Lab &amp; SRIBD / CUHK-Shenzhen</h4>
+                <span class="exp-period">Aug. 2023 – Jun. 2024</span>
+              </div>
+              <p class="exp-role">Research Intern · Supervisors: Prof. Yong Peng, Prof. Feiwei Qin &amp; Prof. Changmiao Wang</p>
+              <p class="exp-detail">Multimodal brain MRI fusion &amp; cross-modal reconstruction (<em>XLSTM-HVED</em>), MCI-to-AD progression forecasting (<em>GFE-Mamba</em>), and multimodal AD detection (<em>MSTNet</em>).</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education, Honors, Service -->
+    <section id="credentials" class="section-block reveal" aria-labelledby="credentials-heading">
+      <div class="section-header">
+        <div>
+          <p class="section-eyebrow">Academic Background</p>
+          <h2 class="section-title" id="credentials-heading">Education, Honors &amp; Academic Service</h2>
+        </div>
+      </div>
+
+      <div class="credentials-grid">
+        <article class="glass-card cred-card" id="education">
+          <h3>Education</h3>
+          <p style="margin: 0; font-weight: 700; color: var(--ink);">Hangzhou Dianzi University</p>
+          <p style="margin: 0; font-size: 0.9rem; color: var(--accent-deep); font-weight: 600;">B.Eng. in Computer Science and Technology</p>
+          <p style="margin: 0; font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-muted);">Aug. 2022 – Jul. 2026 · Hangzhou, China</p>
+          <ul class="cred-list">
+            <li><strong>GPA:</strong> 4.28 / 5.0 (Average: 88.48 / 100 · 197.5 credits)</li>
+            <li><strong>IELTS Academic:</strong> 7.0 overall (L 7.5 · R 7.0 · W 7.0 · S 6.0)</li>
+          </ul>
+        </article>
+
+        <article class="glass-card cred-card" id="honors-awards">
+          <h3>Honors &amp; Patents</h3>
+          <ul class="cred-list">
+            <li><strong>2024 &amp; 2025:</strong> Zhejiang Provincial Government Scholarship</li>
+            <li><strong>2024:</strong> Science and Technology Innovation Star</li>
+            <li><strong>2024:</strong> National First Prize, China College Students’ Service Outsourcing Innovation Competition</li>
+            <li><strong>Leadership:</strong> National &amp; Provincial Undergraduate Innovation Program Lead (2024)</li>
+            <li><strong>IP:</strong> 7 Publicly Available National Invention Patents (3 as First Author)</li>
+          </ul>
+        </article>
+
+        <article class="glass-card cred-card" id="academic-service">
+          <h3>Peer Review &amp; Stack</h3>
+          <div class="badge-wrap" aria-label="Peer review venues">
+            <span class="skill-badge skill-badge--accent">Reviewer · ICLR</span>
+            <span class="skill-badge skill-badge--accent">Reviewer · CVPR</span>
+            <span class="skill-badge skill-badge--accent">Reviewer · ECCV</span>
+            <span class="skill-badge">Medical Image Analysis</span>
+            <span class="skill-badge">IEEE TMI</span>
+            <span class="skill-badge">IEEE JBHI</span>
+            <span class="skill-badge">IEEE T-ITS</span>
+          </div>
+          <div class="badge-wrap" style="margin-top: 4px;" aria-label="Technical stack">
+            <span class="skill-badge">PyTorch</span>
+            <span class="skill-badge">MONAI / nnU-Net</span>
+            <span class="skill-badge">SGLang / vLLM</span>
+            <span class="skill-badge">Reinforcement Learning</span>
+            <span class="skill-badge">OpenCV</span>
+            <span class="skill-badge">LaTeX</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Life Beyond Research -->
+    <section id="personal-gallery" class="section-block reveal" aria-labelledby="gallery-heading">
+      <div class="section-header">
+        <div>
+          <p class="section-eyebrow">Life Beyond Research</p>
+          <h2 class="section-title" id="gallery-heading">Travels &amp; Companion</h2>
+          <p class="section-subtitle">Use the arrows, swipe, or click any photograph to inspect full-size.</p>
+        </div>
+      </div>
+
+      <div class="gallery-grid">
+        <!-- Places I've Been (13 photos) -->
+        <section class="glass-card carousel-card" data-photo-carousel role="region" aria-roledescription="carousel" aria-labelledby="places-heading">
+          <header class="carousel-head">
+            <div>
+              <p class="carousel-eyebrow">Wander Notes</p>
+              <h3 id="places-heading">Places I’ve Been</h3>
+            </div>
+            <div class="carousel-controls">
+              <span class="carousel-counter" data-carousel-status aria-live="polite">1 / 13</span>
+              <button class="carousel-btn" type="button" data-carousel-prev aria-label="Previous travel photo">←</button>
+              <button class="carousel-btn" type="button" data-carousel-next aria-label="Next travel photo">→</button>
+            </div>
+          </header>
+
+          <ul class="carousel-track" data-carousel-track tabindex="0" aria-label="Places I've visited">
+            <li class="carousel-slide" data-lightbox-trigger data-lightbox-title="Places I've Been (1 / 13)"><img src="/images/gallery/places/travel-01-statue-of-liberty.jpg" alt="The Statue of Liberty beneath a wide blue sky, viewed from the water." width="1080" height="1440" decoding="async" draggable="false"></li>
+            <li class="carousel-slide" data-lightbox-trigger data-lightbox-title="Places I've Been (2 / 13)"><img src="/images/gallery/places/travel-02-sunlit-waterfront.jpg" alt="A sailboat on a sunlit waterfront with a suspension bridge in the background." width="1080" height="1440" loading="lazy" decoding="async" draggable="false"></li>
+            <li class="carousel-slide" data-lightbox-trigger data-lightbox-title="Places I've Been (3 / 13)"><img src="/images/gallery/places/travel-03-reflecting-pool.jpg" alt="A square memorial reflecting pool surrounded by trees and city buildings." width="1080" height="1440" loading="lazy" decoding="async" draggable="false"></li>
+            <li class="carousel-slide" data-lightbox-trigger data-lightbox-title="Places I've Been (4 / 13)"><img src="/images/gallery/places/travel-04-blue-hour-street.jpg" alt="A tree-lined city street at blue hour beneath glowing lamps." width="1707" height="1280" loading="lazy" decoding="async" draggable="false"></li>
+            <li class="carousel-slide" data-lightbox-trigger data-lightbox-title="Places I've Been (5 / 13)"><img src="/images/gallery/places/travel-05-lake-reflection.jpg" alt="A calm lake reflecting clouds and distant mountains beneath overhanging branches." width="1280" height="1707" loading="lazy" decoding="async" draggable="false"></li>
+            <li class="carousel-slide" data-lightbox-trigger data-lightbox-title="Places I've Been (6 / 13)"><img src="/images/gallery/places/travel-06-wooden-tea-house.jpg" alt="The wooden facade of a traditional tea house along a busy street." width="1707" height="1280" loading="lazy" decoding="async" draggable="false"></li>
+            <li class="carousel-slide" data-lightbox-trigger data-lightbox-title="Places I've Been (7 / 13)"><img src="/images/gallery/places/travel-07-tropical-city-evening.jpg" alt="A palm-lined city intersection at dusk under a dramatic blue sky." width="1707" height="1280" loading="lazy" decoding="async" draggable="false"></li>
+            <li class="carousel-slide" data-lightbox-trigger data-lightbox-title="Places I've Been (8 / 13)"><img src="/images/gallery/places/travel-08-garden-pond.jpg" alt="A leafy garden pond with a small stone bridge beneath a bright sky." width="1707" height="1280" loading="lazy" decoding="async" draggable="false"></li>
+            <li class="carousel-slide" data-lightbox-trigger data-lightbox-title="Places I've Been (9 / 13)"><img src="/images/gallery/places/travel-09-sunny-garden.jpg" alt="A sunny garden with flowering shrubs, green trees, and a clear blue sky." width="1080" height="1920" loading="lazy" decoding="async" draggable="false"></li>
+            <li class="carousel-slide" data-lightbox-trigger data-lightbox-title="Places I've Been (10 / 13)"><img src="/images/gallery/places/travel-10-low-tide-lighthouse.jpg" alt="A lighthouse overlooking a broad rocky shoreline at low tide." width="1707" height="1280" loading="lazy" decoding="async" draggable="false"></li>
+            <li class="carousel-slide" data-lightbox-trigger data-lightbox-title="Places I've Been (11 / 13)"><img src="/images/gallery/places/travel-11-green-field-mountains.jpg" alt="A green field beneath forested mountains dotted with wind turbines." width="1707" height="1280" loading="lazy" decoding="async" draggable="false"></li>
+            <li class="carousel-slide" data-lightbox-trigger data-lightbox-title="Places I've Been (12 / 13)"><img src="/images/gallery/places/travel-12-rocky-tidal-flat.jpg" alt="People exploring a rocky tidal flat beneath a wide blue sky." width="1707" height="1280" loading="lazy" decoding="async" draggable="false"></li>
+            <li class="carousel-slide" data-lightbox-trigger data-lightbox-title="Places I've Been (13 / 13)"><img src="/images/gallery/places/travel-13-turquoise-lake.jpg" alt="A turquoise mountain lake framed by bamboo and forested hills." width="1280" height="1707" loading="lazy" decoding="async" draggable="false"></li>
+          </ul>
+          <p class="carousel-caption" data-carousel-caption></p>
+        </section>
+
+        <!-- Erbao 二宝 (4 photos) -->
+        <section class="glass-card carousel-card" data-photo-carousel role="region" aria-roledescription="carousel" aria-labelledby="cats-heading">
+          <header class="carousel-head">
+            <div>
+              <p class="carousel-eyebrow">Home Companion</p>
+              <h3 id="cats-heading">Erbao 二宝</h3>
+            </div>
+            <div class="carousel-controls">
+              <span class="carousel-counter" data-carousel-status aria-live="polite">1 / 4</span>
+              <button class="carousel-btn" type="button" data-carousel-prev aria-label="Previous cat photo">←</button>
+              <button class="carousel-btn" type="button" data-carousel-next aria-label="Next cat photo">→</button>
+            </div>
+          </header>
+
+          <ul class="carousel-track" data-carousel-track tabindex="0" aria-label="Photos of Erbao">
+            <li class="carousel-slide" data-lightbox-trigger data-lightbox-title="Erbao 二宝 (1 / 4)"><img src="/images/gallery/cats/cat-01-close-up.jpg" alt="Erbao, a black-and-white cat, being gently scratched under the chin." width="1280" height="1707" decoding="async" draggable="false"></li>
+            <li class="carousel-slide" data-lightbox-trigger data-lightbox-title="Erbao 二宝 (2 / 4)"><img src="/images/gallery/cats/cat-02-cardboard-box.jpg" alt="Erbao, a blue-eyed black-and-white cat, resting in a cardboard box." width="1080" height="1920" loading="lazy" decoding="async" draggable="false"></li>
+            <li class="carousel-slide" data-lightbox-trigger data-lightbox-title="Erbao 二宝 (3 / 4)"><img src="/images/gallery/cats/cat-03-stretched-paws.jpg" alt="Erbao reclining with its front paws stretched forward." width="1280" height="1707" loading="lazy" decoding="async" draggable="false"></li>
+            <li class="carousel-slide" data-lightbox-trigger data-lightbox-title="Erbao 二宝 (4 / 4)"><img src="/images/gallery/cats/cat-04-chair-nap.jpg" alt="A fluffy white cat curled asleep on a chair." width="960" height="1280" loading="lazy" decoding="async" draggable="false"></li>
+          </ul>
+          <p class="carousel-caption" data-carousel-caption></p>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© 2026 Shenghao Zhu · Updated November 2026</span>
+      <div class="footer-links">
+        <a href="https://scholar.google.com/citations?user=6zr4pucAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://github.com/Quanato607" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:22320220@hdu.edu.cn">Email</a>
+        <a href="/cv/">CV</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div class="modal-backdrop" id="lightbox-modal" role="dialog" aria-modal="true" aria-labelledby="lightbox-title" aria-hidden="true">
+    <div class="modal-panel">
+      <div class="modal-header">
+        <h3 id="lightbox-title">Figure Preview</h3>
+        <button class="modal-close" type="button" data-modal-close aria-label="Close preview">×</button>
+      </div>
+      <div class="lightbox-stage">
+        <img id="lightbox-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="">
+      </div>
+      <p class="lightbox-caption" id="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <!-- BibTeX Modal -->
+  <div class="modal-backdrop" id="bibtex-modal" role="dialog" aria-modal="true" aria-labelledby="bibtex-title" aria-hidden="true">
+    <div class="modal-panel modal-panel--bib">
+      <div class="modal-header">
+        <h3 id="bibtex-title">BibTeX Citation</h3>
+        <button class="modal-close" type="button" data-modal-close aria-label="Close BibTeX dialog">×</button>
+      </div>
+      <pre class="bibtex-pre" id="bibtex-code"></pre>
+      <div style="margin-top: 14px; display: flex; justify-content: flex-end; gap: 10px;">
+        <button class="action-btn action-btn--primary" id="bibtex-copy-btn" type="button">Copy BibTeX</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="/assets/js/modern-home.js" defer></script>
+</body>
+</html>
