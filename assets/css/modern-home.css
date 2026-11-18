@@ -786,6 +786,15 @@ button {
   text-decoration-color: var(--ink-1);
 }
 
+.pub-stage--static {
+  cursor: default;
+}
+
+.pub-note-tag {
+  font: 500 0.72rem/1.35 var(--mono);
+  color: var(--ink-4);
+}
+
 /* ==========================================================================
    Recent News & Research Trajectory
    ========================================================================== */

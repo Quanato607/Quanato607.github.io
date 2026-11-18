@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Page Not Found | Shenghao Zhu</title>
-  <meta name="theme-color" content="#f7f4ed">
+  <meta name="theme-color" content="#141311">
   <link rel="icon" href="/images/favicon.ico" sizes="any">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,9 +13,19 @@
   <script>
     (function () {
       try {
-        var saved = localStorage.getItem("sz-ink-theme");
-        document.documentElement.setAttribute("data-theme", saved === "dark" ? "dark" : "light");
-      } catch (e) {}
+        localStorage.removeItem("sz-ink-theme");
+        var manual = sessionStorage.getItem("sz-theme-session");
+        var theme = (manual === "dark" || manual === "light")
+          ? manual
+          : ((window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) || (function () { var h = new Date().getHours(); return h >= 19 || h < 7; })()
+              ? "dark"
+              : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute("content", theme === "dark" ? "#141311" : "#f7f4ed");
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
     })();
   </script>
 </head>

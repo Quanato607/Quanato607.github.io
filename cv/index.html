@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Curriculum Vitae | Shenghao Zhu</title>
   <meta name="description" content="Curriculum Vitae of Shenghao Zhu — Visiting Research Student at the University of Michigan, Medical Image Analysis, Longitudinal World Models, and Multi-Turn Clinical Consultation.">
-  <meta name="theme-color" content="#f7f4ed">
+  <meta name="theme-color" content="#141311">
   <link rel="canonical" href="https://quanato607.github.io/cv/">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-180x180.png">
@@ -21,9 +21,19 @@
   <script>
     (function () {
       try {
-        var saved = localStorage.getItem("sz-ink-theme");
-        document.documentElement.setAttribute("data-theme", saved === "dark" ? "dark" : "light");
-      } catch (e) {}
+        localStorage.removeItem("sz-ink-theme");
+        var manual = sessionStorage.getItem("sz-theme-session");
+        var theme = (manual === "dark" || manual === "light")
+          ? manual
+          : ((window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) || (function () { var h = new Date().getHours(); return h >= 19 || h < 7; })()
+              ? "dark"
+              : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute("content", theme === "dark" ? "#141311" : "#f7f4ed");
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
     })();
   </script>
 
@@ -143,7 +153,7 @@
           </span>
         </div>
         <ul class="folio-list">
-          <li><a href="/idea-rl/"><strong>No Critic, Which Clue? Quantifying Evidence Advantages in Interactive Diagnosis</strong></a> · <em>IDEA-RL &amp; XPatient</em> (2026), First author</li>
+          <li><a href="/idea-rl/"><strong>No Critic, Which Clue? Quantifying Evidence Advantages in Interactive Diagnosis</strong></a> · In preparation for ICML, First author</li>
           <li><strong>AdaMM</strong> · <em>Medical Image Analysis</em> 2026, First author</li>
           <li><strong>ReBorn</strong> · CVPR 2026 Findings, First author</li>
           <li><strong>MST-KDNet</strong> · MICCAI 2025, First author</li>

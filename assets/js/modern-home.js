@@ -2,15 +2,9 @@
   "use strict";
 
   const EMAIL_ADDRESS = "22320220@hdu.edu.cn";
-  const THEME_STORAGE_KEY = "sz-ink-theme";
+  const SESSION_THEME_KEY = "sz-theme-session";
 
   const BIBTEX_MAP = {
-    xpatient: `@misc{zhu2026idearl,
-  title  = {No Critic, Which Clue? Quantifying Evidence Advantages in Interactive Diagnosis},
-  author = {Zhu, Shenghao},
-  year   = {2026},
-  note   = {IDEA-RL: Structured Clinical Simulation (XPatient) and Evidence Advantage Policy Optimization (EAPO)}
-}`,
     adamm: `@article{zhu2026adamm,
   title   = {No Modality Left Behind: Adapting to Missing Modalities via Knowledge Distillation for Brain Tumor Segmentation},
   author  = {Zhu, Shenghao and Chen, Yifei and Chen, Weihong and Tian, Qiyuan and others},
@@ -18,17 +12,12 @@
   year    = {2026},
   doi     = {10.1016/j.media.2026.104108}
 }`,
-    reborn: `@inproceedings{zhu2026reborn,
-  title     = {ReBorn: Turning Full-Modality Segmentation Models into Missing-Modality Survivors},
-  author    = {Zhu, Shenghao},
-  booktitle = {Findings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-  year      = {2026}
-}`,
     mstkdnet: `@inproceedings{zhu2025mstkdnet,
   title     = {Bridging the Gap in Missing Modalities: Leveraging Knowledge Distillation and Style Matching for Brain Tumor Segmentation},
   author    = {Zhu, Shenghao and Chen, Yifei and Chen, Weihong and Qin, Feiwei and others},
   booktitle = {Medical Image Computing and Computer Assisted Intervention (MICCAI)},
-  year      = {2025}
+  year      = {2025},
+  doi       = {10.1007/978-3-032-04984-1_10}
 }`,
     xlstmhved: `@inproceedings{zhu2025xlstmhved,
   title     = {XLSTM-HVED: Cross-Modal Brain Tumor Segmentation and MRI Reconstruction Method Using Vision XLSTM and Heteromodal Variational Encoder-Decoder},
@@ -47,14 +36,8 @@
   title   = {SCKansformer: Fine-Grained Classification of Bone Marrow Cells via Kansformer Backbone and Hierarchical Attention Mechanisms},
   author  = {Chen, Yifei and Zhu, Zhu and Zhu, Shenghao and Yu, Ge and others},
   journal = {IEEE Journal of Biomedical and Health Informatics},
-  year    = {2024}
-}`,
-    gfemamba: `@article{fang2025gfemamba,
-  title   = {GFE-Mamba: Mamba-Based AD Multimodal Progression Assessment via Generative Feature Extraction from MCI},
-  author  = {Zhu, Shenghao},
-  journal = {Information Fusion},
-  year    = {2025},
-  note    = {Under Review}
+  year    = {2024},
+  doi     = {10.1109/JBHI.2024.3471928}
 }`
   };
 
@@ -95,6 +78,23 @@
   function initTheme() {
     const toggleBtn = document.getElementById("theme-toggle");
     const root = document.documentElement;
+    const mediaQuery = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+
+    const getAutoTheme = () => {
+      const hour = new Date().getHours();
+      const isNight = hour >= 19 || hour < 7;
+      const prefersDark = mediaQuery ? mediaQuery.matches : false;
+      return prefersDark || isNight ? "dark" : "light";
+    };
+
+    const getManualSessionTheme = () => {
+      try {
+        const manual = sessionStorage.getItem(SESSION_THEME_KEY);
+        return manual === "dark" || manual === "light" ? manual : null;
+      } catch (_err) {
+        return null;
+      }
+    };
 
     const applyTheme = (theme) => {
       const normalized = theme === "dark" ? "dark" : "light";
@@ -113,21 +113,34 @@
       }
     };
 
-    let savedTheme = "light";
     try {
-      if (localStorage.getItem(THEME_STORAGE_KEY) === "dark") {
-        savedTheme = "dark";
-      }
+      localStorage.removeItem("sz-ink-theme");
     } catch (_err) {
-      savedTheme = root.getAttribute("data-theme") === "dark" ? "dark" : "light";
+      /* ignore storage errors */
     }
-    applyTheme(savedTheme);
+
+    const syncTheme = () => {
+      const manual = getManualSessionTheme();
+      applyTheme(manual || getAutoTheme());
+    };
+
+    syncTheme();
+
+    if (mediaQuery && mediaQuery.addEventListener) {
+      mediaQuery.addEventListener("change", () => {
+        if (!getManualSessionTheme()) applyTheme(getAutoTheme());
+      });
+    }
+
+    window.setInterval(() => {
+      if (!getManualSessionTheme()) applyTheme(getAutoTheme());
+    }, 60000);
 
     if (toggleBtn) {
       toggleBtn.addEventListener("click", () => {
         const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
         try {
-          localStorage.setItem(THEME_STORAGE_KEY, next);
+          sessionStorage.setItem(SESSION_THEME_KEY, next);
         } catch (_err) {
           /* ignore storage errors */
         }

@@ -125,20 +125,34 @@ def check_content_and_safety() -> None:
     require("Set in Crimson Pro" not in index_html and "Set in Crimson Pro" not in cv_html, "Removed Crimson Pro colophon attribution must not appear")
     require('class="side"' in index_html and 'class="side-toc"' in index_html, "Left rail (.side + .side-toc) is required in index.html")
     require('class="inscription hero-signature"' in index_html, "Enlarged calligraphy inscription is missing")
-    require("sz-ink-theme" in index_html and "sz-ink-theme" in js_text, "Default Xuan-paper theme key sz-ink-theme must be wired")
+    require("sz-theme-session" in index_html and "sz-theme-session" in cv_html and "sz-theme-session" in html404 and "sz-theme-session" in js_text, "Auto dark mode session key sz-theme-session must be wired in all pages and JS")
+    require("prefers-color-scheme: dark" in index_html and "prefers-color-scheme: dark" in cv_html and "prefers-color-scheme: dark" in html404 and "prefers-color-scheme: dark" in js_text, "Auto dark mode prefers-color-scheme detection must be wired")
     require("#f7f4ed" in css_text and "#141311" in css_text, "Both Xuan-paper light (#f7f4ed) and lacquer-black dark (#141311) tokens must exist in modern-home.css")
 
     require("No Critic, Which Clue? Quantifying Evidence Advantages in Interactive Diagnosis" in cv_html, "cv/index.html must include real IDEA-RL title")
+    require("In preparation for ICML" in index_html and "In preparation for ICML" in cv_html, "IDEA-RL venue must read 'In preparation for ICML'")
+    require("Preprint, 2026" not in index_html, "Old 'Preprint, 2026' IDEA-RL venue must be replaced")
+    require("★" not in index_html and "Code (" not in index_html, "Star counts next to Code buttons must be removed")
     require('id="lightbox-modal"' not in index_html and 'class="zoom-hint"' not in index_html, "Figure Lightbox zoom must be removed in favor of direct paper/repo links")
     require("Figures cycle left-to-right" not in index_html and 'class="pub-subnote"' not in index_html, "Instructional .pub-subnote line must be removed from index.html")
     require("westlake" not in index_html.lower() and "westlake" not in cv_html.lower(), "Westlake University must be removed from index.html and cv/index.html")
-    require(len(re.findall(r'<a class="pub-stage"\s+href="[^"]+"', index_html)) == 8, "All 8 publication figures must be direct clickable links")
-    require(len(re.findall(r'<a class="pub-title-link"\s+href="[^"]+"', index_html)) == 8, "All 8 publication titles must be direct clickable links")
+    stage_links = re.findall(r'<a class="pub-stage"\s+href="([^"]+)"', index_html)
+    title_links = re.findall(r'<a class="pub-title-link"\s+href="([^"]+)"', index_html)
+    require(len(stage_links) == 7, f"Expected 7 paper/project clickable figures (excluding forthcoming ReBorn), found {len(stage_links)}")
+    require(len(title_links) == 7, f"Expected 7 paper/project clickable titles (excluding forthcoming ReBorn), found {len(title_links)}")
+    allowed_paper_markers = ("doi.org", "arxiv.org", "ieeexplore.ieee.org", "/idea-rl/")
+    for href in stage_links + title_links:
+        require("github.com" not in href.lower(), f"Publication figure/title link must point to paper, never GitHub code: {href}")
+        require(any(marker in href for marker in allowed_paper_markers), f"Unexpected paper/project URL target: {href}")
+    require('<div class="pub-stage pub-stage--static"' in index_html and "Paper &amp; Code Coming Soon" in index_html, "Forthcoming ReBorn card must use non-link static stage until proceedings release")
 
-    # Check every publication card has >= 2 slides, tab parity, concise explicit Insight, and unpublished privacy
+    # Check every publication card has >= 2 slides, tab parity, concise explicit Insight, published-only BibTeX, and unpublished privacy
     pub_cards = re.findall(r'<article class="pub-card".*?</article>', index_html, re.S)
     require(len(pub_cards) == 8, f"Expected 8 publication cards, found {len(pub_cards)}")
     unpublished_forbidden = ["Yefeng Zheng", "Zhaojie Fang", "Liyue Shen", "Yifei Chen", "Weihong Chen"]
+    bibtex_ids_seen = set(re.findall(r'data-bibtex-id="([^"]+)"', index_html))
+    expected_published_bibtex = {"adamm", "mstkdnet", "xlstmhved", "mstnet", "sckansformer"}
+    require(bibtex_ids_seen == expected_published_bibtex, f"BibTeX must exist strictly for the 5 published papers {sorted(expected_published_bibtex)}, found {sorted(bibtex_ids_seen)}")
     for idx, card in enumerate(pub_cards, start=1):
         require('<span class="insight-tag">Insight</span>' in card, f"Publication card #{idx} is missing explicit Insight tag")
         m_insight = re.search(r'<p class="pub-insight">(.*?)</p>', card, re.S)
@@ -161,16 +175,15 @@ def check_content_and_safety() -> None:
         if "GFE-Mamba:" in card:
             require(len(slides) == 4, f"GFE-Mamba card must contain 4 slides, found {len(slides)}")
         if any(marker in card for marker in ("No Critic, Which Clue?", "ReBorn:", "GFE-Mamba:")):
+            require("data-bibtex-id" not in card and ">BibTeX<" not in card, f"Unpublished/forthcoming card #{idx} must not include BibTeX button")
             for name in unpublished_forbidden:
                 require(name not in card, f"Unpublished/under-review card #{idx} must not list coauthor/advisor '{name}'")
             require("<strong>First author</strong>" in card or "<strong>Co-first author</strong>" in card, f"Unpublished card #{idx} must state author role only")
 
-    for bib_key in ("xpatient", "reborn", "gfemamba"):
-        m = re.search(rf"{bib_key}\s*:\s*`([^`]*)`", js_text, re.S)
-        require(m is not None, f"BibTeX entry missing for {bib_key}")
-        if m:
-            for name in unpublished_forbidden:
-                require(name not in m.group(1), f"BibTeX entry {bib_key} must not expose '{name}'")
+    for forbidden_bib in ("xpatient", "reborn", "gfemamba"):
+        require(not re.search(rf"\b{forbidden_bib}\s*:", js_text), f"BIBTEX_MAP in modern-home.js must not include unpublished entry '{forbidden_bib}'")
+    for pub_bib in expected_published_bibtex:
+        require(bool(re.search(rf"\b{pub_bib}\s*:\s*`", js_text)), f"BIBTEX_MAP missing published entry '{pub_bib}'")
 
     forbidden_green_tokens = ["#0d9488", "#0f766e", "#2dd4bf", "#5eead4", "13, 148, 136", "45, 212, 191"]
     for file_name, content in [

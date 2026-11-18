@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shenghao Zhu</title>
   <meta name="description" content="Academic homepage of Shenghao Zhu (Visiting Research Student at the University of Michigan, HDU B.Eng. ’26): missing-modality medical image analysis, longitudinal tumor world models, and multi-turn clinical consultation.">
-  <meta name="theme-color" content="#f7f4ed">
+  <meta name="theme-color" content="#141311">
   <link rel="canonical" href="https://quanato607.github.io/">
 
   <!-- Open Graph / Social -->
@@ -29,13 +29,23 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 
-  <!-- Default to Xuan-paper warm light mode unless user explicitly chose dark -->
+  <!-- Auto dark mode (OS dark preference or nighttime 19:00-06:59) unless manually toggled this session -->
   <script>
     (function () {
       try {
-        var saved = localStorage.getItem("sz-ink-theme");
-        document.documentElement.setAttribute("data-theme", saved === "dark" ? "dark" : "light");
-      } catch (e) {}
+        localStorage.removeItem("sz-ink-theme");
+        var manual = sessionStorage.getItem("sz-theme-session");
+        var theme = (manual === "dark" || manual === "light")
+          ? manual
+          : ((window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) || (function () { var h = new Date().getHours(); return h >= 19 || h < 7; })()
+              ? "dark"
+              : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute("content", theme === "dark" ? "#141311" : "#f7f4ed");
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
     })();
   </script>
 
@@ -209,11 +219,10 @@
             <div class="pub-body">
               <h3 class="pub-title"><a class="pub-title-link" href="/idea-rl/">No Critic, Which Clue? Quantifying Evidence Advantages in Interactive Diagnosis</a></h3>
               <p class="pub-authors"><strong>First author</strong></p>
-              <p class="pub-venue">Preprint, 2026 · <span class="venue-note">IDEA-RL (XPatient &amp; EAPO)</span></p>
+              <p class="pub-venue">In preparation for ICML</p>
               <p class="pub-insight"><span class="insight-tag">Insight</span> Aligning shared evidence nodes across rollouts turns sparse terminal outcomes into critic-free turn-level inquiry advantages—matching GRPO update FLOPs without training a value network.</p>
               <div class="pub-footer">
                 <a class="pub-btn" href="/idea-rl/">Project Page</a>
-                <button class="pub-btn" type="button" data-bibtex-id="xpatient" data-bibtex-title="No Critic, Which Clue? (IDEA-RL)">BibTeX</button>
               </div>
             </div>
           </article>
@@ -221,7 +230,7 @@
           <!-- 2. AdaMM (MedIA 2026) -->
           <article class="pub-card" data-categories="first-author imaging-world">
             <div class="pub-figure">
-              <a class="pub-stage" href="https://doi.org/10.1016/j.media.2026.104108" target="_blank" rel="noopener" aria-label="Open AdaMM paper via DOI">
+              <a class="pub-stage" href="https://doi.org/10.1016/j.media.2026.104108" target="_blank" rel="noopener" aria-label="Open AdaMM paper">
                 <div class="pub-slide is-current">
                   <img src="/images/publications/adamm.png" alt="AdaMM framework for missing-modality brain tumor segmentation" loading="lazy">
                 </div>
@@ -254,8 +263,8 @@
               <p class="pub-venue"><em>Medical Image Analysis</em>, 2026 · First author <span class="venue-note">(IF 14.0)</span></p>
               <p class="pub-insight"><span class="insight-tag">Insight</span> Lightweight modality-specific adapters plus lesion-aware distillation let a single compact student handle all 15 missing-MRI combinations without specialist ensembles.</p>
               <div class="pub-footer">
-                <a class="pub-btn" href="https://github.com/Quanato607/AdaMM" target="_blank" rel="noopener">Code (35★)</a>
-                <a class="pub-btn" href="https://doi.org/10.1016/j.media.2026.104108" target="_blank" rel="noopener">DOI</a>
+                <a class="pub-btn" href="https://doi.org/10.1016/j.media.2026.104108" target="_blank" rel="noopener">Paper</a>
+                <a class="pub-btn" href="https://github.com/Quanato607/AdaMM" target="_blank" rel="noopener">Code</a>
                 <button class="pub-btn" type="button" data-bibtex-id="adamm" data-bibtex-title="AdaMM">BibTeX</button>
               </div>
             </div>
@@ -264,7 +273,7 @@
           <!-- 3. ReBorn (CVPR 2026 Findings) -->
           <article class="pub-card" data-categories="first-author imaging-world">
             <div class="pub-figure">
-              <a class="pub-stage" href="https://github.com/Quanato607/ReBorn" target="_blank" rel="noopener" aria-label="Open ReBorn GitHub repository">
+              <div class="pub-stage pub-stage--static" role="group" aria-label="ReBorn figures">
                 <div class="pub-slide is-current">
                   <img src="/images/publications/reborn.png" alt="ReBorn framework for robust segmentation under modality degradation" loading="lazy">
                 </div>
@@ -278,7 +287,7 @@
                   <img src="/images/publications/reborn-metrics.png" alt="ReBorn average Dice under varying full-modality training rates" loading="lazy">
                 </div>
                 <div class="pub-progress-track"><div class="pub-progress-fill"></div></div>
-              </a>
+              </div>
               <div class="pub-slide-tabs" role="group" aria-label="ReBorn figures">
                 <button class="pub-slide-tab is-active" type="button" aria-pressed="true">Model</button>
                 <button class="pub-slide-tab" type="button" aria-pressed="false">Split</button>
@@ -288,13 +297,12 @@
             </div>
 
             <div class="pub-body">
-              <h3 class="pub-title"><a class="pub-title-link" href="https://github.com/Quanato607/ReBorn" target="_blank" rel="noopener">ReBorn: Turning Full-Modality Segmentation Models into Missing-Modality Survivors</a></h3>
+              <h3 class="pub-title">ReBorn: Turning Full-Modality Segmentation Models into Missing-Modality Survivors</h3>
               <p class="pub-authors"><strong>First author</strong></p>
               <p class="pub-venue">CVPR 2026 Findings</p>
               <p class="pub-insight"><span class="insight-tag">Insight</span> Pareto gradient balancing and split-weight survival turn standard full-modality backbones directly into missing-modality survivors—even under scarce complete scans.</p>
               <div class="pub-footer">
-                <a class="pub-btn" href="https://github.com/Quanato607/ReBorn" target="_blank" rel="noopener">Code</a>
-                <button class="pub-btn" type="button" data-bibtex-id="reborn" data-bibtex-title="ReBorn">BibTeX</button>
+                <span class="pub-note-tag">Paper &amp; Code Coming Soon</span>
               </div>
             </div>
           </article>
@@ -302,7 +310,7 @@
           <!-- 4. MST-KDNet (MICCAI 2025) -->
           <article class="pub-card" data-categories="first-author imaging-world">
             <div class="pub-figure">
-              <a class="pub-stage" href="https://github.com/Quanato607/MST-KDNet" target="_blank" rel="noopener" aria-label="Open MST-KDNet GitHub repository">
+              <a class="pub-stage" href="https://doi.org/10.1007/978-3-032-04984-1_10" target="_blank" rel="noopener" aria-label="Open MST-KDNet MICCAI 2025 paper">
                 <div class="pub-slide is-current">
                   <img src="/images/publications/mst-kdnet.png" alt="MST-KDNet framework for brain tumor segmentation with missing modalities" loading="lazy">
                 </div>
@@ -322,12 +330,13 @@
             </div>
 
             <div class="pub-body">
-              <h3 class="pub-title"><a class="pub-title-link" href="https://github.com/Quanato607/MST-KDNet" target="_blank" rel="noopener">Bridging the Gap in Missing Modalities: Leveraging Knowledge Distillation and Style Matching for Brain Tumor Segmentation</a></h3>
+              <h3 class="pub-title"><a class="pub-title-link" href="https://doi.org/10.1007/978-3-032-04984-1_10" target="_blank" rel="noopener">Bridging the Gap in Missing Modalities: Leveraging Knowledge Distillation and Style Matching for Brain Tumor Segmentation</a></h3>
               <p class="pub-authors"><strong>Shenghao Zhu</strong>, Yifei Chen, Weihong Chen, et al. · Feiwei Qin*</p>
               <p class="pub-venue">MICCAI 2025 · First author</p>
               <p class="pub-insight"><span class="insight-tag">Insight</span> Jointly aligning multi-scale Transformer attention maps and global feature styles bridges structural and intensity shifts caused by missing MRI sequences.</p>
               <div class="pub-footer">
-                <a class="pub-btn" href="https://github.com/Quanato607/MST-KDNet" target="_blank" rel="noopener">Code (24★)</a>
+                <a class="pub-btn" href="https://doi.org/10.1007/978-3-032-04984-1_10" target="_blank" rel="noopener">Paper</a>
+                <a class="pub-btn" href="https://github.com/Quanato607/MST-KDNet" target="_blank" rel="noopener">Code</a>
                 <button class="pub-btn" type="button" data-bibtex-id="mstkdnet" data-bibtex-title="MST-KDNet">BibTeX</button>
               </div>
             </div>
@@ -336,7 +345,7 @@
           <!-- 5. XLSTM-HVED (IEEE ISBI 2025 Oral) -->
           <article class="pub-card" data-categories="first-author imaging-world">
             <div class="pub-figure">
-              <a class="pub-stage" href="https://arxiv.org/abs/2412.07804" target="_blank" rel="noopener" aria-label="Open XLSTM-HVED paper on arXiv">
+              <a class="pub-stage" href="https://arxiv.org/abs/2412.07804" target="_blank" rel="noopener" aria-label="Open XLSTM-HVED paper">
                 <div class="pub-slide is-current">
                   <img src="/images/publications/xlstm-hved.png" alt="XLSTM-HVED model for cross-modal segmentation and MRI reconstruction" loading="lazy">
                 </div>
@@ -361,8 +370,8 @@
               <p class="pub-venue">IEEE ISBI 2025 · First author <span class="venue-note">(Oral Presentation)</span></p>
               <p class="pub-insight"><span class="insight-tag">Insight</span> Coupling Vision-xLSTM long-range spatial memory with heteromodal variational synthesis mutually reinforces missing-sequence reconstruction and 3D tumor segmentation.</p>
               <div class="pub-footer">
-                <a class="pub-btn" href="https://github.com/Quanato607/XLSTM-HVED" target="_blank" rel="noopener">Code (18★)</a>
-                <a class="pub-btn" href="https://arxiv.org/abs/2412.07804" target="_blank" rel="noopener">arXiv</a>
+                <a class="pub-btn" href="https://arxiv.org/abs/2412.07804" target="_blank" rel="noopener">Paper</a>
+                <a class="pub-btn" href="https://github.com/Quanato607/XLSTM-HVED" target="_blank" rel="noopener">Code</a>
                 <button class="pub-btn" type="button" data-bibtex-id="xlstmhved" data-bibtex-title="XLSTM-HVED">BibTeX</button>
               </div>
             </div>
@@ -371,7 +380,7 @@
           <!-- 6. GFE-Mamba (Information Fusion, Under Review) -->
           <article class="pub-card" data-categories="imaging-world">
             <div class="pub-figure">
-              <a class="pub-stage" href="https://github.com/Tinysqua/GFE-Mamba" target="_blank" rel="noopener" aria-label="Open GFE-Mamba GitHub repository">
+              <a class="pub-stage" href="https://arxiv.org/abs/2407.15719" target="_blank" rel="noopener" aria-label="Open GFE-Mamba paper on arXiv">
                 <div class="pub-slide is-current">
                   <img src="/images/publications/gfe-mamba.png" alt="GFE-Mamba multimodal progression assessment framework" loading="lazy">
                 </div>
@@ -395,13 +404,13 @@
             </div>
 
             <div class="pub-body">
-              <h3 class="pub-title"><a class="pub-title-link" href="https://github.com/Tinysqua/GFE-Mamba" target="_blank" rel="noopener">GFE-Mamba: Mamba-Based AD Multimodal Progression Assessment via Generative Feature Extraction from MCI</a></h3>
+              <h3 class="pub-title"><a class="pub-title-link" href="https://arxiv.org/abs/2407.15719" target="_blank" rel="noopener">GFE-Mamba: Mamba-Based AD Multimodal Progression Assessment via Generative Feature Extraction from MCI</a></h3>
               <p class="pub-authors"><strong>Co-first author</strong></p>
               <p class="pub-venue"><em>Information Fusion</em>, under review</p>
               <p class="pub-insight"><span class="insight-tag">Insight</span> Synthesizing metabolic 3D PET features from structural MRI overcomes missing PET scans for long-horizon MCI-to-AD progression forecasting.</p>
               <div class="pub-footer">
-                <a class="pub-btn" href="https://github.com/Tinysqua/GFE-Mamba" target="_blank" rel="noopener">Code (31★)</a>
-                <button class="pub-btn" type="button" data-bibtex-id="gfemamba" data-bibtex-title="GFE-Mamba">BibTeX</button>
+                <a class="pub-btn" href="https://arxiv.org/abs/2407.15719" target="_blank" rel="noopener">Paper</a>
+                <a class="pub-btn" href="https://github.com/Tinysqua/GFE-Mamba" target="_blank" rel="noopener">Code</a>
               </div>
             </div>
           </article>
@@ -409,7 +418,7 @@
           <!-- 7. MSTNet (ICASSP 2025) -->
           <article class="pub-card" data-categories="imaging-world">
             <div class="pub-figure">
-              <a class="pub-stage" href="https://github.com/JustlfC03/MSTNet" target="_blank" rel="noopener" aria-label="Open MSTNet GitHub repository">
+              <a class="pub-stage" href="https://ieeexplore.ieee.org/document/10888363" target="_blank" rel="noopener" aria-label="Open MSTNet IEEE ICASSP 2025 paper">
                 <div class="pub-slide is-current">
                   <img src="/images/publications/mstnet.png" alt="MSTNet multimodal architecture for early Alzheimer's disease detection" loading="lazy">
                 </div>
@@ -429,12 +438,13 @@
             </div>
 
             <div class="pub-body">
-              <h3 class="pub-title"><a class="pub-title-link" href="https://github.com/JustlfC03/MSTNet" target="_blank" rel="noopener">Toward Robust Early Detection of Alzheimer’s Disease via an Integrated Multimodal Learning Approach</a></h3>
+              <h3 class="pub-title"><a class="pub-title-link" href="https://ieeexplore.ieee.org/document/10888363" target="_blank" rel="noopener">Toward Robust Early Detection of Alzheimer’s Disease via an Integrated Multimodal Learning Approach</a></h3>
               <p class="pub-authors">Yifei Chen, <strong>Shenghao Zhu</strong>, Zhaojie Fang, et al.</p>
               <p class="pub-venue">IEEE ICASSP 2025 · Second author</p>
               <p class="pub-insight"><span class="insight-tag">Insight</span> Transforming 1D EEG into 2D spectral-temporal representations unlocks complementary cross-modal fusion with structural MRI and tabular clinical records.</p>
               <div class="pub-footer">
-                <a class="pub-btn" href="https://github.com/JustlfC03/MSTNet" target="_blank" rel="noopener">Code (69★)</a>
+                <a class="pub-btn" href="https://ieeexplore.ieee.org/document/10888363" target="_blank" rel="noopener">Paper</a>
+                <a class="pub-btn" href="https://github.com/JustlfC03/MSTNet" target="_blank" rel="noopener">Code</a>
                 <button class="pub-btn" type="button" data-bibtex-id="mstnet" data-bibtex-title="MSTNet">BibTeX</button>
               </div>
             </div>
@@ -443,7 +453,7 @@
           <!-- 8. SCKansformer (IEEE JBHI 2024) -->
           <article class="pub-card" data-categories="imaging-world">
             <div class="pub-figure">
-              <a class="pub-stage" href="https://github.com/JustlfC03/SCKansformer" target="_blank" rel="noopener" aria-label="Open SCKansformer GitHub repository">
+              <a class="pub-stage" href="https://ieeexplore.ieee.org/document/10713291" target="_blank" rel="noopener" aria-label="Open SCKansformer IEEE JBHI paper">
                 <div class="pub-slide is-current">
                   <img src="/images/publications/sckansformer.png" alt="SCKansformer architecture for fine-grained bone marrow cell classification" loading="lazy">
                 </div>
@@ -463,12 +473,13 @@
             </div>
 
             <div class="pub-body">
-              <h3 class="pub-title"><a class="pub-title-link" href="https://github.com/JustlfC03/SCKansformer" target="_blank" rel="noopener">SCKansformer: Fine-Grained Classification of Bone Marrow Cells via Kansformer Backbone and Hierarchical Attention Mechanisms</a></h3>
+              <h3 class="pub-title"><a class="pub-title-link" href="https://ieeexplore.ieee.org/document/10713291" target="_blank" rel="noopener">SCKansformer: Fine-Grained Classification of Bone Marrow Cells via Kansformer Backbone and Hierarchical Attention Mechanisms</a></h3>
               <p class="pub-authors">Yifei Chen, Zhu Zhu, <strong>Shenghao Zhu</strong>, et al.</p>
               <p class="pub-venue"><em>IEEE Journal of Biomedical and Health Informatics</em>, 2024 · Coauthor <span class="venue-note">(Top 1% Highly Cited)</span></p>
               <p class="pub-insight"><span class="insight-tag">Insight</span> Replacing fixed MLP projections with learnable Kolmogorov–Arnold splines sharpens subtle morphological boundaries across fine-grained bone marrow cell classes.</p>
               <div class="pub-footer">
-                <a class="pub-btn" href="https://github.com/JustlfC03/SCKansformer" target="_blank" rel="noopener">Code (49★)</a>
+                <a class="pub-btn" href="https://ieeexplore.ieee.org/document/10713291" target="_blank" rel="noopener">Paper</a>
+                <a class="pub-btn" href="https://github.com/JustlfC03/SCKansformer" target="_blank" rel="noopener">Code</a>
                 <button class="pub-btn" type="button" data-bibtex-id="sckansformer" data-bibtex-title="SCKansformer">BibTeX</button>
               </div>
             </div>
