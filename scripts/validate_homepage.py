@@ -56,7 +56,6 @@ def check_structure() -> None:
         "images/publications/idea-rl-actions.png",
         "images/publications/idea-rl-xpatient.png",
         "images/publications/idea-rl-dynamics.png",
-        "images/publications/idea-rl-results.png",
         "images/publications/adamm-graph.png",
         "images/publications/adamm-heatmaps.png",
         "images/publications/adamm-adapters.png",
@@ -72,6 +71,10 @@ def check_structure() -> None:
     require(
         not (ROOT / "images/publications/xpatient-idearl.svg").exists(),
         "Deprecated images/publications/xpatient-idearl.svg should be deleted",
+    )
+    require(
+        not (ROOT / "images/publications/idea-rl-results.png").exists(),
+        "Removed images/publications/idea-rl-results.png should not exist",
     )
 
     for html_rel in ["index.html", "cv/index.html", "about/index.html", "about.html", "404.html"]:
@@ -167,7 +170,8 @@ def check_content_and_safety() -> None:
         require(len(slides) == len(tabs), f"Publication card #{idx} slide count ({len(slides)}) != tab count ({len(tabs)})")
         require(len(slides) >= 2, f"Publication card #{idx} must contain at least 2 slides, found {len(slides)}")
         if "No Critic, Which Clue?" in card:
-            require(len(slides) == 5, f"IDEA-RL & XPatient card must contain 5 slides, found {len(slides)}")
+            require(len(slides) == 4, f"IDEA-RL & XPatient card must contain 4 slides, found {len(slides)}")
+            require(">Results<" not in card, "IDEA-RL & XPatient card must not contain Results tab")
         if "No Modality Left Behind:" in card:
             require(len(slides) == 5, f"AdaMM card must contain 5 slides, found {len(slides)}")
         if "ReBorn:" in card:
