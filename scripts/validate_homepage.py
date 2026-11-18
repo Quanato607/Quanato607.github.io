@@ -104,6 +104,7 @@ def check_content_and_safety() -> None:
         "XLSTM-HVED",
         "XPatient",
         "IDEA-RL",
+        "No Critic, Which Clue? Quantifying Evidence Advantages in Interactive Diagnosis",
         "Erbao 二宝",
         "/images/github-calligraphy-signature.png",
         "/images/publications/idea-rl.png",
@@ -119,6 +120,11 @@ def check_content_and_safety() -> None:
     require("sz-ink-theme" in index_html and "sz-ink-theme" in js_text, "Default Xuan-paper theme key sz-ink-theme must be wired")
     require("#f7f4ed" in css_text and "#141311" in css_text, "Both Xuan-paper light (#f7f4ed) and lacquer-black dark (#141311) tokens must exist in modern-home.css")
 
+    require("No Critic, Which Clue? Quantifying Evidence Advantages in Interactive Diagnosis" in cv_html, "cv/index.html must include real IDEA-RL title")
+    require('id="lightbox-modal"' not in index_html and 'class="zoom-hint"' not in index_html, "Figure Lightbox zoom must be removed in favor of direct paper/repo links")
+    require(len(re.findall(r'<a class="pub-stage"\s+href="[^"]+"', index_html)) == 8, "All 8 publication figures must be direct clickable links")
+    require(len(re.findall(r'<a class="pub-title-link"\s+href="[^"]+"', index_html)) == 8, "All 8 publication titles must be direct clickable links")
+
     # Check every publication card has >= 2 slides and unpublished cards do not expose coauthor/advisor names
     pub_cards = re.findall(r'<article class="pub-card".*?</article>', index_html, re.S)
     require(len(pub_cards) == 8, f"Expected 8 publication cards, found {len(pub_cards)}")
@@ -126,9 +132,9 @@ def check_content_and_safety() -> None:
     for idx, card in enumerate(pub_cards, start=1):
         slides = re.findall(r'class="pub-slide(?:\s|")', card)
         require(len(slides) >= 2, f"Publication card #{idx} must contain at least 2 slides, found {len(slides)}")
-        if "IDEA-RL &amp; XPatient" in card:
+        if "No Critic, Which Clue?" in card:
             require(len(slides) == 5, f"IDEA-RL & XPatient card must contain 5 slides, found {len(slides)}")
-        if any(marker in card for marker in ("IDEA-RL &amp; XPatient", "ReBorn:", "GFE-Mamba:")):
+        if any(marker in card for marker in ("No Critic, Which Clue?", "ReBorn:", "GFE-Mamba:")):
             for name in unpublished_forbidden:
                 require(name not in card, f"Unpublished/under-review card #{idx} must not list coauthor/advisor '{name}'")
             require("<strong>First author</strong>" in card or "<strong>Co-first author</strong>" in card, f"Unpublished card #{idx} must state author role only")
@@ -151,7 +157,6 @@ def check_content_and_safety() -> None:
         lowered = content.lower()
         for tok in forbidden_green_tokens:
             require(tok not in lowered, f"Forbidden green/teal color token '{tok}' found in {file_name}")
-        require("no critic, which clue" not in lowered, f"Anonymous ACL submission title leaked in {file_name}")
         require("transferred" not in lowered, f"Forbidden status 'transferred' appeared in {file_name}")
         require("causal value" not in lowered, f"Forbidden phrase 'causal value' appeared in {file_name}")
         require("true information gain" not in lowered, f"Forbidden phrase 'true information gain' appeared in {file_name}")

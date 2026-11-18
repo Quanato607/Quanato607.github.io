@@ -6,9 +6,10 @@
 
   const BIBTEX_MAP = {
     xpatient: `@misc{zhu2026idearl,
-  title  = {IDEA-RL and XPatient: Structured Clinical Simulation and Evidence Advantage Policy Optimization for Multi-Turn Clinical Consultation},
+  title  = {No Critic, Which Clue? Quantifying Evidence Advantages in Interactive Diagnosis},
   author = {Zhu, Shenghao},
-  year   = {2026}
+  year   = {2026},
+  note   = {IDEA-RL: Structured Clinical Simulation (XPatient) and Evidence Advantage Policy Optimization (EAPO)}
 }`,
     adamm: `@article{zhu2026adamm,
   title   = {No Modality Left Behind: Adapting to Missing Modalities via Knowledge Distillation for Brain Tumor Segmentation},
@@ -254,51 +255,15 @@
   }
 
   function initModals() {
-    const lightbox = document.getElementById("lightbox-modal");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const lightboxTitle = document.getElementById("lightbox-title");
-    const lightboxCaption = document.getElementById("lightbox-caption");
-    const lightboxNav = document.getElementById("lightbox-nav");
-    const lightboxPrev = document.getElementById("lightbox-prev");
-    const lightboxNext = document.getElementById("lightbox-next");
-    const lightboxCounter = document.getElementById("lightbox-counter");
-
     const bibModal = document.getElementById("bibtex-modal");
     const bibTitle = document.getElementById("bibtex-title");
     const bibCode = document.getElementById("bibtex-code");
     const bibCopyBtn = document.getElementById("bibtex-copy-btn");
 
-    let gallerySlides = [];
-    let galleryIdx = 0;
-
     const closeModal = (modal) => {
       if (!modal) return;
       modal.classList.remove("is-open");
       modal.setAttribute("aria-hidden", "true");
-    };
-
-    const renderGalleryFrame = () => {
-      if (!gallerySlides.length || !lightboxImg) return;
-      const item = gallerySlides[galleryIdx];
-      lightboxImg.src = item.src;
-      lightboxImg.alt = item.caption || item.title || "Enlarged preview";
-      if (lightboxTitle) lightboxTitle.textContent = item.title || "Figure Preview";
-      if (lightboxCaption) lightboxCaption.textContent = item.caption || "";
-      if (lightboxNav) {
-        lightboxNav.hidden = gallerySlides.length <= 1;
-      }
-      if (lightboxCounter) {
-        lightboxCounter.textContent = `${galleryIdx + 1} / ${gallerySlides.length}`;
-      }
-    };
-
-    const openGallery = (slides, startIndex) => {
-      if (!lightbox || !slides.length) return;
-      gallerySlides = slides;
-      galleryIdx = Math.max(0, Math.min(startIndex, slides.length - 1));
-      renderGalleryFrame();
-      lightbox.classList.add("is-open");
-      lightbox.setAttribute("aria-hidden", "false");
     };
 
     const openBibtex = (key, title) => {
@@ -309,53 +274,6 @@
       bibModal.classList.add("is-open");
       bibModal.setAttribute("aria-hidden", "false");
     };
-
-    document.querySelectorAll(".pub-stage").forEach((stage) => {
-      stage.addEventListener("click", () => {
-        const card = stage.closest(".pub-card");
-        const baseTitle = stage.getAttribute("data-paper-title") || "Figure Preview";
-        const slideEls = Array.from(stage.querySelectorAll(".pub-slide"));
-        if (!slideEls.length) return;
-        const slides = slideEls.map((el) => {
-          const img = el.querySelector("img");
-          const label = el.getAttribute("data-slide-label") || "";
-          return {
-            src: img ? (img.currentSrc || img.getAttribute("src")) : "",
-            title: label ? `${baseTitle} — ${label}` : baseTitle,
-            caption: el.getAttribute("data-caption") || (img ? img.getAttribute("alt") : "") || ""
-          };
-        });
-        const startIdx = Number((card && card.dataset.activeSlideIndex) || "0");
-        openGallery(slides, startIdx);
-      });
-    });
-
-    document.querySelectorAll("[data-lightbox-trigger]").forEach((trigger) => {
-      trigger.addEventListener("click", () => {
-        const img = trigger.querySelector("img");
-        if (!img) return;
-        const src = img.currentSrc || img.getAttribute("src");
-        const title = trigger.getAttribute("data-lightbox-title") || "Preview";
-        const caption = trigger.getAttribute("data-lightbox-caption") || img.getAttribute("alt") || "";
-        openGallery([{ src, title, caption }], 0);
-      });
-    });
-
-    if (lightboxPrev) {
-      lightboxPrev.addEventListener("click", () => {
-        if (gallerySlides.length <= 1) return;
-        galleryIdx = (galleryIdx - 1 + gallerySlides.length) % gallerySlides.length;
-        renderGalleryFrame();
-      });
-    }
-
-    if (lightboxNext) {
-      lightboxNext.addEventListener("click", () => {
-        if (gallerySlides.length <= 1) return;
-        galleryIdx = (galleryIdx + 1) % gallerySlides.length;
-        renderGalleryFrame();
-      });
-    }
 
     document.querySelectorAll("[data-bibtex-id]").forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -369,27 +287,17 @@
       });
     }
 
-    [lightbox, bibModal].forEach((modal) => {
-      if (!modal) return;
-      modal.addEventListener("click", (event) => {
-        if (event.target === modal || event.target.closest("[data-modal-close]")) {
-          closeModal(modal);
+    if (bibModal) {
+      bibModal.addEventListener("click", (event) => {
+        if (event.target === bibModal || event.target.closest("[data-modal-close]")) {
+          closeModal(bibModal);
         }
       });
-    });
+    }
 
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape") {
-        closeModal(lightbox);
         closeModal(bibModal);
-      } else if (lightbox && lightbox.classList.contains("is-open") && gallerySlides.length > 1) {
-        if (event.key === "ArrowLeft") {
-          galleryIdx = (galleryIdx - 1 + gallerySlides.length) % gallerySlides.length;
-          renderGalleryFrame();
-        } else if (event.key === "ArrowRight") {
-          galleryIdx = (galleryIdx + 1) % gallerySlides.length;
-          renderGalleryFrame();
-        }
       }
     });
   }

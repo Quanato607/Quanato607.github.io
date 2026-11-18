@@ -171,7 +171,7 @@
         </div>
 
         <div class="pub-subnote">
-          <span>Figures cycle left-to-right across architecture, visualizations, and results — click any tab or figure to inspect.</span>
+          <span>Figures cycle left-to-right across architecture, visualizations, and results — use tabs to switch views, or click any figure/title to open the work.</span>
           <span id="pub-visible-status" aria-live="polite">Showing 8 of 8 works</span>
         </div>
 
@@ -179,25 +179,24 @@
           <!-- 1. XPatient & IDEA-RL -->
           <article class="pub-card" data-categories="first-author agents-rl">
             <div class="pub-figure">
-              <div class="pub-stage" data-paper-title="IDEA-RL &amp; XPatient">
-                <div class="pub-slide is-current" data-slide-label="Model" data-caption="Overview of EAPO within IDEA-RL: XPatient grounds actions in a case evidence graph across trajectories (top), and EAPO pools cross-trajectory evidence outcomes with backward credit assignment (bottom).">
+              <a class="pub-stage" href="/idea-rl/" aria-label="Open No Critic, Which Clue? (IDEA-RL) project page">
+                <div class="pub-slide is-current">
                   <img src="/images/publications/idea-rl.png" alt="Overview of EAPO within IDEA-RL" loading="lazy">
                 </div>
-                <div class="pub-slide" data-slide-label="Actions" data-caption="Action quality, update compute, and OOD performance: EAPO raises effective actions while matching GRPO update TFLOPs (128.54 vs. 247.52 for PPO) and reaching 44.9% Jaccard on PMC-Patients-v2.">
+                <div class="pub-slide">
                   <img src="/images/publications/idea-rl-actions.png" alt="IDEA-RL action quality, update compute, and PMC-Patients-v2 Jaccard performance" loading="lazy">
                 </div>
-                <div class="pub-slide" data-slide-label="XPatient" data-caption="Comparison across five patient interaction capabilities (Domain Routing, Attribute Target, Context Use, Multi Intent, Empty Match) against AI patient frameworks and raw-EHR LLMs.">
+                <div class="pub-slide">
                   <img src="/images/publications/idea-rl-xpatient.png" alt="XPatient five-capability polar bar benchmark against AI patient frameworks and raw-EHR LLMs" loading="lazy">
                 </div>
-                <div class="pub-slide" data-slide-label="Dynamics" data-caption="Training dynamics across GRPO, w/o EAR, w/o CA, and EAPO: EAPO raises overall action efficiency to 80%, inquiry efficiency to 62%, and examination efficiency to 99%.">
+                <div class="pub-slide">
                   <img src="/images/publications/idea-rl-dynamics.png" alt="Eight-panel training dynamics comparing EAPO against GRPO and ablations" loading="lazy">
                 </div>
-                <div class="pub-slide" data-slide-label="Results" data-caption="Benchmark comparison across MIMIC-IV, DDxPlus, and OOD PMC-Patients-v2: Qwen3-4B with EAPO surpasses GPT-4o, GPT-4.1, Gemini 2.5 Flash, MedGemma-27B, and Baichuan-M2-32B.">
+                <div class="pub-slide">
                   <img src="/images/publications/idea-rl-results.png" alt="Benchmark comparison table across MIMIC-IV, DDxPlus, and PMC-Patients-v2" loading="lazy">
                 </div>
-                <span class="zoom-hint">Zoom</span>
                 <div class="pub-progress-track"><div class="pub-progress-fill"></div></div>
-              </div>
+              </a>
               <div class="pub-slide-tabs" role="group" aria-label="IDEA-RL figures">
                 <button class="pub-slide-tab is-active" type="button" aria-pressed="true">Model</button>
                 <button class="pub-slide-tab" type="button" aria-pressed="false">Actions</button>
@@ -208,13 +207,13 @@
             </div>
 
             <div class="pub-body">
-              <h3 class="pub-title">IDEA-RL &amp; XPatient: Structured Clinical Simulation and Evidence Advantage Policy Optimization for Multi-Turn Clinical Consultation</h3>
+              <h3 class="pub-title"><a class="pub-title-link" href="/idea-rl/">No Critic, Which Clue? Quantifying Evidence Advantages in Interactive Diagnosis</a></h3>
               <p class="pub-authors"><strong>First author</strong></p>
-              <p class="pub-venue">2026</p>
-              <p class="pub-takeaway">Pairs structured request-scoped simulation in XPatient with critic-free Evidence Advantage Policy Optimization (EAPO), pooling outcome-associated evidence scores across same-case trajectories and propagating first-acquisition credit backward.</p>
+              <p class="pub-venue">Preprint, 2026 · <span class="venue-note">IDEA-RL (XPatient &amp; EAPO)</span></p>
+              <p class="pub-takeaway">Different queries across rollouts often uncover equivalent latent facts while outcome-only RL supervises only final predictions; aligning shared evidence identities across trajectories (XPatient) allows critic-free EAPO to pool terminal outcomes per evidence node, credit first acquisition with zero-advantage masking (Advantage=0) on unrecorded inquiries, and propagate turn-level advantages backward at GRPO-equivalent update FLOPs (128.54 vs. 247.52 TFLOPs for PPO) — raising action efficiency to 80% and enabling a 4B agent to surpass GPT-4o and 32B specialists across in-distribution and OOD benchmarks.</p>
               <div class="pub-footer">
                 <a class="pub-btn" href="/idea-rl/">Project Page</a>
-                <button class="pub-btn" type="button" data-bibtex-id="xpatient" data-bibtex-title="IDEA-RL &amp; XPatient">BibTeX</button>
+                <button class="pub-btn" type="button" data-bibtex-id="xpatient" data-bibtex-title="No Critic, Which Clue? (IDEA-RL)">BibTeX</button>
               </div>
             </div>
           </article>
@@ -222,19 +221,18 @@
           <!-- 2. AdaMM (MedIA 2026) -->
           <article class="pub-card" data-categories="first-author imaging-world">
             <div class="pub-figure">
-              <div class="pub-stage" data-paper-title="AdaMM (Medical Image Analysis 2026)">
-                <div class="pub-slide is-current" data-slide-label="Model" data-caption="AdaMM unifies arbitrary missing-modality brain tumor segmentation into one compact adapter-distilled student network.">
+              <a class="pub-stage" href="https://doi.org/10.1016/j.media.2026.104108" target="_blank" rel="noopener" aria-label="Open AdaMM paper via DOI">
+                <div class="pub-slide is-current">
                   <img src="/images/publications/adamm.png" alt="AdaMM framework for missing-modality brain tumor segmentation" loading="lazy">
                 </div>
-                <div class="pub-slide" data-slide-label="Visuals" data-caption="Qualitative segmentation results on BraTS 2024 across T1ce, T1ce+Flair, T1ce+Flair+T2, and Complete modalities.">
+                <div class="pub-slide">
                   <img src="/images/publications/adamm-vis.png" alt="AdaMM BraTS 2024 qualitative comparison across missing-modality subsets" loading="lazy">
                 </div>
-                <div class="pub-slide" data-slide-label="Metrics" data-caption="Performance vs. parameter count across Dice, HD95, IoU, and Sensitivity: AdaMM achieves top accuracy with minimal parameter overhead.">
+                <div class="pub-slide">
                   <img src="/images/publications/adamm-metrics.png" alt="AdaMM quantitative Dice HD95 IoU Sensitivity vs parameter count scatter plots" loading="lazy">
                 </div>
-                <span class="zoom-hint">Zoom</span>
                 <div class="pub-progress-track"><div class="pub-progress-fill"></div></div>
-              </div>
+              </a>
               <div class="pub-slide-tabs" role="group" aria-label="AdaMM figures">
                 <button class="pub-slide-tab is-active" type="button" aria-pressed="true">Model</button>
                 <button class="pub-slide-tab" type="button" aria-pressed="false">Visuals</button>
@@ -243,7 +241,7 @@
             </div>
 
             <div class="pub-body">
-              <h3 class="pub-title">No Modality Left Behind: Adapting to Missing Modalities via Knowledge Distillation for Brain Tumor Segmentation</h3>
+              <h3 class="pub-title"><a class="pub-title-link" href="https://doi.org/10.1016/j.media.2026.104108" target="_blank" rel="noopener">No Modality Left Behind: Adapting to Missing Modalities via Knowledge Distillation for Brain Tumor Segmentation</a></h3>
               <p class="pub-authors"><strong>Shenghao Zhu</strong>, Yifei Chen, Weihong Chen, et al. · Qiyuan Tian*</p>
               <p class="pub-venue"><em>Medical Image Analysis</em>, 2026 · First author <span class="venue-note">(IF 14.0)</span></p>
               <p class="pub-takeaway">Integrates lightweight modality adapters into a unified student model to handle arbitrary missing-MRI subsets while cutting parameter footprint and inference latency.</p>
@@ -258,19 +256,18 @@
           <!-- 3. ReBorn (CVPR 2026 Findings) -->
           <article class="pub-card" data-categories="first-author imaging-world">
             <div class="pub-figure">
-              <div class="pub-stage" data-paper-title="ReBorn (CVPR 2026 Findings)">
-                <div class="pub-slide is-current" data-slide-label="Model" data-caption="ReBorn converts full-modality segmentation backbones into missing-modality survivors via Pareto and gradient-entropy optimization.">
+              <a class="pub-stage" href="https://github.com/Quanato607/ReBorn" target="_blank" rel="noopener" aria-label="Open ReBorn GitHub repository">
+                <div class="pub-slide is-current">
                   <img src="/images/publications/reborn.png" alt="ReBorn framework for robust segmentation under modality degradation" loading="lazy">
                 </div>
-                <div class="pub-slide" data-slide-label="Visuals" data-caption="Qualitative comparison across missing-modality MRI combinations showing substantial Dice improvements over competing methods.">
+                <div class="pub-slide">
                   <img src="/images/publications/reborn-vis.png" alt="ReBorn qualitative brain tumor segmentation visualization" loading="lazy">
                 </div>
-                <div class="pub-slide" data-slide-label="Results" data-caption="WT, TC, and ET average Dice across 100% down to 10% full-modality training ratios, demonstrating strong robustness under scarce full scans.">
+                <div class="pub-slide">
                   <img src="/images/publications/reborn-metrics.png" alt="ReBorn average Dice under varying full-modality training rates" loading="lazy">
                 </div>
-                <span class="zoom-hint">Zoom</span>
                 <div class="pub-progress-track"><div class="pub-progress-fill"></div></div>
-              </div>
+              </a>
               <div class="pub-slide-tabs" role="group" aria-label="ReBorn figures">
                 <button class="pub-slide-tab is-active" type="button" aria-pressed="true">Model</button>
                 <button class="pub-slide-tab" type="button" aria-pressed="false">Visuals</button>
@@ -279,7 +276,7 @@
             </div>
 
             <div class="pub-body">
-              <h3 class="pub-title">ReBorn: Turning Full-Modality Segmentation Models into Missing-Modality Survivors</h3>
+              <h3 class="pub-title"><a class="pub-title-link" href="https://github.com/Quanato607/ReBorn" target="_blank" rel="noopener">ReBorn: Turning Full-Modality Segmentation Models into Missing-Modality Survivors</a></h3>
               <p class="pub-authors"><strong>First author</strong></p>
               <p class="pub-venue">CVPR 2026 Findings</p>
               <p class="pub-takeaway">Combines missing-modality Pareto training, model split weight moving, and gradient entropy balancing to preserve full-modality models under severe modality drop.</p>
@@ -293,19 +290,18 @@
           <!-- 4. MST-KDNet (MICCAI 2025) -->
           <article class="pub-card" data-categories="first-author imaging-world">
             <div class="pub-figure">
-              <div class="pub-stage" data-paper-title="MST-KDNet (MICCAI 2025)">
-                <div class="pub-slide is-current" data-slide-label="Model" data-caption="MST-KDNet introduces multi-scale Transformer attention alignment and adversarial style matching for missing-modality MRI.">
+              <a class="pub-stage" href="https://github.com/Quanato607/MST-KDNet" target="_blank" rel="noopener" aria-label="Open MST-KDNet GitHub repository">
+                <div class="pub-slide is-current">
                   <img src="/images/publications/mst-kdnet.png" alt="MST-KDNet framework for brain tumor segmentation with missing modalities" loading="lazy">
                 </div>
-                <div class="pub-slide" data-slide-label="Visuals" data-caption="Qualitative BraTS segmentation comparisons under Complete, FLAIR+T1ce+T2, FLAIR+T1ce, and FLAIR-only scenarios.">
+                <div class="pub-slide">
                   <img src="/images/publications/mst-kdnet-vis.png" alt="MST-KDNet qualitative brain tumor segmentation results" loading="lazy">
                 </div>
-                <div class="pub-slide" data-slide-label="Results" data-caption="Quantitative Dice and HD95 results on BraTS 2024 and FeTS 2024 demonstrating consistent gains from MS-TKD, GSME, and SLKD.">
+                <div class="pub-slide">
                   <img src="/images/publications/mst-kdnet-results.png" alt="MST-KDNet quantitative ablation table on BraTS 2024 and FeTS 2024" loading="lazy">
                 </div>
-                <span class="zoom-hint">Zoom</span>
                 <div class="pub-progress-track"><div class="pub-progress-fill"></div></div>
-              </div>
+              </a>
               <div class="pub-slide-tabs" role="group" aria-label="MST-KDNet figures">
                 <button class="pub-slide-tab is-active" type="button" aria-pressed="true">Model</button>
                 <button class="pub-slide-tab" type="button" aria-pressed="false">Visuals</button>
@@ -314,7 +310,7 @@
             </div>
 
             <div class="pub-body">
-              <h3 class="pub-title">Bridging the Gap in Missing Modalities: Leveraging Knowledge Distillation and Style Matching for Brain Tumor Segmentation</h3>
+              <h3 class="pub-title"><a class="pub-title-link" href="https://github.com/Quanato607/MST-KDNet" target="_blank" rel="noopener">Bridging the Gap in Missing Modalities: Leveraging Knowledge Distillation and Style Matching for Brain Tumor Segmentation</a></h3>
               <p class="pub-authors"><strong>Shenghao Zhu</strong>, Yifei Chen, Weihong Chen, et al. · Feiwei Qin*</p>
               <p class="pub-venue">MICCAI 2025 · First author</p>
               <p class="pub-takeaway">Aligns cross-modal multi-scale Transformer attention, dual-mode logit transfer, and global feature style matching across incomplete MRI inputs.</p>
@@ -328,19 +324,18 @@
           <!-- 5. XLSTM-HVED (IEEE ISBI 2025 Oral) -->
           <article class="pub-card" data-categories="first-author imaging-world">
             <div class="pub-figure">
-              <div class="pub-stage" data-paper-title="XLSTM-HVED (IEEE ISBI 2025 Oral)">
-                <div class="pub-slide is-current" data-slide-label="Model" data-caption="XLSTM-HVED unifies multimodal brain tumor segmentation and missing MRI reconstruction.">
+              <a class="pub-stage" href="https://arxiv.org/abs/2412.07804" target="_blank" rel="noopener" aria-label="Open XLSTM-HVED paper on arXiv">
+                <div class="pub-slide is-current">
                   <img src="/images/publications/xlstm-hved.png" alt="XLSTM-HVED model for cross-modal segmentation and MRI reconstruction" loading="lazy">
                 </div>
-                <div class="pub-slide" data-slide-label="Modules" data-caption="Detailed Vision-LSTM attention and channel/spatial squeeze-fusion-excitation recalibration blocks (cSFE &amp; sSFE).">
+                <div class="pub-slide">
                   <img src="/images/publications/xlstm-hved-modules.png" alt="XLSTM-HVED Vision-LSTM and cSFE/sSFE module architecture" loading="lazy">
                 </div>
-                <div class="pub-slide" data-slide-label="Results" data-caption="Full 15-combination BraTS 2024 comparison: XLSTM-HVED achieves superior average Dice and lower HD95 across WT, TC, and ET.">
+                <div class="pub-slide">
                   <img src="/images/publications/xlstm-hved-results.png" alt="XLSTM-HVED BraTS 2024 quantitative Dice and HD95 comparison table" loading="lazy">
                 </div>
-                <span class="zoom-hint">Zoom</span>
                 <div class="pub-progress-track"><div class="pub-progress-fill"></div></div>
-              </div>
+              </a>
               <div class="pub-slide-tabs" role="group" aria-label="XLSTM-HVED figures">
                 <button class="pub-slide-tab is-active" type="button" aria-pressed="true">Model</button>
                 <button class="pub-slide-tab" type="button" aria-pressed="false">Modules</button>
@@ -349,7 +344,7 @@
             </div>
 
             <div class="pub-body">
-              <h3 class="pub-title">XLSTM-HVED: Cross-Modal Brain Tumor Segmentation and MRI Reconstruction Method Using Vision XLSTM and Heteromodal Variational Encoder-Decoder</h3>
+              <h3 class="pub-title"><a class="pub-title-link" href="https://arxiv.org/abs/2412.07804" target="_blank" rel="noopener">XLSTM-HVED: Cross-Modal Brain Tumor Segmentation and MRI Reconstruction Method Using Vision XLSTM and Heteromodal Variational Encoder-Decoder</a></h3>
               <p class="pub-authors"><strong>Shenghao Zhu</strong>, Yifei Chen, Shuo Jiang, et al. · Zhu Zhu*</p>
               <p class="pub-venue">IEEE ISBI 2025 · First author <span class="venue-note">(Oral Presentation)</span></p>
               <p class="pub-takeaway">Pairs heteromodal variational encoders with Vision XLSTM attention and feature recalibration for joint tumor segmentation and missing-sequence MRI synthesis.</p>
@@ -364,19 +359,18 @@
           <!-- 6. GFE-Mamba (Information Fusion, Under Review) -->
           <article class="pub-card" data-categories="imaging-world">
             <div class="pub-figure">
-              <div class="pub-stage" data-paper-title="GFE-Mamba (Information Fusion)">
-                <div class="pub-slide is-current" data-slide-label="Model" data-caption="GFE-Mamba integrates 3D MRI-to-PET synthesis and multimodal Mamba progression modeling for MCI-to-AD conversion.">
+              <a class="pub-stage" href="https://github.com/Tinysqua/GFE-Mamba" target="_blank" rel="noopener" aria-label="Open GFE-Mamba GitHub repository">
+                <div class="pub-slide is-current">
                   <img src="/images/publications/gfe-mamba.png" alt="GFE-Mamba multimodal progression assessment framework" loading="lazy">
                 </div>
-                <div class="pub-slide" data-slide-label="MRI→PET" data-caption="Qualitative 3D GAN-ViT MRI-to-PET cross-modal slice synthesis compared against ground-truth PET scans.">
+                <div class="pub-slide">
                   <img src="/images/publications/gfe-mamba-synthesis.png" alt="GFE-Mamba axial MRI to generated PET synthesis visualization" loading="lazy">
                 </div>
-                <div class="pub-slide" data-slide-label="ROC" data-caption="7-fold cross-validation ROC curves achieving AUC = 0.96 (1-year) and AUC = 0.93 (3-year) progression forecasting.">
+                <div class="pub-slide">
                   <img src="/images/publications/gfe-mamba-results.png" alt="GFE-Mamba 7-fold cross-validation ROC curves for 1-year and 3-year AD progression" loading="lazy">
                 </div>
-                <span class="zoom-hint">Zoom</span>
                 <div class="pub-progress-track"><div class="pub-progress-fill"></div></div>
-              </div>
+              </a>
               <div class="pub-slide-tabs" role="group" aria-label="GFE-Mamba figures">
                 <button class="pub-slide-tab is-active" type="button" aria-pressed="true">Model</button>
                 <button class="pub-slide-tab" type="button" aria-pressed="false">MRI→PET</button>
@@ -385,7 +379,7 @@
             </div>
 
             <div class="pub-body">
-              <h3 class="pub-title">GFE-Mamba: Mamba-Based AD Multimodal Progression Assessment via Generative Feature Extraction from MCI</h3>
+              <h3 class="pub-title"><a class="pub-title-link" href="https://github.com/Tinysqua/GFE-Mamba" target="_blank" rel="noopener">GFE-Mamba: Mamba-Based AD Multimodal Progression Assessment via Generative Feature Extraction from MCI</a></h3>
               <p class="pub-authors"><strong>Co-first author</strong></p>
               <p class="pub-venue"><em>Information Fusion</em>, under review</p>
               <p class="pub-takeaway">Combines MRI-to-PET synthesis, multimodal Mamba sequence classification, and clinical records for Alzheimer’s disease progression forecasting.</p>
@@ -399,19 +393,18 @@
           <!-- 7. MSTNet (ICASSP 2025) -->
           <article class="pub-card" data-categories="imaging-world">
             <div class="pub-figure">
-              <div class="pub-stage" data-paper-title="MSTNet (IEEE ICASSP 2025)">
-                <div class="pub-slide is-current" data-slide-label="Model" data-caption="MSTNet fuses clinical, cognitive, demographic, EEG, and MRI features for early Alzheimer's detection.">
+              <a class="pub-stage" href="https://github.com/JustlfC03/MSTNet" target="_blank" rel="noopener" aria-label="Open MSTNet GitHub repository">
+                <div class="pub-slide is-current">
                   <img src="/images/publications/mstnet.png" alt="MSTNet multimodal architecture for early Alzheimer's disease detection" loading="lazy">
                 </div>
-                <div class="pub-slide" data-slide-label="Modules" data-caption="Feature Tokenizer for tabular embeddings and TimesBlock 1D-to-2D spectral-temporal EEG representation.">
+                <div class="pub-slide">
                   <img src="/images/publications/mstnet-module.png" alt="MSTNet Feature Tokenizer and TimesBlock modules" loading="lazy">
                 </div>
-                <div class="pub-slide" data-slide-label="Results" data-caption="ADMC benchmark comparison &amp; ablation: MSTNet attains 90.00% accuracy and 88.57% F1-score over unimodal and multimodal baselines.">
+                <div class="pub-slide">
                   <img src="/images/publications/mstnet-results.png" alt="MSTNet comparison and ablation table on ADMC dataset" loading="lazy">
                 </div>
-                <span class="zoom-hint">Zoom</span>
                 <div class="pub-progress-track"><div class="pub-progress-fill"></div></div>
-              </div>
+              </a>
               <div class="pub-slide-tabs" role="group" aria-label="MSTNet figures">
                 <button class="pub-slide-tab is-active" type="button" aria-pressed="true">Model</button>
                 <button class="pub-slide-tab" type="button" aria-pressed="false">Modules</button>
@@ -420,7 +413,7 @@
             </div>
 
             <div class="pub-body">
-              <h3 class="pub-title">Toward Robust Early Detection of Alzheimer’s Disease via an Integrated Multimodal Learning Approach</h3>
+              <h3 class="pub-title"><a class="pub-title-link" href="https://github.com/JustlfC03/MSTNet" target="_blank" rel="noopener">Toward Robust Early Detection of Alzheimer’s Disease via an Integrated Multimodal Learning Approach</a></h3>
               <p class="pub-authors">Yifei Chen, <strong>Shenghao Zhu</strong>, Zhaojie Fang, et al.</p>
               <p class="pub-venue">IEEE ICASSP 2025 · Second author</p>
               <p class="pub-takeaway">Fuses heterogeneous clinical, cognitive, demographic, EEG, and structural MRI signals for early Alzheimer’s disease detection.</p>
@@ -434,19 +427,18 @@
           <!-- 8. SCKansformer (IEEE JBHI 2024) -->
           <article class="pub-card" data-categories="imaging-world">
             <div class="pub-figure">
-              <div class="pub-stage" data-paper-title="SCKansformer (IEEE JBHI 2024)">
-                <div class="pub-slide is-current" data-slide-label="Model" data-caption="SCKansformer combines KAN-based nonlinear priors with spatial/channel reconstruction for bone marrow cell classification.">
+              <a class="pub-stage" href="https://github.com/JustlfC03/SCKansformer" target="_blank" rel="noopener" aria-label="Open SCKansformer GitHub repository">
+                <div class="pub-slide is-current">
                   <img src="/images/publications/sckansformer.png" alt="SCKansformer architecture for fine-grained bone marrow cell classification" loading="lazy">
                 </div>
-                <div class="pub-slide" data-slide-label="Heatmap" data-caption="Feature correlation visualization comparing PCA, Autoencoder, and SCConv Encoder representations.">
+                <div class="pub-slide">
                   <img src="/images/publications/sckansformer-heatmap.png" alt="SCKansformer feature correlation heatmaps comparing PCA, Autoencoder, and SCConv Encoder" loading="lazy">
                 </div>
-                <div class="pub-slide" data-slide-label="Results" data-caption="State-of-the-art classification performance on BMCD-FGCD (83.23% Acc, 84.34% F1) and PBC (99.46% Acc) benchmarks.">
+                <div class="pub-slide">
                   <img src="/images/publications/sckansformer-results.png" alt="SCKansformer benchmark comparison tables on BMCD-FGCD and PBC datasets" loading="lazy">
                 </div>
-                <span class="zoom-hint">Zoom</span>
                 <div class="pub-progress-track"><div class="pub-progress-fill"></div></div>
-              </div>
+              </a>
               <div class="pub-slide-tabs" role="group" aria-label="SCKansformer figures">
                 <button class="pub-slide-tab is-active" type="button" aria-pressed="true">Model</button>
                 <button class="pub-slide-tab" type="button" aria-pressed="false">Heatmap</button>
@@ -455,7 +447,7 @@
             </div>
 
             <div class="pub-body">
-              <h3 class="pub-title">SCKansformer: Fine-Grained Classification of Bone Marrow Cells via Kansformer Backbone and Hierarchical Attention Mechanisms</h3>
+              <h3 class="pub-title"><a class="pub-title-link" href="https://github.com/JustlfC03/SCKansformer" target="_blank" rel="noopener">SCKansformer: Fine-Grained Classification of Bone Marrow Cells via Kansformer Backbone and Hierarchical Attention Mechanisms</a></h3>
               <p class="pub-authors">Yifei Chen, Zhu Zhu, <strong>Shenghao Zhu</strong>, et al.</p>
               <p class="pub-venue"><em>IEEE Journal of Biomedical and Health Informatics</em>, 2024 · Coauthor <span class="venue-note">(Top 1% Highly Cited)</span></p>
               <p class="pub-takeaway">Introduces KAN-based nonlinear priors and hierarchical spatial/channel attention for fine-grained hematological cell morphology classification.</p>
@@ -601,19 +593,19 @@
             </header>
 
             <ul class="carousel-track" data-carousel-track tabindex="0" aria-label="Places I've visited">
-              <li class="carousel-slide" data-lightbox-trigger data-lightbox-title="Places I've Been (1 / 13)"><img src="/images/gallery/places/travel-01-statue-of-liberty.jpg" alt="The Statue of Liberty beneath a wide blue sky, viewed from the water." width="1080" height="1440" decoding="async" draggable="false"></li>
-              <li class="carousel-slide" data-lightbox-trigger data-lightbox-title="Places I've Been (2 / 13)"><img src="/images/gallery/places/travel-02-sunlit-waterfront.jpg" alt="A sailboat on a sunlit waterfront with a suspension bridge in the background." width="1080" height="1440" loading="lazy" decoding="async" draggable="false"></li>
-              <li class="carousel-slide" data-lightbox-trigger data-lightbox-title="Places I've Been (3 / 13)"><img src="/images/gallery/places/travel-03-reflecting-pool.jpg" alt="A square memorial reflecting pool surrounded by trees and city buildings." width="1080" height="1440" loading="lazy" decoding="async" draggable="false"></li>
-              <li class="carousel-slide" data-lightbox-trigger data-lightbox-title="Places I've Been (4 / 13)"><img src="/images/gallery/places/travel-04-blue-hour-street.jpg" alt="A tree-lined city street at blue hour beneath glowing lamps." width="1707" height="1280" loading="lazy" decoding="async" draggable="false"></li>
-              <li class="carousel-slide" data-lightbox-trigger data-lightbox-title="Places I've Been (5 / 13)"><img src="/images/gallery/places/travel-05-lake-reflection.jpg" alt="A calm lake reflecting clouds and distant mountains beneath overhanging branches." width="1280" height="1707" loading="lazy" decoding="async" draggable="false"></li>
-              <li class="carousel-slide" data-lightbox-trigger data-lightbox-title="Places I've Been (6 / 13)"><img src="/images/gallery/places/travel-06-wooden-tea-house.jpg" alt="The wooden facade of a traditional tea house along a busy street." width="1707" height="1280" loading="lazy" decoding="async" draggable="false"></li>
-              <li class="carousel-slide" data-lightbox-trigger data-lightbox-title="Places I've Been (7 / 13)"><img src="/images/gallery/places/travel-07-tropical-city-evening.jpg" alt="A palm-lined city intersection at dusk under a dramatic blue sky." width="1707" height="1280" loading="lazy" decoding="async" draggable="false"></li>
-              <li class="carousel-slide" data-lightbox-trigger data-lightbox-title="Places I've Been (8 / 13)"><img src="/images/gallery/places/travel-08-garden-pond.jpg" alt="A leafy garden pond with a small stone bridge beneath a bright sky." width="1707" height="1280" loading="lazy" decoding="async" draggable="false"></li>
-              <li class="carousel-slide" data-lightbox-trigger data-lightbox-title="Places I've Been (9 / 13)"><img src="/images/gallery/places/travel-09-sunny-garden.jpg" alt="A sunny garden with flowering shrubs, green trees, and a clear blue sky." width="1080" height="1920" loading="lazy" decoding="async" draggable="false"></li>
-              <li class="carousel-slide" data-lightbox-trigger data-lightbox-title="Places I've Been (10 / 13)"><img src="/images/gallery/places/travel-10-low-tide-lighthouse.jpg" alt="A lighthouse overlooking a broad rocky shoreline at low tide." width="1707" height="1280" loading="lazy" decoding="async" draggable="false"></li>
-              <li class="carousel-slide" data-lightbox-trigger data-lightbox-title="Places I've Been (11 / 13)"><img src="/images/gallery/places/travel-11-green-field-mountains.jpg" alt="A green field beneath forested mountains dotted with wind turbines." width="1707" height="1280" loading="lazy" decoding="async" draggable="false"></li>
-              <li class="carousel-slide" data-lightbox-trigger data-lightbox-title="Places I've Been (12 / 13)"><img src="/images/gallery/places/travel-12-rocky-tidal-flat.jpg" alt="People exploring a rocky tidal flat beneath a wide blue sky." width="1707" height="1280" loading="lazy" decoding="async" draggable="false"></li>
-              <li class="carousel-slide" data-lightbox-trigger data-lightbox-title="Places I've Been (13 / 13)"><img src="/images/gallery/places/travel-13-turquoise-lake.jpg" alt="A turquoise mountain lake framed by bamboo and forested hills." width="1280" height="1707" loading="lazy" decoding="async" draggable="false"></li>
+              <li class="carousel-slide"><img src="/images/gallery/places/travel-01-statue-of-liberty.jpg" alt="The Statue of Liberty beneath a wide blue sky, viewed from the water." width="1080" height="1440" decoding="async" draggable="false"></li>
+              <li class="carousel-slide"><img src="/images/gallery/places/travel-02-sunlit-waterfront.jpg" alt="A sailboat on a sunlit waterfront with a suspension bridge in the background." width="1080" height="1440" loading="lazy" decoding="async" draggable="false"></li>
+              <li class="carousel-slide"><img src="/images/gallery/places/travel-03-reflecting-pool.jpg" alt="A square memorial reflecting pool surrounded by trees and city buildings." width="1080" height="1440" loading="lazy" decoding="async" draggable="false"></li>
+              <li class="carousel-slide"><img src="/images/gallery/places/travel-04-blue-hour-street.jpg" alt="A tree-lined city street at blue hour beneath glowing lamps." width="1707" height="1280" loading="lazy" decoding="async" draggable="false"></li>
+              <li class="carousel-slide"><img src="/images/gallery/places/travel-05-lake-reflection.jpg" alt="A calm lake reflecting clouds and distant mountains beneath overhanging branches." width="1280" height="1707" loading="lazy" decoding="async" draggable="false"></li>
+              <li class="carousel-slide"><img src="/images/gallery/places/travel-06-wooden-tea-house.jpg" alt="The wooden facade of a traditional tea house along a busy street." width="1707" height="1280" loading="lazy" decoding="async" draggable="false"></li>
+              <li class="carousel-slide"><img src="/images/gallery/places/travel-07-tropical-city-evening.jpg" alt="A palm-lined city intersection at dusk under a dramatic blue sky." width="1707" height="1280" loading="lazy" decoding="async" draggable="false"></li>
+              <li class="carousel-slide"><img src="/images/gallery/places/travel-08-garden-pond.jpg" alt="A leafy garden pond with a small stone bridge beneath a bright sky." width="1707" height="1280" loading="lazy" decoding="async" draggable="false"></li>
+              <li class="carousel-slide"><img src="/images/gallery/places/travel-09-sunny-garden.jpg" alt="A sunny garden with flowering shrubs, green trees, and a clear blue sky." width="1080" height="1920" loading="lazy" decoding="async" draggable="false"></li>
+              <li class="carousel-slide"><img src="/images/gallery/places/travel-10-low-tide-lighthouse.jpg" alt="A lighthouse overlooking a broad rocky shoreline at low tide." width="1707" height="1280" loading="lazy" decoding="async" draggable="false"></li>
+              <li class="carousel-slide"><img src="/images/gallery/places/travel-11-green-field-mountains.jpg" alt="A green field beneath forested mountains dotted with wind turbines." width="1707" height="1280" loading="lazy" decoding="async" draggable="false"></li>
+              <li class="carousel-slide"><img src="/images/gallery/places/travel-12-rocky-tidal-flat.jpg" alt="People exploring a rocky tidal flat beneath a wide blue sky." width="1707" height="1280" loading="lazy" decoding="async" draggable="false"></li>
+              <li class="carousel-slide"><img src="/images/gallery/places/travel-13-turquoise-lake.jpg" alt="A turquoise mountain lake framed by bamboo and forested hills." width="1280" height="1707" loading="lazy" decoding="async" draggable="false"></li>
             </ul>
             <p class="carousel-caption" data-carousel-caption></p>
           </section>
@@ -630,10 +622,10 @@
             </header>
 
             <ul class="carousel-track" data-carousel-track tabindex="0" aria-label="Photos of Erbao">
-              <li class="carousel-slide" data-lightbox-trigger data-lightbox-title="Erbao 二宝 (1 / 4)"><img src="/images/gallery/cats/cat-01-close-up.jpg" alt="Erbao, a black-and-white cat, being gently scratched under the chin." width="1280" height="1707" decoding="async" draggable="false"></li>
-              <li class="carousel-slide" data-lightbox-trigger data-lightbox-title="Erbao 二宝 (2 / 4)"><img src="/images/gallery/cats/cat-02-cardboard-box.jpg" alt="Erbao, a blue-eyed black-and-white cat, resting in a cardboard box." width="1080" height="1920" loading="lazy" decoding="async" draggable="false"></li>
-              <li class="carousel-slide" data-lightbox-trigger data-lightbox-title="Erbao 二宝 (3 / 4)"><img src="/images/gallery/cats/cat-03-stretched-paws.jpg" alt="Erbao reclining with its front paws stretched forward." width="1280" height="1707" loading="lazy" decoding="async" draggable="false"></li>
-              <li class="carousel-slide" data-lightbox-trigger data-lightbox-title="Erbao 二宝 (4 / 4)"><img src="/images/gallery/cats/cat-04-chair-nap.jpg" alt="A fluffy white cat curled asleep on a chair." width="960" height="1280" loading="lazy" decoding="async" draggable="false"></li>
+              <li class="carousel-slide"><img src="/images/gallery/cats/cat-01-close-up.jpg" alt="Erbao, a black-and-white cat, being gently scratched under the chin." width="1280" height="1707" decoding="async" draggable="false"></li>
+              <li class="carousel-slide"><img src="/images/gallery/cats/cat-02-cardboard-box.jpg" alt="Erbao, a blue-eyed black-and-white cat, resting in a cardboard box." width="1080" height="1920" loading="lazy" decoding="async" draggable="false"></li>
+              <li class="carousel-slide"><img src="/images/gallery/cats/cat-03-stretched-paws.jpg" alt="Erbao reclining with its front paws stretched forward." width="1280" height="1707" loading="lazy" decoding="async" draggable="false"></li>
+              <li class="carousel-slide"><img src="/images/gallery/cats/cat-04-chair-nap.jpg" alt="A fluffy white cat curled asleep on a chair." width="960" height="1280" loading="lazy" decoding="async" draggable="false"></li>
             </ul>
             <p class="carousel-caption" data-carousel-caption></p>
           </section>
@@ -652,25 +644,6 @@
         <span>Set in Crimson Pro</span>
       </span>
     </footer>
-  </div>
-
-  <!-- Lightbox Modal -->
-  <div class="modal-backdrop" id="lightbox-modal" role="dialog" aria-modal="true" aria-labelledby="lightbox-title" aria-hidden="true">
-    <div class="modal-panel">
-      <div class="modal-header">
-        <h3 id="lightbox-title">Figure Preview</h3>
-        <button class="modal-close" type="button" data-modal-close aria-label="Close preview">×</button>
-      </div>
-      <div class="lightbox-stage">
-        <img id="lightbox-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="">
-      </div>
-      <p class="lightbox-caption" id="lightbox-caption"></p>
-      <div class="lightbox-nav" id="lightbox-nav" hidden>
-        <button class="modal-action-btn" id="lightbox-prev" type="button">← Previous</button>
-        <span class="carousel-counter" id="lightbox-counter">1 / 3</span>
-        <button class="modal-action-btn" id="lightbox-next" type="button">Next →</button>
-      </div>
-    </div>
   </div>
 
   <!-- BibTeX Modal -->

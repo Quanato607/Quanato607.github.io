@@ -498,14 +498,20 @@ button {
 }
 
 .pub-stage {
+  display: block;
   position: relative;
   height: 168px;
   background: var(--surface-fig);
   border: 1px solid var(--rule);
   border-radius: 2px;
   overflow: hidden;
-  cursor: zoom-in;
+  cursor: pointer;
+  text-decoration: none;
   transition: border-color 0.22s ease;
+}
+
+.main a.pub-stage {
+  text-decoration: none;
 }
 
 .pub-card:hover .pub-stage {
@@ -596,26 +602,6 @@ button {
   transform: scale(1.015);
 }
 
-.zoom-hint {
-  position: absolute;
-  right: 7px;
-  bottom: 7px;
-  z-index: 6;
-  padding: 2px 7px;
-  border-radius: 2px;
-  background: rgba(20, 19, 17, 0.78);
-  color: #f1ece2;
-  font-family: var(--mono);
-  font-size: 0.64rem;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  pointer-events: none;
-}
-
-.pub-stage:hover .zoom-hint {
-  opacity: 1;
-}
-
 .pub-progress-track {
   position: absolute;
   left: 0;
@@ -671,6 +657,19 @@ button {
   font: 600 1.04rem/1.4 var(--serif);
   color: var(--ink-1);
   text-wrap: balance;
+}
+
+.main a.pub-title-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.main a.pub-title-link:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: var(--ink-3);
 }
 
 .pub-authors {
@@ -918,7 +917,7 @@ button {
   flex: 0 0 100%;
   scroll-snap-align: start;
   height: 100%;
-  cursor: zoom-in;
+  cursor: default;
 }
 
 .carousel-slide img {
@@ -1099,40 +1098,6 @@ button {
 
 .modal-close:hover {
   color: var(--ink-1);
-}
-
-.lightbox-stage {
-  background: var(--surface-fig);
-  border: 1px solid var(--rule);
-  border-radius: 2px;
-  padding: 0.75rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.lightbox-stage img {
-  max-height: 64vh;
-  width: auto;
-  object-fit: contain;
-}
-
-.lightbox-caption {
-  margin: 0.75rem 0 0;
-  font-size: 0.94rem;
-  color: var(--ink-2);
-}
-
-.lightbox-nav {
-  margin-top: 0.85rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.lightbox-nav[hidden] {
-  display: none;
 }
 
 .modal-action-btn {
