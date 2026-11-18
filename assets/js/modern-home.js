@@ -389,8 +389,46 @@
     });
   }
 
+  function initSideToc() {
+    const links = Array.from(document.querySelectorAll(".toc-link[data-toc-target]"));
+    const sections = Array.from(document.querySelectorAll("main section[id]"));
+    if (!links.length || !sections.length) return;
+
+    const setActive = (id) => {
+      links.forEach((link) => {
+        link.classList.toggle("is-active", link.dataset.tocTarget === id);
+      });
+    };
+
+    if ("IntersectionObserver" in window) {
+      const spy = new IntersectionObserver(
+        (entries) => {
+          if (window.scrollY < 80) {
+            setActive(sections[0].id);
+            return;
+          }
+          const visible = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+          if (visible.length) {
+            setActive(visible[0].target.id);
+          }
+        },
+        { rootMargin: "-18% 0px -60% 0px", threshold: [0.05, 0.25, 0.5] }
+      );
+      sections.forEach((sec) => spy.observe(sec));
+    }
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY < 80) {
+        setActive(sections[0].id);
+      }
+    }, { passive: true });
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     initTheme();
+    initSideToc();
     initPublications();
     initPubSlideshows();
     initModals();

@@ -16,7 +16,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Ubuntu+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 
   <script>
     (function () {
@@ -33,7 +33,7 @@
   <div class="page">
     <aside class="side">
       <div class="side-top">
-        <a href="/" aria-label="Return to homepage">
+        <a class="portrait-frame" href="/" aria-label="Return to homepage">
           <img class="portrait" src="/images/profile.png" alt="Portrait of Shenghao Zhu" width="1097" height="1096">
         </a>
 
@@ -71,26 +71,28 @@
             </svg>
           </button>
         </nav>
+
+        <nav class="side-toc" aria-label="CV sections">
+          <a class="toc-link is-active" href="#cv-overview" data-toc-target="cv-overview"><span class="toc-num">01</span><span>Summary</span></a>
+          <a class="toc-link" href="#cv-education" data-toc-target="cv-education"><span class="toc-num">02</span><span>Education</span></a>
+          <a class="toc-link" href="#cv-appointments" data-toc-target="cv-appointments"><span class="toc-num">03</span><span>Positions</span></a>
+          <a class="toc-link" href="#cv-outputs" data-toc-target="cv-outputs"><span class="toc-num">04</span><span>Publications &amp; PDF</span></a>
+        </nav>
       </div>
 
-      <figure class="inscription hero-signature" aria-label="Calligraphic brush signature with vermilion stone seal">
-        <img class="inscription-img" src="/images/github-calligraphy-signature.png" alt="Shenghao Zhu calligraphic brush inscription" width="441" height="470">
-        <svg class="seal" viewBox="0 0 36 36" aria-hidden="true">
-          <rect x="2" y="2" width="32" height="32" rx="3" fill="currentColor"/>
-          <g fill="none" stroke="var(--ground)" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter">
-            <line x1="18" y1="6.5" x2="18" y2="29.5"/>
-            <path d="M10.5 11.5h15M8.5 18h19"/>
-            <path d="M10.5 11.5v5M18 18l-7 10M18 18l7 10"/>
-          </g>
-        </svg>
+      <figure class="inscription hero-signature" aria-label="Calligraphic brush signature">
+        <img class="inscription-img" src="/images/github-calligraphy-signature.png" alt="Shenghao Zhu calligraphic brush signature" width="441" height="470">
       </figure>
     </aside>
 
-    <div class="axis" aria-hidden="true"></div>
-
     <main class="main">
-      <section aria-labelledby="cv-title">
-        <h2 id="cv-title">Curriculum Vitae</h2>
+      <section id="cv-overview" aria-labelledby="cv-title">
+        <div class="folio-head">
+          <span class="folio-title-group">
+            <span class="folio-num">01</span>
+            <h2 id="cv-title">Curriculum Vitae</h2>
+          </span>
+        </div>
         <div class="cv-lead-bar">
           <p style="margin: 0;">B.Eng. in Computer Science and Technology (HDU ’26) · Visiting Research Student at University of Michigan</p>
           <div class="cv-lead-actions">
@@ -101,8 +103,13 @@
         </div>
       </section>
 
-      <section aria-labelledby="cv-edu">
-        <h2 id="cv-edu">Education</h2>
+      <section id="cv-education" aria-labelledby="cv-edu">
+        <div class="folio-head">
+          <span class="folio-title-group">
+            <span class="folio-num">02</span>
+            <h2 id="cv-edu">Education</h2>
+          </span>
+        </div>
         <div class="exp">
           <div class="exp-head">
             <h3 class="exp-org">Hangzhou Dianzi University</h3>
@@ -113,9 +120,14 @@
         </div>
       </section>
 
-      <section aria-labelledby="cv-positions">
-        <h2 id="cv-positions">Research Positions</h2>
-        <ul class="dash-list">
+      <section id="cv-appointments" aria-labelledby="cv-positions">
+        <div class="folio-head">
+          <span class="folio-title-group">
+            <span class="folio-num">03</span>
+            <h2 id="cv-positions">Research Positions</h2>
+          </span>
+        </div>
+        <ul class="folio-list">
           <li><strong>University of Michigan</strong> · Visiting Student (Oct. 2026 – Present), Prof. Liyue Shen</li>
           <li><strong>Ant Group</strong> · Medical AI Research Intern (Mar. – Sep. 2026), Dr. Le Lu</li>
           <li><strong>Westlake University</strong> · Visiting Student (Aug. 2025 – Mar. 2026), Prof. Yefeng Zheng</li>
@@ -124,9 +136,14 @@
         </ul>
       </section>
 
-      <section aria-labelledby="cv-pubs">
-        <h2 id="cv-pubs">Key Publications</h2>
-        <ul class="dash-list">
+      <section id="cv-outputs" aria-labelledby="cv-pubs">
+        <div class="folio-head">
+          <span class="folio-title-group">
+            <span class="folio-num">04</span>
+            <h2 id="cv-pubs">Key Publications</h2>
+          </span>
+        </div>
+        <ul class="folio-list">
           <li><a href="/idea-rl/"><strong>No Critic, Which Clue? Quantifying Evidence Advantages in Interactive Diagnosis</strong></a> · <em>IDEA-RL &amp; XPatient</em> (2026), First author</li>
           <li><strong>AdaMM</strong> · <em>Medical Image Analysis</em> 2026, First author</li>
           <li><strong>ReBorn</strong> · CVPR 2026 Findings, First author</li>
@@ -144,13 +161,12 @@
     </main>
 
     <footer class="colophon">
-      <span>© 2026 Shenghao Zhu</span>
+      <span>© 2026 Shenghao Zhu · Ann Arbor &amp; Hangzhou</span>
       <span class="colophon-links">
         <a href="/">Homepage</a>
         <a href="https://scholar.google.com/citations?user=6zr4pucAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
         <a href="https://github.com/Quanato607" target="_blank" rel="noopener">GitHub</a>
         <a href="/sitemap.xml">Sitemap</a>
-        <span>Set in Crimson Pro</span>
       </span>
     </footer>
   </div>

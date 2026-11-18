@@ -1,6 +1,6 @@
 /* ==========================================================================
-   Shenghao Zhu — Archival Monograph Stylesheet
-   Inspired by cyrusluo.site (Xuan-paper default light + Lacquer-black dark)
+   Shenghao Zhu — Editorial Research Monograph Stylesheet
+   Distinct left-aligned architectural rail, Xuan-paper default & warm ink dark
    ========================================================================== */
 
 :root,
@@ -15,20 +15,19 @@
   --ink-3: #6e675f;
   --ink-4: #aba398;
   --rule: #dfd9ce;
-  --seal: #b83a2a;
-  --seal-soft: rgba(184, 58, 42, 0.1);
+  --accent: #8f2d22;
+  --accent-soft: rgba(143, 45, 34, 0.08);
   --backdrop-rgba: rgba(24, 21, 18, 0.62);
-  --glow-top: rgba(255, 255, 255, 0.55);
-  --grain-color: 0;
-  --grain-alpha: 0.032;
+  --glow-top: rgba(255, 255, 255, 0.56);
 
-  --serif: "Crimson Pro", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-  --mono: "Ubuntu Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
-  --side: 14.2rem;
-  --gutter: 3.4rem;
-  --measure: 49.5rem;
-  --top: 4.1rem;
+  --side: 15.2rem;
+  --gutter: 4rem;
+  --measure: 50rem;
+  --top: 3.1rem;
   --ease-settle: cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
@@ -43,8 +42,8 @@
   --ink-3: #a09a8e;
   --ink-4: #6c675d;
   --rule: #2f2c27;
-  --seal: #b83a2a;
-  --seal-soft: rgba(184, 58, 42, 0.18);
+  --accent: #d4846a;
+  --accent-soft: rgba(212, 132, 106, 0.14);
   --backdrop-rgba: rgba(10, 9, 8, 0.8);
   --glow-top: rgba(255, 252, 245, 0.034);
 }
@@ -75,7 +74,7 @@ body {
   transition: background-color 0.28s ease, color 0.28s ease;
 }
 
-/* Subtle paper / lacquer procedural grain + soft upper-left illumination */
+/* Subtle paper / ink procedural grain + quiet upper-left glow */
 body::before {
   content: "";
   position: fixed;
@@ -84,7 +83,7 @@ body::before {
   pointer-events: none;
   background-image:
     radial-gradient(ellipse 70% 55% at 18% 0%, var(--glow-top), transparent 72%),
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.48 0 0 0 0 0.44 .055 0 0 0 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.48 0 0 0 0 0.44 .05 0 0 0 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
 }
 
 ::selection {
@@ -109,7 +108,7 @@ button {
 }
 
 :focus-visible {
-  outline: 1.5px solid var(--seal);
+  outline: 1.5px solid var(--accent);
   outline-offset: 3px;
   border-radius: 2px;
 }
@@ -133,24 +132,17 @@ button {
 }
 
 /* ==========================================================================
-   Two-Column Monograph Shell (.page = .side | .axis | .main)
+   Two-Track Open-Gutter Layout (.page = .side | .main)
    ========================================================================== */
 
 .page {
   display: grid;
-  grid-template-columns: var(--side) 1px minmax(0, var(--measure));
+  grid-template-columns: var(--side) minmax(0, var(--measure));
   grid-template-rows: 1fr auto;
   column-gap: var(--gutter);
   justify-content: center;
   min-height: 100vh;
   padding: 0 1.5rem;
-}
-
-.axis {
-  grid-column: 2;
-  grid-row: 1 / -1;
-  background: var(--rule);
-  transition: background-color 0.28s ease;
 }
 
 .side {
@@ -162,51 +154,61 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-end;
-  text-align: right;
-  padding: var(--top) 0 2.6rem;
-  gap: 2rem;
+  align-items: flex-start;
+  text-align: left;
+  padding: var(--top) 0 1.9rem;
+  gap: 1.25rem;
 }
 
 .side-top {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
   width: 100%;
 }
 
+.portrait-frame {
+  display: inline-block;
+  padding: 4px;
+  background: var(--surface-fig);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+[data-theme="dark"] .portrait-frame {
+  background: var(--ground-soft);
+}
+
 .portrait {
-  width: 6.1rem;
-  height: 6.1rem;
-  border-radius: 50%;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 7px;
   object-fit: cover;
-  outline: 1px solid var(--rule);
-  outline-offset: 0.34rem;
-  transition: outline-color 0.28s ease, filter 0.28s ease;
+  transition: filter 0.25s ease;
 }
 
 [data-theme="dark"] .portrait {
-  filter: brightness(0.84) contrast(1.03);
+  filter: brightness(0.88) contrast(1.03);
 }
 
 .name {
-  margin: 1.45rem 0 0.48rem;
-  font: 500 2rem/1.1 var(--serif);
-  letter-spacing: 0;
+  margin: 0.92rem 0 0.28rem;
+  font: 500 1.92rem/1.12 var(--serif);
+  letter-spacing: -0.015em;
   color: var(--ink-1);
 }
 
 .role {
   margin: 0;
-  font-size: 0.96rem;
-  line-height: 1.48;
+  font: 500 0.84rem/1.46 var(--sans);
   color: var(--ink-3);
 }
 
 .role a {
   color: var(--ink-2);
   text-decoration: none;
-  transition: color 0.22s ease;
+  transition: color 0.2s ease;
 }
 
 .role a:hover {
@@ -215,14 +217,15 @@ button {
 
 .role-sub {
   display: block;
-  margin-top: 0.15rem;
-  font-size: 0.88rem;
+  margin-top: 0.16rem;
+  font-size: 0.77rem;
+  font-weight: 400;
   color: var(--ink-3);
 }
 
 .contact {
-  margin-top: 0.72rem;
-  font: 400 0.8rem/1.65 var(--mono);
+  margin-top: 0.56rem;
+  font: 400 0.74rem/1.55 var(--mono);
   color: var(--ink-3);
 }
 
@@ -247,9 +250,10 @@ button {
 .links {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: 0.92rem;
-  margin-top: 1.05rem;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 0.72rem;
 }
 
 .icon-link {
@@ -261,7 +265,7 @@ button {
   border: 0;
   color: var(--ink-3);
   text-decoration: none;
-  transition: color 0.22s ease;
+  transition: color 0.2s ease;
 }
 
 .icon-link:hover {
@@ -269,13 +273,13 @@ button {
 }
 
 .icon-link svg {
-  width: 1.15rem;
-  height: 1.15rem;
+  width: 1.08rem;
+  height: 1.08rem;
   display: block;
 }
 
 .icon-link--text {
-  font: 400 0.76rem/1 var(--mono);
+  font: 500 0.72rem/1 var(--mono);
   letter-spacing: 0.04em;
   text-transform: uppercase;
   padding: 3px 0;
@@ -289,65 +293,112 @@ button {
   display: none;
 }
 
-/* Side bottom calligraphy + vermilion stone seal */
+/* Numbered section index in left rail */
+.side-toc {
+  width: 100%;
+  margin-top: 0.92rem;
+  padding-top: 0.72rem;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  gap: 0.22rem;
+}
+
+.toc-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  padding: 2px 0;
+  font: 500 0.78rem/1.42 var(--sans);
+  color: var(--ink-3);
+  text-decoration: none;
+  transition: color 0.18s ease, transform 0.18s ease;
+}
+
+.toc-num {
+  font: 500 0.68rem/1 var(--mono);
+  color: var(--ink-4);
+  transition: color 0.18s ease;
+}
+
+.toc-link:hover,
+.toc-link.is-active {
+  color: var(--ink-1);
+  transform: translateX(4px);
+}
+
+.toc-link:hover .toc-num,
+.toc-link.is-active .toc-num {
+  color: var(--accent);
+}
+
+/* Enlarged, seal-free brush calligraphy at rail foot */
 .inscription {
-  position: relative;
-  width: 7.4rem;
+  width: 11.2rem;
   margin: 0;
-  display: inline-block;
-  align-self: flex-end;
+  align-self: flex-start;
 }
 
 .inscription-img {
   width: 100%;
   height: auto;
   display: block;
-  opacity: 0.88;
+  opacity: 0.9;
   transition: filter 0.28s ease, opacity 0.28s ease;
 }
 
 [data-theme="dark"] .inscription-img {
-  filter: brightness(0) invert(0.84) sepia(0.14) saturate(0.38);
-  opacity: 0.9;
-}
-
-.seal {
-  position: absolute;
-  left: 3%;
-  bottom: 2%;
-  width: 1.48rem;
-  height: 1.48rem;
-  color: var(--seal);
-  pointer-events: none;
+  filter: brightness(0) invert(0.85) sepia(0.12) saturate(0.35);
+  opacity: 0.92;
 }
 
 /* ==========================================================================
-   Main Reading Column
+   Main Editorial Column
    ========================================================================== */
 
 .main {
-  grid-column: 3;
+  grid-column: 2;
   grid-row: 1;
   min-width: 0;
   padding-top: var(--top);
 }
 
-.main h2 {
-  margin: 3.35rem 0 1.25rem;
+.folio-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.2rem;
+  margin: 3.1rem 0 1.15rem;
   padding-bottom: 0.55rem;
   border-bottom: 1px solid var(--rule);
-  font: 500 0.84rem/1.2 var(--serif);
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--ink-1);
 }
 
-.main > section:first-child h2 {
+.main > section:first-child .folio-head {
   margin-top: 0;
 }
 
+.folio-title-group {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.62rem;
+}
+
+.folio-num {
+  font: 500 0.74rem/1 var(--mono);
+  color: var(--accent);
+  letter-spacing: 0.04em;
+}
+
+.folio-head h2 {
+  margin: 0;
+  font: 500 1.28rem/1.24 var(--serif);
+  letter-spacing: -0.01em;
+  color: var(--ink-1);
+}
+
 .main p {
-  margin: 0 0 1rem;
+  margin: 0 0 0.92rem;
 }
 
 .main p:last-child {
@@ -364,7 +415,7 @@ button {
   text-decoration-thickness: 1px;
   text-underline-offset: 0.22em;
   text-decoration-color: var(--ink-4);
-  transition: color 0.22s ease, text-decoration-color 0.22s ease;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
 
 .main a:hover {
@@ -372,57 +423,70 @@ button {
   text-decoration-color: var(--ink-1);
 }
 
-/* Custom dash list (matching cyrusluo.site Research Interests) */
-.dash-list {
+/* Two-track Research Focus ledger inside Overview */
+.focus-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.45rem;
+  margin-top: 1.05rem;
+  padding-top: 0.95rem;
+  border-top: 1px dashed var(--rule);
+}
+
+.focus-item {
+  min-width: 0;
+}
+
+.focus-kicker {
+  margin: 0 0 0.28rem;
+  font: 700 0.72rem/1.3 var(--sans);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.focus-text {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.54;
+  color: var(--ink-2);
+}
+
+/* Custom small rotated square markers */
+.folio-list {
   list-style: none;
-  margin: 0.2rem 0 0;
+  margin: 0.25rem 0 0;
   padding: 0;
 }
 
-.dash-list li {
+.folio-list li {
   position: relative;
-  padding-left: 1.35rem;
-  margin-bottom: 0.52rem;
+  padding-left: 1.15rem;
+  margin-bottom: 0.48rem;
+  font-size: 0.96rem;
 }
 
-.dash-list li:last-child {
+.folio-list li:last-child {
   margin-bottom: 0;
 }
 
-.dash-list li::before {
+.folio-list li::before {
   content: "";
   position: absolute;
-  left: 0;
-  top: 0.72em;
-  width: 0.62em;
-  height: 2px;
-  border-radius: 1px;
-  background: var(--ink-3);
+  left: 0.1rem;
+  top: 0.68em;
+  width: 4px;
+  height: 4px;
+  transform: rotate(45deg);
+  background: var(--accent);
 }
 
-/* Section heading with understated filter controls */
-.sec-head-row {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.2rem;
-  margin: 3.35rem 0 0.45rem;
-  padding-bottom: 0.55rem;
-  border-bottom: 1px solid var(--rule);
-}
-
-.sec-head-row h2 {
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
-
+/* Publication filters */
 .filter-bar {
   display: inline-flex;
   align-items: baseline;
   flex-wrap: wrap;
-  gap: 0.2rem 0.95rem;
+  gap: 0.25rem 0.9rem;
 }
 
 .filter-pill {
@@ -430,7 +494,7 @@ button {
   background: none;
   border: 0;
   border-bottom: 1.5px solid transparent;
-  font: 400 0.77rem/1.3 var(--mono);
+  font: 500 0.72rem/1.3 var(--mono);
   color: var(--ink-3);
   transition: color 0.2s ease, border-color 0.2s ease;
 }
@@ -441,11 +505,11 @@ button {
 
 .filter-pill.is-active {
   color: var(--ink-1);
-  border-bottom-color: var(--seal);
+  border-bottom-color: var(--accent);
 }
 
 .filter-count {
-  opacity: 0.75;
+  opacity: 0.72;
 }
 
 .pub-subnote {
@@ -454,7 +518,7 @@ button {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 0.4rem 1rem;
-  margin: 0.55rem 0 0.25rem;
+  margin: -0.45rem 0 0.35rem;
   font-size: 0.87rem;
   font-style: italic;
   color: var(--ink-3);
@@ -463,11 +527,11 @@ button {
 #pub-visible-status {
   font-family: var(--mono);
   font-style: normal;
-  font-size: 0.74rem;
+  font-size: 0.72rem;
 }
 
 /* ==========================================================================
-   Selected Publications — Left Figure, Right Monograph Text
+   Selected Publications — Left Linked Figure + Slide Tabs, Right Explicit Insight
    ========================================================================== */
 
 .pub-list {
@@ -481,7 +545,7 @@ button {
   column-gap: 1.7rem;
   row-gap: 0.75rem;
   align-items: start;
-  padding: 1.38rem 0;
+  padding: 1.35rem 0;
   border-bottom: 1px solid var(--rule);
 }
 
@@ -503,7 +567,7 @@ button {
   height: 168px;
   background: var(--surface-fig);
   border: 1px solid var(--rule);
-  border-radius: 2px;
+  border-radius: 3px;
   overflow: hidden;
   cursor: pointer;
   text-decoration: none;
@@ -556,8 +620,8 @@ button {
   width: 24px;
   background: linear-gradient(
     90deg,
-    rgba(184, 58, 42, 0),
-    rgba(184, 58, 42, 0.14),
+    rgba(143, 45, 34, 0),
+    rgba(143, 45, 34, 0.14),
     rgba(28, 25, 23, 0.05)
   );
   animation: pptSweepEdge 0.72s cubic-bezier(0.22, 1, 0.36, 1) forwards;
@@ -615,13 +679,13 @@ button {
 .pub-progress-fill {
   height: 100%;
   width: 33.3%;
-  background: var(--seal);
+  background: var(--accent);
   transition: width 0.35s ease;
 }
 
-/* Understated typographic slide switcher under the figure frame */
+/* Understated monospace slide tabs below figure */
 .pub-slide-tabs {
-  margin-top: 0.42rem;
+  margin-top: 0.44rem;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -633,7 +697,7 @@ button {
   border: 0;
   border-bottom: 1.5px solid transparent;
   background: none;
-  font: 400 0.72rem/1.3 var(--mono);
+  font: 500 0.69rem/1.3 var(--mono);
   color: var(--ink-3);
   transition: color 0.18s ease, border-color 0.18s ease;
 }
@@ -644,7 +708,7 @@ button {
 
 .pub-slide-tab.is-active {
   color: var(--ink-1);
-  border-bottom-color: var(--seal);
+  border-bottom-color: var(--accent);
 }
 
 /* Right text body */
@@ -654,7 +718,7 @@ button {
 
 .pub-title {
   margin: 0;
-  font: 600 1.04rem/1.4 var(--serif);
+  font: 600 1.05rem/1.38 var(--serif);
   color: var(--ink-1);
   text-wrap: balance;
 }
@@ -674,29 +738,41 @@ button {
 
 .pub-authors {
   margin: 0.22rem 0 0;
-  font-size: 0.94rem;
-  line-height: 1.5;
+  font-size: 0.93rem;
+  line-height: 1.48;
   color: var(--ink-2);
 }
 
 .pub-venue {
-  margin: 0.16rem 0 0;
-  font-size: 0.9rem;
+  margin: 0.14rem 0 0;
+  font-size: 0.89rem;
   font-style: italic;
   color: var(--ink-3);
 }
 
 .pub-venue .venue-note {
   font-style: normal;
-  color: var(--seal);
+  color: var(--accent);
   font-weight: 500;
 }
 
-.pub-takeaway {
-  margin: 0.42rem 0 0;
-  font-size: 0.92rem;
-  line-height: 1.56;
+.pub-insight {
+  margin: 0.46rem 0 0;
+  padding-left: 0.72rem;
+  border-left: 2px solid var(--accent);
+  font-size: 0.91rem;
+  line-height: 1.52;
   color: var(--ink-2);
+}
+
+.insight-tag {
+  display: inline-block;
+  margin-right: 0.4rem;
+  font: 700 0.66rem/1 var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  vertical-align: 1px;
 }
 
 .pub-footer {
@@ -714,7 +790,7 @@ button {
   padding: 0;
   border: 0;
   background: none;
-  font: 400 0.78rem/1.35 var(--mono);
+  font: 500 0.73rem/1.35 var(--mono);
   color: var(--ink-3);
   text-decoration: underline;
   text-decoration-thickness: 1px;
@@ -729,7 +805,7 @@ button {
 }
 
 /* ==========================================================================
-   Recent News & Experience (Exact cyrusluo.site editorial rows)
+   Recent News & Research Trajectory
    ========================================================================== */
 
 .news-list {
@@ -740,11 +816,11 @@ button {
 
 .news-entry {
   display: grid;
-  grid-template-columns: 4.9rem minmax(0, 1fr);
-  column-gap: 1.1rem;
+  grid-template-columns: 4.8rem minmax(0, 1fr);
+  column-gap: 1.05rem;
   align-items: baseline;
-  padding: 0.42rem 0;
-  font-size: 0.96rem;
+  padding: 0.38rem 0;
+  font-size: 0.95rem;
 }
 
 .news-entry.is-extra-hidden {
@@ -752,17 +828,17 @@ button {
 }
 
 .news-date {
-  font: 400 0.8rem/1.4 var(--mono);
+  font: 500 0.74rem/1.4 var(--mono);
   color: var(--ink-3);
   white-space: nowrap;
 }
 
 .text-toggle-btn {
-  margin-top: 0.65rem;
+  margin-top: 0.58rem;
   padding: 0;
   background: none;
   border: 0;
-  font: 400 0.78rem/1.4 var(--mono);
+  font: 500 0.74rem/1.4 var(--mono);
   color: var(--ink-3);
   text-decoration: underline;
   text-decoration-thickness: 1px;
@@ -776,13 +852,31 @@ button {
   text-decoration-color: var(--ink-1);
 }
 
+.trajectory-subblock {
+  margin-top: 1.65rem;
+  padding-top: 1.25rem;
+  border-top: 1px dashed var(--rule);
+}
+
+.sub-label {
+  margin: 0 0 0.75rem;
+  font: 700 0.74rem/1.3 var(--sans);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.sub-label--inline {
+  margin-top: 1.45rem;
+}
+
 .exp-list {
   display: flex;
   flex-direction: column;
 }
 
 .exp {
-  margin-bottom: 1.35rem;
+  margin-bottom: 1.25rem;
 }
 
 .exp:last-child {
@@ -798,58 +892,43 @@ button {
 
 .exp-org {
   margin: 0;
-  font: 600 1.02rem/1.4 var(--serif);
+  font: 600 1.02rem/1.38 var(--serif);
   color: var(--ink-1);
 }
 
 .exp-date {
-  font: 400 0.84rem/1.4 var(--serif);
-  font-style: italic;
+  font: 500 0.74rem/1.4 var(--mono);
   color: var(--ink-3);
   white-space: nowrap;
 }
 
 .exp-role {
-  margin: 0.1rem 0 0;
+  margin: 0.08rem 0 0;
   font-style: italic;
   color: var(--ink-3);
-  font-size: 0.94rem;
+  font-size: 0.93rem;
 }
 
 .exp-desc {
-  margin: 0.28rem 0 0;
-  font-size: 0.94rem;
+  margin: 0.24rem 0 0;
+  font-size: 0.93rem;
   color: var(--ink-2);
 }
 
 /* ==========================================================================
-   Education, Honors & Service
-   ========================================================================== */
-
-.sub-label {
-  margin: 1.35rem 0 0.45rem;
-  font: 600 0.94rem/1.3 var(--serif);
-  color: var(--ink-1);
-}
-
-.sub-label--inline {
-  margin-top: 1.45rem;
-}
-
-/* ==========================================================================
-   Life Beyond Research — Framed Archival Plates
+   Life Beyond Research — Framed Plates
    ========================================================================== */
 
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.75rem;
+  gap: 1.7rem;
 }
 
 .carousel-card {
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
+  gap: 0.52rem;
   min-width: 0;
 }
 
@@ -869,13 +948,13 @@ button {
 .carousel-controls {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
+  gap: 0.42rem;
 }
 
 .carousel-counter {
-  font: 400 0.75rem/1 var(--mono);
+  font: 500 0.71rem/1 var(--mono);
   color: var(--ink-3);
-  min-width: 3rem;
+  min-width: 2.9rem;
   text-align: center;
 }
 
@@ -884,7 +963,7 @@ button {
   border: 1px solid var(--rule);
   border-radius: 2px;
   background: transparent;
-  font: 400 0.78rem/1.3 var(--mono);
+  font: 500 0.72rem/1.3 var(--mono);
   color: var(--ink-3);
   transition: color 0.18s ease, border-color 0.18s ease;
 }
@@ -901,7 +980,7 @@ button {
   scroll-behavior: smooth;
   scrollbar-width: none;
   border: 1px solid var(--rule);
-  border-radius: 2px;
+  border-radius: 3px;
   background: var(--ground-soft);
   margin: 0;
   padding: 0;
@@ -941,21 +1020,21 @@ button {
 }
 
 /* ==========================================================================
-   Colophon Footer (Row 2, Column 3 — aligned to cyrusluo.site)
+   Colophon Footer (Row 2, Column 2)
    ========================================================================== */
 
 .colophon {
-  grid-column: 3;
+  grid-column: 2;
   grid-row: 2;
-  margin-top: 4.5rem;
-  padding: 1.15rem 0 3.2rem;
+  margin-top: 4rem;
+  padding: 1.15rem 0 3rem;
   border-top: 1px solid var(--rule);
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 0.5rem 1.4rem;
-  font-size: 0.88rem;
+  font: 500 0.78rem/1.4 var(--sans);
   color: var(--ink-3);
 }
 
@@ -963,13 +1042,13 @@ button {
   display: inline-flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.25rem 0.9rem;
+  gap: 0.25rem 0.95rem;
 }
 
 .colophon a {
   text-decoration: underline;
   text-decoration-thickness: 1px;
-  text-underline-offset: 0.22em;
+  text-underline-offset: 0.24em;
   text-decoration-color: var(--rule);
   transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
@@ -997,7 +1076,7 @@ button {
   align-items: center;
   flex-wrap: wrap;
   gap: 0.4rem 1.1rem;
-  font: 400 0.8rem/1.4 var(--mono);
+  font: 500 0.76rem/1.4 var(--mono);
   color: var(--ink-3);
 }
 
@@ -1006,7 +1085,7 @@ button {
   height: min(74vh, 840px);
   margin-top: 1.5rem;
   border: 1px solid var(--rule);
-  border-radius: 2px;
+  border-radius: 3px;
   background: var(--surface-fig);
 }
 
@@ -1032,11 +1111,11 @@ button {
   margin-top: 1.5rem;
   display: inline-flex;
   gap: 1.25rem;
-  font: 400 0.84rem/1.4 var(--mono);
+  font: 500 0.78rem/1.4 var(--mono);
 }
 
 /* ==========================================================================
-   Modals (Lightbox & BibTeX) & Toast
+   BibTeX Modal & Toast
    ========================================================================== */
 
 .modal-backdrop {
@@ -1058,18 +1137,14 @@ button {
 }
 
 .modal-panel {
-  width: min(940px, 100%);
+  width: min(640px, 100%);
   max-height: 90vh;
   overflow: auto;
   padding: 1.35rem 1.45rem;
   background: var(--modal-bg);
   color: var(--ink-2);
   border: 1px solid var(--rule);
-  border-radius: 3px;
-}
-
-.modal-panel--bib {
-  width: min(640px, 100%);
+  border-radius: 4px;
 }
 
 .modal-header {
@@ -1092,7 +1167,7 @@ button {
   background: none;
   border: 0;
   padding: 0 4px;
-  font: 400 1.35rem/1 var(--mono);
+  font: 400 1.3rem/1 var(--mono);
   color: var(--ink-3);
 }
 
@@ -1101,11 +1176,11 @@ button {
 }
 
 .modal-action-btn {
-  padding: 4px 10px;
+  padding: 5px 12px;
   border: 1px solid var(--rule);
-  border-radius: 2px;
+  border-radius: 3px;
   background: transparent;
-  font: 400 0.78rem/1.4 var(--mono);
+  font: 500 0.74rem/1.4 var(--mono);
   color: var(--ink-2);
   transition: color 0.18s ease, border-color 0.18s ease;
 }
@@ -1120,8 +1195,8 @@ button {
   padding: 0.9rem 1rem;
   background: var(--ground);
   border: 1px solid var(--rule);
-  border-radius: 2px;
-  font: 400 0.8rem/1.58 var(--mono);
+  border-radius: 3px;
+  font: 400 0.76rem/1.58 var(--mono);
   color: var(--ink-1);
   overflow-x: auto;
   white-space: pre-wrap;
@@ -1136,8 +1211,8 @@ button {
   padding: 0.45rem 0.9rem;
   background: var(--ink-1);
   color: var(--ground);
-  border-radius: 2px;
-  font: 400 0.8rem/1.3 var(--mono);
+  border-radius: 3px;
+  font: 500 0.76rem/1.3 var(--mono);
   transform: translate(-50%, 10px);
   opacity: 0;
   pointer-events: none;
@@ -1150,7 +1225,7 @@ button {
 }
 
 /* ==========================================================================
-   Arrival Settle Motion (matching cyrusluo.site)
+   Subtle Arrival Motion
    ========================================================================== */
 
 @media (prefers-reduced-motion: no-preference) {
@@ -1166,19 +1241,19 @@ button {
   }
 
   .side-top {
-    animation: settle 1s var(--ease-settle) both;
+    animation: settle 0.85s var(--ease-settle) both;
   }
 
   .main {
-    animation: settle 1s var(--ease-settle) 0.1s both;
+    animation: settle 0.85s var(--ease-settle) 0.08s both;
   }
 
   .colophon {
-    animation: settle 1s var(--ease-settle) 0.22s both;
+    animation: settle 0.85s var(--ease-settle) 0.16s both;
   }
 
   .inscription {
-    animation: settle 1.4s var(--ease-settle) 0.36s both;
+    animation: settle 1.1s var(--ease-settle) 0.22s both;
   }
 }
 
@@ -1196,7 +1271,7 @@ button {
    Responsive Breakpoints
    ========================================================================== */
 
-@media (max-height: 700px) {
+@media (max-height: 760px) {
   .side {
     position: static;
     height: auto;
@@ -1207,8 +1282,8 @@ button {
   :root,
   [data-theme="light"],
   [data-theme="dark"] {
-    --side: 13rem;
-    --gutter: 2.5rem;
+    --side: 14rem;
+    --gutter: 3rem;
   }
 }
 
@@ -1216,11 +1291,14 @@ button {
   :root,
   [data-theme="light"],
   [data-theme="dark"] {
-    --side: 12rem;
-    --gutter: 2.1rem;
+    --side: 13rem;
+    --gutter: 2.3rem;
   }
   .name {
-    font-size: 1.85rem;
+    font-size: 1.78rem;
+  }
+  .inscription {
+    width: 9.6rem;
   }
   .pub-card {
     grid-template-columns: 14.5rem minmax(0, 1fr);
@@ -1228,17 +1306,13 @@ button {
   }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 920px) {
   .page {
     display: flex;
     flex-direction: column;
-    max-width: 44rem;
+    max-width: 46rem;
     margin: 0 auto;
     padding: 0 1.25rem;
-  }
-
-  .axis {
-    display: none;
   }
 
   .side {
@@ -1247,42 +1321,33 @@ button {
     flex-direction: row;
     align-items: flex-end;
     justify-content: space-between;
-    text-align: left;
-    padding: 2.6rem 0 1.65rem;
+    padding: 2.4rem 0 1.65rem;
     border-bottom: 1px solid var(--rule);
     gap: 1.25rem;
   }
 
-  .side-top {
-    align-items: flex-start;
+  .side-toc {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.35rem 1rem;
   }
 
-  .portrait {
-    width: 5.2rem;
-    height: 5.2rem;
-  }
-
-  .links {
-    justify-content: flex-start;
+  .toc-link:hover,
+  .toc-link.is-active {
+    transform: none;
   }
 
   .inscription {
-    width: 5.6rem;
+    width: 8.2rem;
     flex-shrink: 0;
   }
 
-  .seal {
-    width: 1.2rem;
-    height: 1.2rem;
-  }
-
   .main {
-    padding-top: 2.1rem;
+    padding-top: 2rem;
   }
 
-  .sec-head-row,
-  .main h2 {
-    margin-top: 2.6rem;
+  .folio-head {
+    margin-top: 2.5rem;
   }
 
   .colophon {
@@ -1298,8 +1363,12 @@ button {
   }
 
   .inscription {
-    align-self: flex-start;
-    width: 5.2rem;
+    width: 7.4rem;
+  }
+
+  .focus-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.9rem;
   }
 
   .pub-card {

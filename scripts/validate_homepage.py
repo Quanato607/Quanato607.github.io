@@ -115,8 +115,10 @@ def check_content_and_safety() -> None:
 
     require("<em>Medical Image Analysis</em>, 2026 · First author" in index_html, "AdaMM must be labeled First author on index.html")
     require('class="calligraphy-mark"' not in index_html, "Old top-right calligraphy-mark watermark must be removed")
-    require('class="side"' in index_html and 'class="axis"' in index_html, "Two-column monograph shell (.side + .axis) is required in index.html")
-    require('class="inscription hero-signature"' in index_html and 'class="seal"' in index_html, "Side-bottom calligraphy inscription and vermilion seal are missing")
+    require('class="seal"' not in index_html and 'class="seal"' not in cv_html, "Vermilion seal (.seal) must be removed")
+    require("Set in Crimson Pro" not in index_html and "Set in Crimson Pro" not in cv_html, "Removed Crimson Pro colophon attribution must not appear")
+    require('class="side"' in index_html and 'class="side-toc"' in index_html, "Left rail (.side + .side-toc) is required in index.html")
+    require('class="inscription hero-signature"' in index_html, "Enlarged calligraphy inscription is missing")
     require("sz-ink-theme" in index_html and "sz-ink-theme" in js_text, "Default Xuan-paper theme key sz-ink-theme must be wired")
     require("#f7f4ed" in css_text and "#141311" in css_text, "Both Xuan-paper light (#f7f4ed) and lacquer-black dark (#141311) tokens must exist in modern-home.css")
 
@@ -125,11 +127,19 @@ def check_content_and_safety() -> None:
     require(len(re.findall(r'<a class="pub-stage"\s+href="[^"]+"', index_html)) == 8, "All 8 publication figures must be direct clickable links")
     require(len(re.findall(r'<a class="pub-title-link"\s+href="[^"]+"', index_html)) == 8, "All 8 publication titles must be direct clickable links")
 
-    # Check every publication card has >= 2 slides and unpublished cards do not expose coauthor/advisor names
+    # Check every publication card has >= 2 slides, concise explicit Insight, and unpublished privacy
     pub_cards = re.findall(r'<article class="pub-card".*?</article>', index_html, re.S)
     require(len(pub_cards) == 8, f"Expected 8 publication cards, found {len(pub_cards)}")
     unpublished_forbidden = ["Yefeng Zheng", "Zhaojie Fang", "Liyue Shen", "Yifei Chen", "Weihong Chen"]
     for idx, card in enumerate(pub_cards, start=1):
+        require('<span class="insight-tag">Insight</span>' in card, f"Publication card #{idx} is missing explicit Insight tag")
+        m_insight = re.search(r'<p class="pub-insight">(.*?)</p>', card, re.S)
+        require(m_insight is not None, f"Publication card #{idx} is missing <p class=\"pub-insight\">")
+        if m_insight:
+            plain_insight = re.sub(r"<[^>]+>", "", m_insight.group(1)).strip()
+            body_text = re.sub(r"^Insight\s+", "", plain_insight)
+            word_count = len(body_text.split())
+            require(12 <= word_count <= 32, f"Publication card #{idx} insight word count ({word_count}) must be between 12 and 32")
         slides = re.findall(r'class="pub-slide(?:\s|")', card)
         require(len(slides) >= 2, f"Publication card #{idx} must contain at least 2 slides, found {len(slides)}")
         if "No Critic, Which Clue?" in card:
