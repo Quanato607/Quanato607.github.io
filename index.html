@@ -80,7 +80,6 @@
 
       <nav class="nav-links" aria-label="Primary navigation">
         <a class="nav-link is-active" href="#about" data-section="about">About</a>
-        <a class="nav-link" href="#research-vision" data-section="research-vision">Research Vision</a>
         <a class="nav-link" href="#selected-publications" data-section="selected-publications">Publications</a>
         <a class="nav-link" href="#experience" data-section="experience">News &amp; Experience</a>
         <a class="nav-link" href="#personal-gallery" data-section="personal-gallery">Life</a>
@@ -122,7 +121,6 @@
   <div class="mobile-drawer" id="mobile-drawer">
     <nav aria-label="Mobile navigation">
       <a href="#about" data-section="about">About</a>
-      <a href="#research-vision" data-section="research-vision">Research Vision</a>
       <a href="#selected-publications" data-section="selected-publications">Selected Publications</a>
       <a href="#experience" data-section="experience">News &amp; Experience</a>
       <a href="#credentials" data-section="credentials">Education &amp; Service</a>
@@ -242,120 +240,15 @@
       </aside>
     </section>
 
-    <!-- Interactive Research Vision Architecture Explorer -->
-    <section id="research-vision" class="section-block reveal" aria-labelledby="vision-heading">
-      <div class="section-header">
-        <div>
-          <p class="section-eyebrow">Interactive Research Architecture</p>
-          <h2 class="section-title" id="vision-heading">From Incomplete Imaging to Longitudinal Clinical Agents</h2>
-          <p class="section-subtitle">Select any pillar in the pipeline below to inspect technical mechanisms and jump directly to matching publications.</p>
-        </div>
-      </div>
-
-      <div class="glass-card vision-explorer">
-        <div class="vision-tabs" role="tablist" aria-label="Research pillars">
-          <button class="vision-tab is-active" type="button" role="tab" aria-selected="true" data-pillar="pillar-1">
-            <span class="vision-tab__num">PILLAR 01</span>
-            <span class="vision-tab__title">Missing-Modality 3D Imaging</span>
-            <span class="vision-tab__meta">MedIA ’26 · CVPR Findings ’26 · MICCAI ’25 · ISBI Oral</span>
-          </button>
-          <button class="vision-tab" type="button" role="tab" aria-selected="false" data-pillar="pillar-2">
-            <span class="vision-tab__num">PILLAR 02</span>
-            <span class="vision-tab__title">Tumor-Progression World Models</span>
-            <span class="vision-tab__meta">Ant Group Serial MRI · PD &amp; BN20 Forecasting</span>
-          </button>
-          <button class="vision-tab" type="button" role="tab" aria-selected="false" data-pillar="pillar-3">
-            <span class="vision-tab__num">PILLAR 03</span>
-            <span class="vision-tab__title">Multi-Turn Consultation &amp; Synthesis</span>
-            <span class="vision-tab__meta">UMich · XPatient &amp; IDEA-RL</span>
-          </button>
-        </div>
-
-        <div class="vision-stage">
-          <div class="vision-diagram-wrap">
-            <svg class="vision-svg" viewBox="0 0 760 270" role="img" aria-label="Three-pillar research synthesis diagram">
-              <defs>
-                <marker id="vArrowBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                  <path d="M0,1 L9,5 L0,9 z" style="fill: var(--accent);"/>
-                </marker>
-                <marker id="vArrowIndigo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                  <path d="M0,1 L9,5 L0,9 z" style="fill: var(--indigo);"/>
-                </marker>
-                <marker id="vArrowBurgundy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                  <path d="M0,1 L9,5 L0,9 z" style="fill: var(--burgundy);"/>
-                </marker>
-              </defs>
-
-              <!-- Animated flow paths -->
-              <path class="vision-flow-line" d="M236 105 L268 105" style="stroke: var(--accent);" stroke-width="2.5" fill="none" marker-end="url(#vArrowBlue)"/>
-              <path class="vision-flow-line" d="M490 105 L522 105" style="stroke: var(--indigo);" stroke-width="2.5" fill="none" marker-end="url(#vArrowIndigo)"/>
-              <path class="vision-flow-line" d="M636 184 C636 244, 126 244, 126 184" style="stroke: var(--burgundy);" stroke-width="2" fill="none" marker-end="url(#vArrowBurgundy)"/>
-              <text x="380" y="252" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" style="fill: var(--burgundy);">
-                SYNTHESIS LOOP: IMAGING BIOMARKERS + LONGITUDINAL CONSULTATION
-              </text>
-
-              <!-- Node 1 -->
-              <g class="vision-node is-active" data-pillar="pillar-1" tabindex="0" role="button" aria-label="Select Pillar 1: Missing-Modality 3D Imaging">
-                <rect class="node-box" x="16" y="24" width="220" height="156" rx="16"/>
-                <rect x="28" y="36" width="66" height="22" rx="11" style="fill: var(--accent-soft);"/>
-                <text x="61" y="51" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="700" style="fill: var(--accent);">PILLAR 01</text>
-                <text x="28" y="82" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="700" style="fill: var(--ink);">3D Medical Imaging</text>
-                <text x="28" y="102" font-family="Plus Jakarta Sans, sans-serif" font-size="11.5" style="fill: var(--ink-muted);">• Missing-modality MRI</text>
-                <text x="28" y="121" font-family="Plus Jakarta Sans, sans-serif" font-size="11.5" style="fill: var(--ink-muted);">• Adapter distillation</text>
-                <text x="28" y="140" font-family="Plus Jakarta Sans, sans-serif" font-size="11.5" style="fill: var(--ink-muted);">• Pareto survival &amp; XLSTM</text>
-                <text x="28" y="164" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="700" style="fill: var(--accent);">AdaMM · ReBorn · MST-KDNet</text>
-              </g>
-
-              <!-- Node 2 -->
-              <g class="vision-node is-dimmed" data-pillar="pillar-2" tabindex="0" role="button" aria-label="Select Pillar 2: Tumor-Progression World Models">
-                <rect class="node-box" x="270" y="24" width="220" height="156" rx="16"/>
-                <rect x="282" y="36" width="66" height="22" rx="11" style="fill: var(--indigo-soft);"/>
-                <text x="315" y="51" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="700" style="fill: var(--indigo);">PILLAR 02</text>
-                <text x="282" y="82" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="700" style="fill: var(--ink);">Patient World Models</text>
-                <text x="282" y="102" font-family="Plus Jakarta Sans, sans-serif" font-size="11.5" style="fill: var(--ink-muted);">• Serial brain-met MRI</text>
-                <text x="282" y="121" font-family="Plus Jakarta Sans, sans-serif" font-size="11.5" style="fill: var(--ink-muted);">• Tumor progression (PD)</text>
-                <text x="282" y="140" font-family="Plus Jakarta Sans, sans-serif" font-size="11.5" style="fill: var(--ink-muted);">• BN20 &amp; therapy trajectory</text>
-                <text x="282" y="164" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="700" style="fill: var(--indigo);">Ant Group · GFE-Mamba</text>
-              </g>
-
-              <!-- Node 3 -->
-              <g class="vision-node is-dimmed" data-pillar="pillar-3" tabindex="0" role="button" aria-label="Select Pillar 3: Multi-Turn Clinical Consultation">
-                <rect class="node-box" x="524" y="24" width="220" height="156" rx="16"/>
-                <rect x="536" y="36" width="66" height="22" rx="11" style="fill: var(--burgundy-soft);"/>
-                <text x="569" y="51" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="700" style="fill: var(--burgundy);">PILLAR 03</text>
-                <text x="536" y="82" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="700" style="fill: var(--ink);">Multi-Turn Consultation</text>
-                <text x="536" y="102" font-family="Plus Jakarta Sans, sans-serif" font-size="11.5" style="fill: var(--ink-muted);">• Fact-grounded XPatient</text>
-                <text x="536" y="121" font-family="Plus Jakarta Sans, sans-serif" font-size="11.5" style="fill: var(--ink-muted);">• First-acquisition IDEA-RL</text>
-                <text x="536" y="140" font-family="Plus Jakarta Sans, sans-serif" font-size="11.5" style="fill: var(--ink-muted);">• Active inquiry + imaging</text>
-                <text x="536" y="164" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="700" style="fill: var(--burgundy);">XPatient · IDEA-RL</text>
-              </g>
-            </svg>
-          </div>
-
-          <div class="vision-detail-panel" aria-live="polite">
-            <div>
-              <span class="vision-detail-badge" id="vision-detail-badge">Pillar 01 · Incomplete Imaging Robustness</span>
-              <h3 id="vision-detail-title" style="margin-top: 10px;">Missing-Modality 3D Medical Image Analysis</h3>
-              <p id="vision-detail-summary" style="margin-top: 8px;"></p>
-              <ul class="vision-detail-points" id="vision-detail-points" style="margin-top: 12px;"></ul>
-            </div>
-            <div class="vision-detail-footer">
-              <button class="vision-link-btn" id="vision-filter-btn" type="button">Filter matching papers →</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Selected Publications -->
     <section id="selected-publications" class="section-block reveal" aria-labelledby="publications-heading">
       <div class="section-header">
         <div>
           <p class="section-eyebrow">Publications &amp; Preprints</p>
           <h2 class="section-title" id="publications-heading">Selected Research Output</h2>
-          <p class="section-subtitle">Click any figure to zoom in, copy BibTeX citations, or explore open-source code repositories.</p>
+          <p class="section-subtitle">Each paper cycles between architecture, visualizations, and empirical results. Click any tab or zoom into full figures.</p>
         </div>
-        <p class="pub-legend"><span>†</span> co-first author · First-author works lead each track</p>
+        <p class="pub-legend">First-author works lead each research track</p>
       </div>
 
       <div class="pub-controls">
@@ -379,10 +272,26 @@
       <div class="pub-grid">
         <!-- 1. XPatient & IDEA-RL -->
         <article class="pub-card" data-categories="first-author agents-rl">
-          <div class="pub-media" data-lightbox-trigger data-lightbox-title="IDEA-RL &amp; XPatient Overview" data-lightbox-caption="XPatient grounds asking, examination, and diagnosis in a case evidence graph across trajectories, while IDEA-RL assigns outcome-associated process credit to first evidence acquisition.">
-            <img src="/images/publications/idea-rl.png" alt="Overview of XPatient clinical evidence graph and IDEA-RL trajectory credit assignment" loading="lazy">
+          <div class="pub-media-header">
             <span class="venue-pill venue-pill--burgundy">IDEA-RL · 2026</span>
+            <div class="pub-slide-tabs" role="group" aria-label="IDEA-RL figures">
+              <button class="pub-slide-tab is-active" type="button" aria-pressed="true">Model</button>
+              <button class="pub-slide-tab" type="button" aria-pressed="false">XPatient</button>
+              <button class="pub-slide-tab" type="button" aria-pressed="false">Results</button>
+            </div>
+          </div>
+          <div class="pub-stage" data-paper-title="IDEA-RL &amp; XPatient">
+            <div class="pub-slide is-current" data-slide-label="Model" data-caption="IDEA-RL aligns shared evidence identities across trajectories and assigns outcome-associated process credit to first evidence acquisition.">
+              <img src="/images/publications/idea-rl.png" alt="Overview of IDEA-RL trajectory credit assignment" loading="lazy">
+            </div>
+            <div class="pub-slide" data-slide-label="XPatient" data-caption="XPatient constrains patient responses to grounded clinical case graphs across ask, examination, and diagnosis actions.">
+              <img src="/images/publications/idea-rl-xpatient.png" alt="XPatient fact-constrained patient simulation pipeline" loading="lazy">
+            </div>
+            <div class="pub-slide" data-slide-label="Results" data-caption="Out-of-distribution PMC-Patients diagnostic accuracy vs. model scale: IDEA-RL-0.6B and IDEA-RL-4B outperform much larger baselines.">
+              <img src="/images/publications/idea-rl-results.png" alt="IDEA-RL diagnostic accuracy vs model parameter scale on PMC-Patients OOD" loading="lazy">
+            </div>
             <span class="zoom-hint">Click to zoom</span>
+            <div class="pub-progress-track"><div class="pub-progress-fill"></div></div>
           </div>
           <div class="pub-body">
             <div class="pub-tag-row">
@@ -391,8 +300,8 @@
               <span class="pub-mini-tag">Process RL</span>
             </div>
             <h3 class="pub-title">IDEA-RL &amp; XPatient: Fact-Grounded Patient Simulation and Evidence-Attributed Policy Optimization for Multi-Turn Clinical Consultation</h3>
-            <p class="pub-authors"><strong>Shenghao Zhu</strong>, et al. (Advised by Prof. Liyue Shen, University of Michigan)</p>
-            <p class="pub-venue">2026 · First author</p>
+            <p class="pub-authors"><strong>First author</strong></p>
+            <p class="pub-venue">2026</p>
             <p class="pub-takeaway">Constrains simulated patient responses to case facts and aligns shared evidence identities across trajectories to assign outcome-associated process credit to first acquisition without a learned critic.</p>
             <div class="pub-footer">
               <button class="pub-btn" type="button" data-bibtex-id="xpatient" data-bibtex-title="IDEA-RL &amp; XPatient">BibTeX</button>
@@ -402,10 +311,26 @@
 
         <!-- 2. AdaMM (MedIA 2026) -->
         <article class="pub-card" data-categories="first-author imaging-world">
-          <div class="pub-media" data-lightbox-trigger data-lightbox-title="AdaMM (Medical Image Analysis 2026)" data-lightbox-caption="AdaMM unifies arbitrary missing-modality brain tumor segmentation into one compact adapter-distilled student network.">
-            <img src="/images/publications/adamm.png" alt="AdaMM framework for missing-modality brain tumor segmentation" loading="lazy">
+          <div class="pub-media-header">
             <span class="venue-pill venue-pill--sapphire">MedIA 2026 · IF 14.0</span>
+            <div class="pub-slide-tabs" role="group" aria-label="AdaMM figures">
+              <button class="pub-slide-tab is-active" type="button" aria-pressed="true">Model</button>
+              <button class="pub-slide-tab" type="button" aria-pressed="false">Visuals</button>
+              <button class="pub-slide-tab" type="button" aria-pressed="false">Metrics</button>
+            </div>
+          </div>
+          <div class="pub-stage" data-paper-title="AdaMM (Medical Image Analysis 2026)">
+            <div class="pub-slide is-current" data-slide-label="Model" data-caption="AdaMM unifies arbitrary missing-modality brain tumor segmentation into one compact adapter-distilled student network.">
+              <img src="/images/publications/adamm.png" alt="AdaMM framework for missing-modality brain tumor segmentation" loading="lazy">
+            </div>
+            <div class="pub-slide" data-slide-label="Visuals" data-caption="Qualitative segmentation results on BraTS 2024 across T1ce, T1ce+Flair, T1ce+Flair+T2, and Complete modalities.">
+              <img src="/images/publications/adamm-vis.png" alt="AdaMM BraTS 2024 qualitative comparison across missing-modality subsets" loading="lazy">
+            </div>
+            <div class="pub-slide" data-slide-label="Metrics" data-caption="Performance vs. parameter count across Dice, HD95, IoU, and Sensitivity: AdaMM achieves top accuracy with minimal parameter overhead.">
+              <img src="/images/publications/adamm-metrics.png" alt="AdaMM quantitative Dice HD95 IoU Sensitivity vs parameter count scatter plots" loading="lazy">
+            </div>
             <span class="zoom-hint">Click to zoom</span>
+            <div class="pub-progress-track"><div class="pub-progress-fill"></div></div>
           </div>
           <div class="pub-body">
             <div class="pub-tag-row">
@@ -427,10 +352,26 @@
 
         <!-- 3. ReBorn (CVPR 2026 Findings) -->
         <article class="pub-card" data-categories="first-author imaging-world">
-          <div class="pub-media" data-lightbox-trigger data-lightbox-title="ReBorn (CVPR 2026 Findings)" data-lightbox-caption="ReBorn converts full-modality segmentation backbones into missing-modality survivors via Pareto and gradient-entropy optimization.">
-            <img src="/images/publications/reborn.png" alt="ReBorn framework for robust segmentation under modality degradation" loading="lazy">
+          <div class="pub-media-header">
             <span class="venue-pill venue-pill--indigo">CVPR 2026 Findings</span>
+            <div class="pub-slide-tabs" role="group" aria-label="ReBorn figures">
+              <button class="pub-slide-tab is-active" type="button" aria-pressed="true">Model</button>
+              <button class="pub-slide-tab" type="button" aria-pressed="false">Visuals</button>
+              <button class="pub-slide-tab" type="button" aria-pressed="false">Results</button>
+            </div>
+          </div>
+          <div class="pub-stage" data-paper-title="ReBorn (CVPR 2026 Findings)">
+            <div class="pub-slide is-current" data-slide-label="Model" data-caption="ReBorn converts full-modality segmentation backbones into missing-modality survivors via Pareto and gradient-entropy optimization.">
+              <img src="/images/publications/reborn.png" alt="ReBorn framework for robust segmentation under modality degradation" loading="lazy">
+            </div>
+            <div class="pub-slide" data-slide-label="Visuals" data-caption="Qualitative comparison across missing-modality MRI combinations showing substantial Dice improvements over competing methods.">
+              <img src="/images/publications/reborn-vis.png" alt="ReBorn qualitative brain tumor segmentation visualization" loading="lazy">
+            </div>
+            <div class="pub-slide" data-slide-label="Results" data-caption="WT, TC, and ET average Dice across 100% down to 10% full-modality training ratios, demonstrating strong robustness under scarce full scans.">
+              <img src="/images/publications/reborn-metrics.png" alt="ReBorn average Dice under varying full-modality training rates" loading="lazy">
+            </div>
             <span class="zoom-hint">Click to zoom</span>
+            <div class="pub-progress-track"><div class="pub-progress-fill"></div></div>
           </div>
           <div class="pub-body">
             <div class="pub-tag-row">
@@ -439,8 +380,8 @@
               <span class="pub-mini-tag">Pareto Optimization</span>
             </div>
             <h3 class="pub-title">ReBorn: Turning Full-Modality Segmentation Models into Missing-Modality Survivors</h3>
-            <p class="pub-authors"><strong>Shenghao Zhu</strong>, Yifei Chen, Weihong Chen, et al. · Yefeng Zheng*</p>
-            <p class="pub-venue">CVPR 2026 Findings · First author</p>
+            <p class="pub-authors"><strong>First author</strong></p>
+            <p class="pub-venue">CVPR 2026 Findings</p>
             <p class="pub-takeaway">Combines missing-modality Pareto training, model split weight moving, and gradient entropy balancing to preserve full-modality models under severe modality drop.</p>
             <div class="pub-footer">
               <a class="pub-btn" href="https://github.com/Quanato607/ReBorn" target="_blank" rel="noopener">Code</a>
@@ -451,10 +392,26 @@
 
         <!-- 4. MST-KDNet (MICCAI 2025) -->
         <article class="pub-card" data-categories="first-author imaging-world">
-          <div class="pub-media" data-lightbox-trigger data-lightbox-title="MST-KDNet (MICCAI 2025)" data-lightbox-caption="MST-KDNet introduces multi-scale Transformer attention alignment and adversarial style matching for missing-modality MRI.">
-            <img src="/images/publications/mst-kdnet.png" alt="MST-KDNet framework for brain tumor segmentation with missing modalities" loading="lazy">
+          <div class="pub-media-header">
             <span class="venue-pill venue-pill--sapphire">MICCAI 2025</span>
+            <div class="pub-slide-tabs" role="group" aria-label="MST-KDNet figures">
+              <button class="pub-slide-tab is-active" type="button" aria-pressed="true">Model</button>
+              <button class="pub-slide-tab" type="button" aria-pressed="false">Visuals</button>
+              <button class="pub-slide-tab" type="button" aria-pressed="false">Results</button>
+            </div>
+          </div>
+          <div class="pub-stage" data-paper-title="MST-KDNet (MICCAI 2025)">
+            <div class="pub-slide is-current" data-slide-label="Model" data-caption="MST-KDNet introduces multi-scale Transformer attention alignment and adversarial style matching for missing-modality MRI.">
+              <img src="/images/publications/mst-kdnet.png" alt="MST-KDNet framework for brain tumor segmentation with missing modalities" loading="lazy">
+            </div>
+            <div class="pub-slide" data-slide-label="Visuals" data-caption="Qualitative BraTS segmentation comparisons under Complete, FLAIR+T1ce+T2, FLAIR+T1ce, and FLAIR-only scenarios.">
+              <img src="/images/publications/mst-kdnet-vis.png" alt="MST-KDNet qualitative brain tumor segmentation results" loading="lazy">
+            </div>
+            <div class="pub-slide" data-slide-label="Results" data-caption="Quantitative Dice and HD95 results on BraTS 2024 and FeTS 2024 demonstrating consistent gains from MS-TKD, GSME, and SLKD.">
+              <img src="/images/publications/mst-kdnet-results.png" alt="MST-KDNet quantitative ablation table on BraTS 2024 and FeTS 2024" loading="lazy">
+            </div>
             <span class="zoom-hint">Click to zoom</span>
+            <div class="pub-progress-track"><div class="pub-progress-fill"></div></div>
           </div>
           <div class="pub-body">
             <div class="pub-tag-row">
@@ -475,10 +432,26 @@
 
         <!-- 5. XLSTM-HVED (IEEE ISBI 2025 Oral) -->
         <article class="pub-card" data-categories="first-author imaging-world">
-          <div class="pub-media" data-lightbox-trigger data-lightbox-title="XLSTM-HVED (IEEE ISBI 2025 Oral)" data-lightbox-caption="XLSTM-HVED unifies multimodal brain tumor segmentation and missing MRI reconstruction.">
-            <img src="/images/publications/xlstm-hved.png" alt="XLSTM-HVED model for cross-modal segmentation and MRI reconstruction" loading="lazy">
+          <div class="pub-media-header">
             <span class="venue-pill venue-pill--indigo">ISBI 2025 Oral</span>
+            <div class="pub-slide-tabs" role="group" aria-label="XLSTM-HVED figures">
+              <button class="pub-slide-tab is-active" type="button" aria-pressed="true">Model</button>
+              <button class="pub-slide-tab" type="button" aria-pressed="false">Modules</button>
+              <button class="pub-slide-tab" type="button" aria-pressed="false">Results</button>
+            </div>
+          </div>
+          <div class="pub-stage" data-paper-title="XLSTM-HVED (IEEE ISBI 2025 Oral)">
+            <div class="pub-slide is-current" data-slide-label="Model" data-caption="XLSTM-HVED unifies multimodal brain tumor segmentation and missing MRI reconstruction.">
+              <img src="/images/publications/xlstm-hved.png" alt="XLSTM-HVED model for cross-modal segmentation and MRI reconstruction" loading="lazy">
+            </div>
+            <div class="pub-slide" data-slide-label="Modules" data-caption="Detailed Vision-LSTM attention and channel/spatial squeeze-fusion-excitation recalibration blocks (cSFE &amp; sSFE).">
+              <img src="/images/publications/xlstm-hved-modules.png" alt="XLSTM-HVED Vision-LSTM and cSFE/sSFE module architecture" loading="lazy">
+            </div>
+            <div class="pub-slide" data-slide-label="Results" data-caption="Full 15-combination BraTS 2024 comparison: XLSTM-HVED achieves superior average Dice and lower HD95 across WT, TC, and ET.">
+              <img src="/images/publications/xlstm-hved-results.png" alt="XLSTM-HVED BraTS 2024 quantitative Dice and HD95 comparison table" loading="lazy">
+            </div>
             <span class="zoom-hint">Click to zoom</span>
+            <div class="pub-progress-track"><div class="pub-progress-fill"></div></div>
           </div>
           <div class="pub-body">
             <div class="pub-tag-row">
@@ -500,10 +473,26 @@
 
         <!-- 6. GFE-Mamba (Information Fusion, Under Review) -->
         <article class="pub-card" data-categories="imaging-world">
-          <div class="pub-media" data-lightbox-trigger data-lightbox-title="GFE-Mamba (Information Fusion, Under Review)" data-lightbox-caption="GFE-Mamba integrates MRI-to-PET synthesis and multimodal Mamba progression modeling for MCI-to-AD conversion.">
-            <img src="/images/publications/gfe-mamba.png" alt="GFE-Mamba multimodal progression assessment framework" loading="lazy">
+          <div class="pub-media-header">
             <span class="venue-pill">Under Review</span>
+            <div class="pub-slide-tabs" role="group" aria-label="GFE-Mamba figures">
+              <button class="pub-slide-tab is-active" type="button" aria-pressed="true">Model</button>
+              <button class="pub-slide-tab" type="button" aria-pressed="false">MRI→PET</button>
+              <button class="pub-slide-tab" type="button" aria-pressed="false">ROC</button>
+            </div>
+          </div>
+          <div class="pub-stage" data-paper-title="GFE-Mamba (Information Fusion)">
+            <div class="pub-slide is-current" data-slide-label="Model" data-caption="GFE-Mamba integrates 3D MRI-to-PET synthesis and multimodal Mamba progression modeling for MCI-to-AD conversion.">
+              <img src="/images/publications/gfe-mamba.png" alt="GFE-Mamba multimodal progression assessment framework" loading="lazy">
+            </div>
+            <div class="pub-slide" data-slide-label="MRI→PET" data-caption="Qualitative 3D GAN-ViT MRI-to-PET cross-modal slice synthesis compared against ground-truth PET scans.">
+              <img src="/images/publications/gfe-mamba-synthesis.png" alt="GFE-Mamba axial MRI to generated PET synthesis visualization" loading="lazy">
+            </div>
+            <div class="pub-slide" data-slide-label="ROC" data-caption="7-fold cross-validation ROC curves achieving AUC = 0.96 (1-year) and AUC = 0.93 (3-year) progression forecasting.">
+              <img src="/images/publications/gfe-mamba-results.png" alt="GFE-Mamba 7-fold cross-validation ROC curves for 1-year and 3-year AD progression" loading="lazy">
+            </div>
             <span class="zoom-hint">Click to zoom</span>
+            <div class="pub-progress-track"><div class="pub-progress-fill"></div></div>
           </div>
           <div class="pub-body">
             <div class="pub-tag-row">
@@ -512,8 +501,8 @@
               <span class="pub-mini-tag">MRI-to-PET</span>
             </div>
             <h3 class="pub-title">GFE-Mamba: Mamba-Based AD Multimodal Progression Assessment via Generative Feature Extraction from MCI</h3>
-            <p class="pub-authors">Zhaojie Fang<sup>†</sup>, <strong>Shenghao Zhu<sup>†</sup></strong>, Yifei Chen<sup>†</sup>, et al.</p>
-            <p class="pub-venue"><em>Information Fusion</em>, under review · Co-first author</p>
+            <p class="pub-authors"><strong>Co-first author</strong></p>
+            <p class="pub-venue"><em>Information Fusion</em>, under review</p>
             <p class="pub-takeaway">Combines MRI-to-PET synthesis, multimodal Mamba sequence classification, and clinical records for Alzheimer’s disease progression forecasting.</p>
             <div class="pub-footer">
               <a class="pub-btn" href="https://github.com/Tinysqua/GFE-Mamba" target="_blank" rel="noopener">Code (31★)</a>
@@ -524,10 +513,26 @@
 
         <!-- 7. MSTNet (ICASSP 2025) -->
         <article class="pub-card" data-categories="imaging-world">
-          <div class="pub-media" data-lightbox-trigger data-lightbox-title="MSTNet (IEEE ICASSP 2025)" data-lightbox-caption="MSTNet fuses clinical, cognitive, demographic, EEG, and MRI features for early Alzheimer's detection.">
-            <img src="/images/publications/mstnet.png" alt="MSTNet multimodal architecture for early Alzheimer's disease detection" loading="lazy">
+          <div class="pub-media-header">
             <span class="venue-pill">ICASSP 2025</span>
+            <div class="pub-slide-tabs" role="group" aria-label="MSTNet figures">
+              <button class="pub-slide-tab is-active" type="button" aria-pressed="true">Model</button>
+              <button class="pub-slide-tab" type="button" aria-pressed="false">Modules</button>
+              <button class="pub-slide-tab" type="button" aria-pressed="false">Results</button>
+            </div>
+          </div>
+          <div class="pub-stage" data-paper-title="MSTNet (IEEE ICASSP 2025)">
+            <div class="pub-slide is-current" data-slide-label="Model" data-caption="MSTNet fuses clinical, cognitive, demographic, EEG, and MRI features for early Alzheimer's detection.">
+              <img src="/images/publications/mstnet.png" alt="MSTNet multimodal architecture for early Alzheimer's disease detection" loading="lazy">
+            </div>
+            <div class="pub-slide" data-slide-label="Modules" data-caption="Feature Tokenizer for tabular embeddings and TimesBlock 1D-to-2D spectral-temporal EEG representation.">
+              <img src="/images/publications/mstnet-module.png" alt="MSTNet Feature Tokenizer and TimesBlock modules" loading="lazy">
+            </div>
+            <div class="pub-slide" data-slide-label="Results" data-caption="ADMC benchmark comparison &amp; ablation: MSTNet attains 90.00% accuracy and 88.57% F1-score over unimodal and multimodal baselines.">
+              <img src="/images/publications/mstnet-results.png" alt="MSTNet comparison and ablation table on ADMC dataset" loading="lazy">
+            </div>
             <span class="zoom-hint">Click to zoom</span>
+            <div class="pub-progress-track"><div class="pub-progress-fill"></div></div>
           </div>
           <div class="pub-body">
             <div class="pub-tag-row">
@@ -547,10 +552,26 @@
 
         <!-- 8. SCKansformer (IEEE JBHI 2024) -->
         <article class="pub-card" data-categories="imaging-world">
-          <div class="pub-media" data-lightbox-trigger data-lightbox-title="SCKansformer (IEEE JBHI 2024)" data-lightbox-caption="SCKansformer combines KAN-based nonlinear priors with spatial/channel reconstruction for bone marrow cell classification.">
-            <img src="/images/publications/sckansformer.png" alt="SCKansformer architecture for fine-grained bone marrow cell classification" loading="lazy">
+          <div class="pub-media-header">
             <span class="venue-pill venue-pill--amber">JBHI 2024 · Top 1%</span>
+            <div class="pub-slide-tabs" role="group" aria-label="SCKansformer figures">
+              <button class="pub-slide-tab is-active" type="button" aria-pressed="true">Model</button>
+              <button class="pub-slide-tab" type="button" aria-pressed="false">Heatmap</button>
+              <button class="pub-slide-tab" type="button" aria-pressed="false">Results</button>
+            </div>
+          </div>
+          <div class="pub-stage" data-paper-title="SCKansformer (IEEE JBHI 2024)">
+            <div class="pub-slide is-current" data-slide-label="Model" data-caption="SCKansformer combines KAN-based nonlinear priors with spatial/channel reconstruction for bone marrow cell classification.">
+              <img src="/images/publications/sckansformer.png" alt="SCKansformer architecture for fine-grained bone marrow cell classification" loading="lazy">
+            </div>
+            <div class="pub-slide" data-slide-label="Heatmap" data-caption="Feature correlation visualization comparing PCA, Autoencoder, and SCConv Encoder representations.">
+              <img src="/images/publications/sckansformer-heatmap.png" alt="SCKansformer feature correlation heatmaps comparing PCA, Autoencoder, and SCConv Encoder" loading="lazy">
+            </div>
+            <div class="pub-slide" data-slide-label="Results" data-caption="State-of-the-art classification performance on BMCD-FGCD (83.23% Acc, 84.34% F1) and PBC (99.46% Acc) benchmarks.">
+              <img src="/images/publications/sckansformer-results.png" alt="SCKansformer benchmark comparison tables on BMCD-FGCD and PBC datasets" loading="lazy">
+            </div>
             <span class="zoom-hint">Click to zoom</span>
+            <div class="pub-progress-track"><div class="pub-progress-fill"></div></div>
           </div>
           <div class="pub-body">
             <div class="pub-tag-row">
@@ -826,6 +847,11 @@
         <img id="lightbox-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="">
       </div>
       <p class="lightbox-caption" id="lightbox-caption"></p>
+      <div class="lightbox-nav" id="lightbox-nav" hidden>
+        <button class="action-btn" id="lightbox-prev" type="button">← Previous Figure</button>
+        <span class="carousel-counter" id="lightbox-counter">1 / 3</span>
+        <button class="action-btn" id="lightbox-next" type="button">Next Figure →</button>
+      </div>
     </div>
   </div>
 

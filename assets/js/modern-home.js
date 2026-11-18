@@ -4,52 +4,10 @@
   const EMAIL_ADDRESS = "22320220@hdu.edu.cn";
   const THEME_STORAGE_KEY = "sz-theme";
 
-  const PILLAR_DATA = {
-    "pillar-1": {
-      badge: "Pillar 01 · Incomplete Imaging Robustness",
-      title: "Missing-Modality 3D Medical Image Analysis",
-      summary:
-        "Clinical acquisitions frequently lack full MRI sequences due to scan time, motion artifacts, or institutional protocols. My foundational work builds unified architectures that segment tumors and reconstruct missing sequences from arbitrary available subsets.",
-      points: [
-        "Adapter-based cross-modal knowledge distillation (AdaMM, Medical Image Analysis 2026)",
-        "Multi-scale attention alignment & adversarial style matching (MST-KDNet, MICCAI 2025)",
-        "Pareto gradient-balanced survival training (ReBorn, CVPR 2026 Findings) & Vision-XLSTM fusion (ISBI 2025 Oral)"
-      ],
-      filterTarget: "imaging-world",
-      filterLabel: "Filter Imaging & World Model Papers →"
-    },
-    "pillar-2": {
-      badge: "Pillar 02 · Longitudinal Disease Modeling",
-      title: "Patient World Models for Tumor Progression",
-      summary:
-        "Moving beyond single-timepoint scans, my Ant Group research models serial brain-metastasis MRI alongside treatment history to forecast subsequent tumor progression and clinical outcome trajectories.",
-      points: [
-        "Serial MRI lesion segmentation aligned with longitudinal tumor-burden trajectories",
-        "Patient world models predicting progressive disease (PD) & BN20 clinical quality scores",
-        "Generative multimodal feature extraction for MCI-to-AD conversion (GFE-Mamba, Information Fusion)"
-      ],
-      filterTarget: "imaging-world",
-      filterLabel: "Filter Imaging & World Model Papers →"
-    },
-    "pillar-3": {
-      badge: "Pillar 03 · Interactive Consultation & Synthesis",
-      title: "Multi-Turn Clinical Consultation & Longitudinal Integration",
-      summary:
-        "At the University of Michigan, I study how diagnostic LLM agents gather incomplete history without hallucination—and aim to unify image-based progression signals with active multi-turn clinical inquiry.",
-      points: [
-        "Fact-constrained patient simulation preventing fabrication & tracking disclosed clinical evidence (XPatient)",
-        "Outcome-associated process credit for first evidence acquisition across trajectories (IDEA-RL, γ = 1)",
-        "Next step: coupling imaging biomarkers & world-model uncertainty with targeted follow-up consultation"
-      ],
-      filterTarget: "agents-rl",
-      filterLabel: "Filter Multi-Turn Consultation Work →"
-    }
-  };
-
   const BIBTEX_MAP = {
     xpatient: `@misc{zhu2026idearl,
   title  = {IDEA-RL and XPatient: Fact-Grounded Patient Simulation and Evidence-Attributed Policy Optimization for Multi-Turn Clinical Consultation},
-  author = {Zhu, Shenghao and Shen, Liyue and others},
+  author = {Zhu, Shenghao},
   year   = {2026}
 }`,
     adamm: `@article{zhu2026adamm,
@@ -61,7 +19,7 @@
 }`,
     reborn: `@inproceedings{zhu2026reborn,
   title     = {ReBorn: Turning Full-Modality Segmentation Models into Missing-Modality Survivors},
-  author    = {Zhu, Shenghao and Chen, Yifei and Chen, Weihong and Zheng, Yefeng and others},
+  author    = {Zhu, Shenghao},
   booktitle = {Findings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
   year      = {2026}
 }`,
@@ -92,7 +50,7 @@
 }`,
     gfemamba: `@article{fang2025gfemamba,
   title   = {GFE-Mamba: Mamba-Based AD Multimodal Progression Assessment via Generative Feature Extraction from MCI},
-  author  = {Fang, Zhaojie and Zhu, Shenghao and Chen, Yifei and Hu, Zhenguo and others},
+  author  = {Zhu, Shenghao},
   journal = {Information Fusion},
   year    = {2025},
   note    = {Under Review}
@@ -270,77 +228,6 @@
     }
   }
 
-  function initVisionExplorer() {
-    const tabs = Array.from(document.querySelectorAll(".vision-tab[data-pillar]"));
-    const nodes = Array.from(document.querySelectorAll(".vision-node[data-pillar]"));
-    const badgeEl = document.getElementById("vision-detail-badge");
-    const titleEl = document.getElementById("vision-detail-title");
-    const summaryEl = document.getElementById("vision-detail-summary");
-    const pointsEl = document.getElementById("vision-detail-points");
-    const filterBtn = document.getElementById("vision-filter-btn");
-    if (!tabs.length || !badgeEl || !titleEl || !summaryEl || !pointsEl) return;
-
-    let currentFilterTarget = "imaging-world";
-
-    const selectPillar = (pillarKey) => {
-      const data = PILLAR_DATA[pillarKey];
-      if (!data) return;
-
-      tabs.forEach((tab) => {
-        const active = tab.dataset.pillar === pillarKey;
-        tab.classList.toggle("is-active", active);
-        tab.setAttribute("aria-selected", String(active));
-      });
-
-      nodes.forEach((node) => {
-        const active = node.dataset.pillar === pillarKey;
-        node.classList.toggle("is-active", active);
-        node.classList.toggle("is-dimmed", !active);
-      });
-
-      badgeEl.textContent = data.badge;
-      titleEl.textContent = data.title;
-      summaryEl.textContent = data.summary;
-      pointsEl.innerHTML = "";
-      data.points.forEach((point) => {
-        const li = document.createElement("li");
-        li.textContent = point;
-        pointsEl.appendChild(li);
-      });
-
-      currentFilterTarget = data.filterTarget;
-      if (filterBtn) {
-        filterBtn.textContent = data.filterLabel;
-      }
-    };
-
-    tabs.forEach((tab) => {
-      tab.addEventListener("click", () => selectPillar(tab.dataset.pillar));
-    });
-
-    nodes.forEach((node) => {
-      node.addEventListener("click", () => selectPillar(node.dataset.pillar));
-      node.addEventListener("keydown", (event) => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          selectPillar(node.dataset.pillar);
-        }
-      });
-    });
-
-    if (filterBtn) {
-      filterBtn.addEventListener("click", () => {
-        applyPubFilter(currentFilterTarget);
-        const pubSection = document.getElementById("selected-publications");
-        if (pubSection) {
-          pubSection.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      });
-    }
-
-    selectPillar("pillar-1");
-  }
-
   function initPublications() {
     const pills = Array.from(document.querySelectorAll(".filter-pill[data-filter]"));
     pills.forEach((pill) => {
@@ -349,16 +236,109 @@
     applyPubFilter("all");
   }
 
+  function initPubSlideshows() {
+    const cards = Array.from(document.querySelectorAll(".pub-card"));
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    cards.forEach((card, cardIdx) => {
+      const stage = card.querySelector(".pub-stage");
+      const slides = Array.from(card.querySelectorAll(".pub-slide"));
+      const tabs = Array.from(card.querySelectorAll(".pub-slide-tab"));
+      const progressFill = card.querySelector(".pub-progress-fill");
+      if (!stage || slides.length < 2) return;
+
+      let activeIndex = 0;
+      let wipeTimer = null;
+      let autoInterval = null;
+      let paused = false;
+
+      const updateUi = (idx) => {
+        tabs.forEach((tab, ti) => {
+          const active = ti === idx;
+          tab.classList.toggle("is-active", active);
+          tab.setAttribute("aria-pressed", String(active));
+        });
+        if (progressFill) {
+          progressFill.style.width = `${(((idx + 1) / slides.length) * 100).toFixed(1)}%`;
+        }
+        card.dataset.activeSlideIndex = String(idx);
+      };
+
+      const goToSlide = (targetIdx, animate = true) => {
+        const nextIdx = (targetIdx + slides.length) % slides.length;
+        if (nextIdx === activeIndex && animate) return;
+        const prevIdx = activeIndex;
+        activeIndex = nextIdx;
+
+        window.clearTimeout(wipeTimer);
+        slides.forEach((s) => s.classList.remove("is-underneath", "is-wiping-in", "is-current"));
+
+        if (animate && !reducedMotion) {
+          slides[prevIdx].classList.add("is-underneath");
+          const incoming = slides[nextIdx];
+          incoming.classList.add("is-current");
+          void incoming.offsetWidth;
+          incoming.classList.add("is-wiping-in");
+          wipeTimer = window.setTimeout(() => {
+            slides[prevIdx].classList.remove("is-underneath");
+            incoming.classList.remove("is-wiping-in");
+          }, 760);
+        } else {
+          slides[nextIdx].classList.add("is-current");
+        }
+        updateUi(nextIdx);
+      };
+
+      tabs.forEach((tab, tabIdx) => {
+        tab.addEventListener("click", (event) => {
+          event.stopPropagation();
+          goToSlide(tabIdx, true);
+        });
+      });
+
+      card.addEventListener("mouseenter", () => {
+        paused = true;
+      });
+      card.addEventListener("mouseleave", () => {
+        paused = false;
+      });
+      card.addEventListener("focusin", () => {
+        paused = true;
+      });
+      card.addEventListener("focusout", () => {
+        paused = false;
+      });
+
+      updateUi(0);
+
+      if (!reducedMotion) {
+        window.setTimeout(() => {
+          autoInterval = window.setInterval(() => {
+            if (paused || document.hidden || card.classList.contains("is-hidden")) return;
+            goToSlide(activeIndex + 1, true);
+          }, 4200);
+        }, cardIdx * 650);
+      }
+    });
+  }
+
   function initModals() {
     const lightbox = document.getElementById("lightbox-modal");
     const lightboxImg = document.getElementById("lightbox-img");
     const lightboxTitle = document.getElementById("lightbox-title");
     const lightboxCaption = document.getElementById("lightbox-caption");
+    const lightboxNav = document.getElementById("lightbox-nav");
+    const lightboxPrev = document.getElementById("lightbox-prev");
+    const lightboxNext = document.getElementById("lightbox-next");
+    const lightboxCounter = document.getElementById("lightbox-counter");
 
     const bibModal = document.getElementById("bibtex-modal");
     const bibTitle = document.getElementById("bibtex-title");
     const bibCode = document.getElementById("bibtex-code");
     const bibCopyBtn = document.getElementById("bibtex-copy-btn");
+
+    let gallerySlides = [];
+    let galleryIdx = 0;
 
     const closeModal = (modal) => {
       if (!modal) return;
@@ -366,12 +346,26 @@
       modal.setAttribute("aria-hidden", "true");
     };
 
-    const openLightbox = (src, title, caption) => {
-      if (!lightbox || !lightboxImg) return;
-      lightboxImg.src = src;
-      lightboxImg.alt = caption || title || "Enlarged preview";
-      if (lightboxTitle) lightboxTitle.textContent = title || "Figure Preview";
-      if (lightboxCaption) lightboxCaption.textContent = caption || "";
+    const renderGalleryFrame = () => {
+      if (!gallerySlides.length || !lightboxImg) return;
+      const item = gallerySlides[galleryIdx];
+      lightboxImg.src = item.src;
+      lightboxImg.alt = item.caption || item.title || "Enlarged preview";
+      if (lightboxTitle) lightboxTitle.textContent = item.title || "Figure Preview";
+      if (lightboxCaption) lightboxCaption.textContent = item.caption || "";
+      if (lightboxNav) {
+        lightboxNav.hidden = gallerySlides.length <= 1;
+      }
+      if (lightboxCounter) {
+        lightboxCounter.textContent = `${galleryIdx + 1} / ${gallerySlides.length}`;
+      }
+    };
+
+    const openGallery = (slides, startIndex) => {
+      if (!lightbox || !slides.length) return;
+      gallerySlides = slides;
+      galleryIdx = Math.max(0, Math.min(startIndex, slides.length - 1));
+      renderGalleryFrame();
       lightbox.classList.add("is-open");
       lightbox.setAttribute("aria-hidden", "false");
     };
@@ -385,6 +379,26 @@
       bibModal.setAttribute("aria-hidden", "false");
     };
 
+    document.querySelectorAll(".pub-stage").forEach((stage) => {
+      stage.addEventListener("click", () => {
+        const card = stage.closest(".pub-card");
+        const baseTitle = stage.getAttribute("data-paper-title") || "Figure Preview";
+        const slideEls = Array.from(stage.querySelectorAll(".pub-slide"));
+        if (!slideEls.length) return;
+        const slides = slideEls.map((el) => {
+          const img = el.querySelector("img");
+          const label = el.getAttribute("data-slide-label") || "";
+          return {
+            src: img ? (img.currentSrc || img.getAttribute("src")) : "",
+            title: label ? `${baseTitle} — ${label}` : baseTitle,
+            caption: el.getAttribute("data-caption") || (img ? img.getAttribute("alt") : "") || ""
+          };
+        });
+        const startIdx = Number((card && card.dataset.activeSlideIndex) || "0");
+        openGallery(slides, startIdx);
+      });
+    });
+
     document.querySelectorAll("[data-lightbox-trigger]").forEach((trigger) => {
       trigger.addEventListener("click", () => {
         const img = trigger.querySelector("img");
@@ -392,9 +406,25 @@
         const src = img.currentSrc || img.getAttribute("src");
         const title = trigger.getAttribute("data-lightbox-title") || "Preview";
         const caption = trigger.getAttribute("data-lightbox-caption") || img.getAttribute("alt") || "";
-        openLightbox(src, title, caption);
+        openGallery([{ src, title, caption }], 0);
       });
     });
+
+    if (lightboxPrev) {
+      lightboxPrev.addEventListener("click", () => {
+        if (gallerySlides.length <= 1) return;
+        galleryIdx = (galleryIdx - 1 + gallerySlides.length) % gallerySlides.length;
+        renderGalleryFrame();
+      });
+    }
+
+    if (lightboxNext) {
+      lightboxNext.addEventListener("click", () => {
+        if (gallerySlides.length <= 1) return;
+        galleryIdx = (galleryIdx + 1) % gallerySlides.length;
+        renderGalleryFrame();
+      });
+    }
 
     document.querySelectorAll("[data-bibtex-id]").forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -421,6 +451,14 @@
       if (event.key === "Escape") {
         closeModal(lightbox);
         closeModal(bibModal);
+      } else if (lightbox && lightbox.classList.contains("is-open") && gallerySlides.length > 1) {
+        if (event.key === "ArrowLeft") {
+          galleryIdx = (galleryIdx - 1 + gallerySlides.length) % gallerySlides.length;
+          renderGalleryFrame();
+        } else if (event.key === "ArrowRight") {
+          galleryIdx = (galleryIdx + 1) % gallerySlides.length;
+          renderGalleryFrame();
+        }
       }
     });
   }
@@ -516,8 +554,8 @@
     initTheme();
     initScrollAndNav();
     initReveal();
-    initVisionExplorer();
     initPublications();
+    initPubSlideshows();
     initModals();
     initNewsToggle();
     initCopyEmail();

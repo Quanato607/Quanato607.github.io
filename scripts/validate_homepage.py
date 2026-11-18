@@ -53,6 +53,8 @@ def check_structure() -> None:
         "files/Shenghao_Zhu_CV.pdf",
         "images/github-calligraphy-signature.png",
         "images/publications/idea-rl.png",
+        "images/publications/idea-rl-xpatient.png",
+        "images/publications/idea-rl-results.png",
         "assets/css/modern-home.css",
         "assets/js/modern-home.js",
     ]
@@ -83,6 +85,10 @@ def check_content_and_safety() -> None:
     css_text = read("assets/css/modern-home.css")
     js_text = read("assets/js/modern-home.js")
 
+    require('id="research-vision"' not in index_html, "Research Vision section must be removed from index.html")
+    require('href="#research-vision"' not in index_html, "Research Vision nav link must be removed from index.html")
+    require('href="/#research-vision"' not in cv_html, "Research Vision nav link must be removed from cv/index.html")
+
     required_index = [
         "University of Michigan",
         "Prof. Liyue Shen",
@@ -105,9 +111,27 @@ def check_content_and_safety() -> None:
         require(item in index_html, f"index.html is missing required fact: {item}")
 
     require("<em>Medical Image Analysis</em>, 2026 · First author" in index_html, "AdaMM must be labeled First author on index.html")
-    require("CVPR 2026 Findings · First author" in index_html, "ReBorn must be labeled CVPR 2026 Findings · First author")
     require('class="calligraphy-mark"' not in index_html, "Old top-right calligraphy-mark watermark must be removed")
     require('class="hero-signature"' in index_html, "Calligraphy signature block below bio is missing")
+
+    # Check every publication card has >= 2 slides and unpublished cards do not expose coauthor/advisor names
+    pub_cards = re.findall(r'<article class="pub-card".*?</article>', index_html, re.S)
+    require(len(pub_cards) == 8, f"Expected 8 publication cards, found {len(pub_cards)}")
+    unpublished_forbidden = ["Yefeng Zheng", "Zhaojie Fang", "Liyue Shen", "Yifei Chen", "Weihong Chen"]
+    for idx, card in enumerate(pub_cards, start=1):
+        slides = re.findall(r'class="pub-slide\b', card)
+        require(len(slides) >= 2, f"Publication card #{idx} must contain at least 2 slides, found {len(slides)}")
+        if any(marker in card for marker in ("IDEA-RL &amp; XPatient", "ReBorn:", "GFE-Mamba:")):
+            for name in unpublished_forbidden:
+                require(name not in card, f"Unpublished/under-review card #{idx} must not list coauthor/advisor '{name}'")
+            require("<strong>First author</strong>" in card or "<strong>Co-first author</strong>" in card, f"Unpublished card #{idx} must state author role only")
+
+    for bib_key in ("xpatient", "reborn", "gfemamba"):
+        m = re.search(rf"{bib_key}\s*:\s*`([^`]*)`", js_text, re.S)
+        require(m is not None, f"BibTeX entry missing for {bib_key}")
+        if m:
+            for name in unpublished_forbidden:
+                require(name not in m.group(1), f"BibTeX entry {bib_key} must not expose '{name}'")
 
     forbidden_green_tokens = ["#0d9488", "#0f766e", "#2dd4bf", "#5eead4", "13, 148, 136", "45, 212, 191"]
     for file_name, content in [
@@ -153,11 +177,9 @@ def check_assets() -> None:
         with Image.open(signature) as im:
             require(im.mode == "RGBA", "Signature PNG must be RGBA")
 
-    idearl_fig = ROOT / "images/publications/idea-rl.png"
-    require(idearl_fig.is_file(), "images/publications/idea-rl.png missing")
-    if idearl_fig.is_file():
-        with Image.open(idearl_fig) as im:
-            require(im.width >= 1200, "IDEA-RL paper figure should be high resolution")
+    for fig in Path(ROOT / "images/publications").glob("*.png"):
+        with Image.open(fig) as im:
+            require(im.width > 100 and im.height > 100, f"Invalid dimensions for {fig.name}")
 
     cv_pdf = ROOT / "files/Shenghao_Zhu_CV.pdf"
     require(cv_pdf.is_file() and cv_pdf.stat().st_size > 1024, "CV PDF missing or unexpectedly small")
