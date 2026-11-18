@@ -57,6 +57,12 @@ def check_structure() -> None:
         "images/publications/idea-rl-xpatient.png",
         "images/publications/idea-rl-dynamics.png",
         "images/publications/idea-rl-results.png",
+        "images/publications/adamm-graph.png",
+        "images/publications/adamm-heatmaps.png",
+        "images/publications/adamm-adapters.png",
+        "images/publications/reborn-split.png",
+        "images/publications/reborn-radar.png",
+        "images/publications/gfe-mamba-gradcam.png",
         "assets/css/modern-home.css",
         "assets/js/modern-home.js",
     ]
@@ -124,10 +130,12 @@ def check_content_and_safety() -> None:
 
     require("No Critic, Which Clue? Quantifying Evidence Advantages in Interactive Diagnosis" in cv_html, "cv/index.html must include real IDEA-RL title")
     require('id="lightbox-modal"' not in index_html and 'class="zoom-hint"' not in index_html, "Figure Lightbox zoom must be removed in favor of direct paper/repo links")
+    require("Figures cycle left-to-right" not in index_html and 'class="pub-subnote"' not in index_html, "Instructional .pub-subnote line must be removed from index.html")
+    require("westlake" not in index_html.lower() and "westlake" not in cv_html.lower(), "Westlake University must be removed from index.html and cv/index.html")
     require(len(re.findall(r'<a class="pub-stage"\s+href="[^"]+"', index_html)) == 8, "All 8 publication figures must be direct clickable links")
     require(len(re.findall(r'<a class="pub-title-link"\s+href="[^"]+"', index_html)) == 8, "All 8 publication titles must be direct clickable links")
 
-    # Check every publication card has >= 2 slides, concise explicit Insight, and unpublished privacy
+    # Check every publication card has >= 2 slides, tab parity, concise explicit Insight, and unpublished privacy
     pub_cards = re.findall(r'<article class="pub-card".*?</article>', index_html, re.S)
     require(len(pub_cards) == 8, f"Expected 8 publication cards, found {len(pub_cards)}")
     unpublished_forbidden = ["Yefeng Zheng", "Zhaojie Fang", "Liyue Shen", "Yifei Chen", "Weihong Chen"]
@@ -141,9 +149,17 @@ def check_content_and_safety() -> None:
             word_count = len(body_text.split())
             require(12 <= word_count <= 32, f"Publication card #{idx} insight word count ({word_count}) must be between 12 and 32")
         slides = re.findall(r'class="pub-slide(?:\s|")', card)
+        tabs = re.findall(r'class="pub-slide-tab(?:\s|")', card)
+        require(len(slides) == len(tabs), f"Publication card #{idx} slide count ({len(slides)}) != tab count ({len(tabs)})")
         require(len(slides) >= 2, f"Publication card #{idx} must contain at least 2 slides, found {len(slides)}")
         if "No Critic, Which Clue?" in card:
             require(len(slides) == 5, f"IDEA-RL & XPatient card must contain 5 slides, found {len(slides)}")
+        if "No Modality Left Behind:" in card:
+            require(len(slides) == 5, f"AdaMM card must contain 5 slides, found {len(slides)}")
+        if "ReBorn:" in card:
+            require(len(slides) == 4, f"ReBorn card must contain 4 slides, found {len(slides)}")
+        if "GFE-Mamba:" in card:
+            require(len(slides) == 4, f"GFE-Mamba card must contain 4 slides, found {len(slides)}")
         if any(marker in card for marker in ("No Critic, Which Clue?", "ReBorn:", "GFE-Mamba:")):
             for name in unpublished_forbidden:
                 require(name not in card, f"Unpublished/under-review card #{idx} must not list coauthor/advisor '{name}'")

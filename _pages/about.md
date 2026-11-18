@@ -143,12 +143,8 @@ redirect_from:
       <span class="experience-date">March 2026 – Present</span>
     </article>
     <article class="experience-item">
-      <div><h3>Westlake University</h3><p>Visiting Student, Medical Artificial Intelligence Lab</p><p class="experience-supervisor">Supervisor: Prof. Yefeng Zheng</p></div>
-      <span class="experience-date">August 2025 – March 2026</span>
-    </article>
-    <article class="experience-item">
       <div><h3>Tsinghua University</h3><p>Research Intern, BIRTH Lab</p><p class="experience-supervisor">Supervisor: Prof. Qiyuan Tian</p></div>
-      <span class="experience-date">June 2024 – August 2025</span>
+      <span class="experience-date">June 2024 – March 2026</span>
     </article>
     <article class="experience-item">
       <div><h3>SRIBD / CUHK-Shenzhen and HDU 3DV Lab</h3><p>Research Intern</p><p class="experience-supervisor">Supervisors: Prof. Changmiao Wang and Prof. Feiwei Qin</p></div>

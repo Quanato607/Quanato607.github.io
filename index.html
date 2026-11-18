@@ -137,7 +137,7 @@
           </span>
         </div>
         <p>
-          I am a Visiting Research Student at the <strong>University of Michigan</strong>, advised by <strong>Prof. Liyue Shen</strong>. I received my B.Eng. in Computer Science and Technology from <strong>Hangzhou Dianzi University</strong> (July 2026; GPA 4.28/5.0) and previously interned as a Medical AI Researcher with <strong>Dr. Le Lu</strong> at <strong>Ant Group</strong>, following research internships at <strong>Westlake University</strong> and <strong>Tsinghua University</strong>.
+          I am a Visiting Research Student at the <strong>University of Michigan</strong>, advised by <strong>Prof. Liyue Shen</strong>. I received my B.Eng. in Computer Science and Technology from <strong>Hangzhou Dianzi University</strong> (July 2026; GPA 4.28/5.0) and previously interned as a Medical AI Researcher with <strong>Dr. Le Lu</strong> at <strong>Ant Group</strong>, following a research internship at <strong>Tsinghua University</strong>.
         </p>
 
         <div class="focus-grid">
@@ -173,11 +173,6 @@
               Agents &amp; RL <span class="filter-count">1</span>
             </button>
           </div>
-        </div>
-
-        <div class="pub-subnote">
-          <span>Figures cycle left-to-right across architecture, visuals, and results — use tabs to switch views, or click any figure/title to open the work.</span>
-          <span id="pub-visible-status" aria-live="polite">Showing 8 of 8 works</span>
         </div>
 
         <div class="pub-list">
@@ -231,7 +226,13 @@
                   <img src="/images/publications/adamm.png" alt="AdaMM framework for missing-modality brain tumor segmentation" loading="lazy">
                 </div>
                 <div class="pub-slide">
-                  <img src="/images/publications/adamm-vis.png" alt="AdaMM BraTS 2024 qualitative comparison across missing-modality subsets" loading="lazy">
+                  <img src="/images/publications/adamm-graph.png" alt="AdaMM cross-graph enhancement and feature reprojection across stages" loading="lazy">
+                </div>
+                <div class="pub-slide">
+                  <img src="/images/publications/adamm-heatmaps.png" alt="AdaMM lesion-presence confidence heatmaps and zoomed boundary ablations" loading="lazy">
+                </div>
+                <div class="pub-slide">
+                  <img src="/images/publications/adamm-adapters.png" alt="AdaMM encoder and decoder adapter cosine-similarity matrices across 15 modality combinations" loading="lazy">
                 </div>
                 <div class="pub-slide">
                   <img src="/images/publications/adamm-metrics.png" alt="AdaMM quantitative Dice HD95 IoU Sensitivity vs parameter count scatter plots" loading="lazy">
@@ -240,7 +241,9 @@
               </a>
               <div class="pub-slide-tabs" role="group" aria-label="AdaMM figures">
                 <button class="pub-slide-tab is-active" type="button" aria-pressed="true">Model</button>
-                <button class="pub-slide-tab" type="button" aria-pressed="false">Visuals</button>
+                <button class="pub-slide-tab" type="button" aria-pressed="false">Graph</button>
+                <button class="pub-slide-tab" type="button" aria-pressed="false">Heatmaps</button>
+                <button class="pub-slide-tab" type="button" aria-pressed="false">Adapters</button>
                 <button class="pub-slide-tab" type="button" aria-pressed="false">Metrics</button>
               </div>
             </div>
@@ -266,7 +269,10 @@
                   <img src="/images/publications/reborn.png" alt="ReBorn framework for robust segmentation under modality degradation" loading="lazy">
                 </div>
                 <div class="pub-slide">
-                  <img src="/images/publications/reborn-vis.png" alt="ReBorn qualitative brain tumor segmentation visualization" loading="lazy">
+                  <img src="/images/publications/reborn-split.png" alt="ReBorn barebone model extraction across four missing-modality paradigms" loading="lazy">
+                </div>
+                <div class="pub-slide">
+                  <img src="/images/publications/reborn-radar.png" alt="ReBorn radar chart, training dynamics, and quantitative ablation studies" loading="lazy">
                 </div>
                 <div class="pub-slide">
                   <img src="/images/publications/reborn-metrics.png" alt="ReBorn average Dice under varying full-modality training rates" loading="lazy">
@@ -275,8 +281,9 @@
               </a>
               <div class="pub-slide-tabs" role="group" aria-label="ReBorn figures">
                 <button class="pub-slide-tab is-active" type="button" aria-pressed="true">Model</button>
-                <button class="pub-slide-tab" type="button" aria-pressed="false">Visuals</button>
-                <button class="pub-slide-tab" type="button" aria-pressed="false">Results</button>
+                <button class="pub-slide-tab" type="button" aria-pressed="false">Split</button>
+                <button class="pub-slide-tab" type="button" aria-pressed="false">Radar</button>
+                <button class="pub-slide-tab" type="button" aria-pressed="false">Curves</button>
               </div>
             </div>
 
@@ -309,7 +316,7 @@
               </a>
               <div class="pub-slide-tabs" role="group" aria-label="MST-KDNet figures">
                 <button class="pub-slide-tab is-active" type="button" aria-pressed="true">Model</button>
-                <button class="pub-slide-tab" type="button" aria-pressed="false">Visuals</button>
+                <button class="pub-slide-tab" type="button" aria-pressed="false">Slices</button>
                 <button class="pub-slide-tab" type="button" aria-pressed="false">Results</button>
               </div>
             </div>
@@ -372,6 +379,9 @@
                   <img src="/images/publications/gfe-mamba-synthesis.png" alt="GFE-Mamba axial MRI to generated PET synthesis visualization" loading="lazy">
                 </div>
                 <div class="pub-slide">
+                  <img src="/images/publications/gfe-mamba-gradcam.png" alt="GFE-Mamba 3D coronal sagittal axial Grad-CAM attention visualization with and without GFE" loading="lazy">
+                </div>
+                <div class="pub-slide">
                   <img src="/images/publications/gfe-mamba-results.png" alt="GFE-Mamba 7-fold cross-validation ROC curves for 1-year and 3-year AD progression" loading="lazy">
                 </div>
                 <div class="pub-progress-track"><div class="pub-progress-fill"></div></div>
@@ -379,6 +389,7 @@
               <div class="pub-slide-tabs" role="group" aria-label="GFE-Mamba figures">
                 <button class="pub-slide-tab is-active" type="button" aria-pressed="true">Model</button>
                 <button class="pub-slide-tab" type="button" aria-pressed="false">MRI→PET</button>
+                <button class="pub-slide-tab" type="button" aria-pressed="false">Grad-CAM</button>
                 <button class="pub-slide-tab" type="button" aria-pressed="false">ROC</button>
               </div>
             </div>
@@ -533,20 +544,11 @@
 
             <article class="exp">
               <div class="exp-head">
-                <h4 class="exp-org">Westlake University</h4>
-                <span class="exp-date">Aug. 2025 – Mar. 2026</span>
-              </div>
-              <p class="exp-role">Visiting Student, Medical AI Lab · Supervisor: Prof. Yefeng Zheng</p>
-              <p class="exp-desc">Researched Pareto optimization and split-weight survival strategies converting full-modality segmentation backbones under severe modality drop (<em>ReBorn</em>).</p>
-            </article>
-
-            <article class="exp">
-              <div class="exp-head">
                 <h4 class="exp-org">Tsinghua University (BIRTH Lab)</h4>
-                <span class="exp-date">Jun. 2024 – Aug. 2025</span>
+                <span class="exp-date">Jun. 2024 – Mar. 2026</span>
               </div>
               <p class="exp-role">Research Intern · Supervisor: Prof. Qiyuan Tian</p>
-              <p class="exp-desc">Built unified adapter-based cross-modal knowledge distillation (<em>AdaMM</em>) and multi-scale Transformer feature/style distillation (<em>MST-KDNet</em>) for incomplete brain MRI.</p>
+              <p class="exp-desc">Built unified adapter-based cross-modal knowledge distillation (<em>AdaMM</em>), Pareto/split-weight missing-modality survival training (<em>ReBorn</em>), and multi-scale Transformer feature/style distillation (<em>MST-KDNet</em>) for incomplete 3D brain MRI.</p>
             </article>
 
             <article class="exp">
