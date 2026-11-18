@@ -6,7 +6,7 @@
 
   const BIBTEX_MAP = {
     xpatient: `@misc{zhu2026idearl,
-  title  = {IDEA-RL and XPatient: Fact-Grounded Patient Simulation and Evidence-Attributed Policy Optimization for Multi-Turn Clinical Consultation},
+  title  = {IDEA-RL and XPatient: Structured Clinical Simulation and Evidence Advantage Policy Optimization for Multi-Turn Clinical Consultation},
   author = {Zhu, Shenghao},
   year   = {2026}
 }`,

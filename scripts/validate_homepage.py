@@ -53,7 +53,9 @@ def check_structure() -> None:
         "files/Shenghao_Zhu_CV.pdf",
         "images/github-calligraphy-signature.png",
         "images/publications/idea-rl.png",
+        "images/publications/idea-rl-actions.png",
         "images/publications/idea-rl-xpatient.png",
+        "images/publications/idea-rl-dynamics.png",
         "images/publications/idea-rl-results.png",
         "assets/css/modern-home.css",
         "assets/js/modern-home.js",
@@ -119,8 +121,10 @@ def check_content_and_safety() -> None:
     require(len(pub_cards) == 8, f"Expected 8 publication cards, found {len(pub_cards)}")
     unpublished_forbidden = ["Yefeng Zheng", "Zhaojie Fang", "Liyue Shen", "Yifei Chen", "Weihong Chen"]
     for idx, card in enumerate(pub_cards, start=1):
-        slides = re.findall(r'class="pub-slide\b', card)
+        slides = re.findall(r'class="pub-slide(?:\s|")', card)
         require(len(slides) >= 2, f"Publication card #{idx} must contain at least 2 slides, found {len(slides)}")
+        if "IDEA-RL &amp; XPatient" in card:
+            require(len(slides) == 5, f"IDEA-RL & XPatient card must contain 5 slides, found {len(slides)}")
         if any(marker in card for marker in ("IDEA-RL &amp; XPatient", "ReBorn:", "GFE-Mamba:")):
             for name in unpublished_forbidden:
                 require(name not in card, f"Unpublished/under-review card #{idx} must not list coauthor/advisor '{name}'")

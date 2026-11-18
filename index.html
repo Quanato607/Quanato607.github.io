@@ -147,7 +147,7 @@
               I am a Computer Science and Technology graduate of <strong>Hangzhou Dianzi University</strong> (B.Eng., July 2026; GPA 4.28/5.0) and currently a Visiting Research Student with <strong>Prof. Liyue Shen</strong> at the <strong>University of Michigan</strong>. Previously, I interned as a Medical AI Researcher with <strong>Dr. Le Lu</strong> at <strong>Ant Group</strong>, following research internships at <strong>Westlake University</strong> and <strong>Tsinghua University</strong>.
             </p>
             <p>
-              My research bridges two complementary fronts: (1) <strong>medical image-assisted diagnosis and longitudinal patient world models</strong> for missing-modality 3D MRI and forecasting subsequent tumor progression (<em>PD</em> and <em>BN20</em> scores), and (2) <strong>multi-turn clinical consultation</strong> via fact-grounded patient simulation (<em>XPatient</em>) and evidence-attributed reinforcement learning (<em>IDEA-RL</em>). Going forward, I aim to unify quantitative image analysis with longitudinal clinical questioning so diagnostic agents know both what evidence to inspect and when to ask.
+              My research bridges two complementary fronts: (1) <strong>medical image-assisted diagnosis and longitudinal patient world models</strong> for missing-modality 3D MRI and forecasting subsequent tumor progression (<em>PD</em> and <em>BN20</em> scores), and (2) <strong>multi-turn clinical consultation</strong> via fact-grounded patient simulation (<em>XPatient</em>) and critic-free evidence-advantage reinforcement learning (<em>IDEA-RL</em> / <em>EAPO</em>). Going forward, I aim to unify quantitative image analysis with longitudinal clinical questioning so diagnostic agents know both what evidence to inspect and when to ask.
             </p>
           </div>
 
@@ -276,19 +276,27 @@
             <span class="venue-pill venue-pill--burgundy">IDEA-RL · 2026</span>
             <div class="pub-slide-tabs" role="group" aria-label="IDEA-RL figures">
               <button class="pub-slide-tab is-active" type="button" aria-pressed="true">Model</button>
+              <button class="pub-slide-tab" type="button" aria-pressed="false">Actions</button>
               <button class="pub-slide-tab" type="button" aria-pressed="false">XPatient</button>
+              <button class="pub-slide-tab" type="button" aria-pressed="false">Dynamics</button>
               <button class="pub-slide-tab" type="button" aria-pressed="false">Results</button>
             </div>
           </div>
           <div class="pub-stage" data-paper-title="IDEA-RL &amp; XPatient">
-            <div class="pub-slide is-current" data-slide-label="Model" data-caption="IDEA-RL aligns shared evidence identities across trajectories and assigns outcome-associated process credit to first evidence acquisition.">
-              <img src="/images/publications/idea-rl.png" alt="Overview of IDEA-RL trajectory credit assignment" loading="lazy">
+            <div class="pub-slide is-current" data-slide-label="Model" data-caption="Overview of EAPO within IDEA-RL: XPatient grounds actions in a case evidence graph across trajectories (top), and EAPO pools cross-trajectory evidence outcomes with backward credit assignment (bottom).">
+              <img src="/images/publications/idea-rl.png" alt="Overview of EAPO within IDEA-RL" loading="lazy">
             </div>
-            <div class="pub-slide" data-slide-label="XPatient" data-caption="XPatient constrains patient responses to grounded clinical case graphs across ask, examination, and diagnosis actions.">
-              <img src="/images/publications/idea-rl-xpatient.png" alt="XPatient fact-constrained patient simulation pipeline" loading="lazy">
+            <div class="pub-slide" data-slide-label="Actions" data-caption="Action quality, update compute, and OOD performance: EAPO raises effective actions while matching GRPO update TFLOPs (128.54 vs. 247.52 for PPO) and reaching 44.9% Jaccard on PMC-Patients-v2.">
+              <img src="/images/publications/idea-rl-actions.png" alt="IDEA-RL action quality, update compute, and PMC-Patients-v2 Jaccard performance" loading="lazy">
             </div>
-            <div class="pub-slide" data-slide-label="Results" data-caption="Out-of-distribution PMC-Patients diagnostic accuracy vs. model scale: IDEA-RL-0.6B and IDEA-RL-4B outperform much larger baselines.">
-              <img src="/images/publications/idea-rl-results.png" alt="IDEA-RL diagnostic accuracy vs model parameter scale on PMC-Patients OOD" loading="lazy">
+            <div class="pub-slide" data-slide-label="XPatient" data-caption="Comparison across five patient interaction capabilities (Domain Routing, Attribute Target, Context Use, Multi Intent, Empty Match) against AI patient frameworks and raw-EHR LLMs.">
+              <img src="/images/publications/idea-rl-xpatient.png" alt="XPatient five-capability polar bar benchmark against AI patient frameworks and raw-EHR LLMs" loading="lazy">
+            </div>
+            <div class="pub-slide" data-slide-label="Dynamics" data-caption="Training dynamics across GRPO, w/o EAR, w/o CA, and EAPO: EAPO raises overall action efficiency to 80%, inquiry efficiency to 62%, and examination efficiency to 99%.">
+              <img src="/images/publications/idea-rl-dynamics.png" alt="Eight-panel training dynamics comparing EAPO against GRPO and ablations" loading="lazy">
+            </div>
+            <div class="pub-slide" data-slide-label="Results" data-caption="Benchmark comparison across MIMIC-IV, DDxPlus, and OOD PMC-Patients-v2: Qwen3-4B with EAPO surpasses GPT-4o, GPT-4.1, Gemini 2.5 Flash, MedGemma-27B, and Baichuan-M2-32B.">
+              <img src="/images/publications/idea-rl-results.png" alt="Benchmark comparison table across MIMIC-IV, DDxPlus, and PMC-Patients-v2" loading="lazy">
             </div>
             <span class="zoom-hint">Click to zoom</span>
             <div class="pub-progress-track"><div class="pub-progress-fill"></div></div>
@@ -299,11 +307,12 @@
               <span class="pub-mini-tag">Multi-Turn Consultation</span>
               <span class="pub-mini-tag">Process RL</span>
             </div>
-            <h3 class="pub-title">IDEA-RL &amp; XPatient: Fact-Grounded Patient Simulation and Evidence-Attributed Policy Optimization for Multi-Turn Clinical Consultation</h3>
+            <h3 class="pub-title">IDEA-RL &amp; XPatient: Structured Clinical Simulation and Evidence Advantage Policy Optimization for Multi-Turn Clinical Consultation</h3>
             <p class="pub-authors"><strong>First author</strong></p>
             <p class="pub-venue">2026</p>
-            <p class="pub-takeaway">Constrains simulated patient responses to case facts and aligns shared evidence identities across trajectories to assign outcome-associated process credit to first acquisition without a learned critic.</p>
+            <p class="pub-takeaway">Pairs structured request-scoped simulation in XPatient with critic-free Evidence Advantage Policy Optimization (EAPO), pooling outcome-associated evidence scores across same-case trajectories and propagating first-acquisition credit backward.</p>
             <div class="pub-footer">
+              <a class="pub-btn" href="/idea-rl/">Project Page</a>
               <button class="pub-btn" type="button" data-bibtex-id="xpatient" data-bibtex-title="IDEA-RL &amp; XPatient">BibTeX</button>
             </div>
           </div>

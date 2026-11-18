@@ -816,11 +816,12 @@ html[data-theme="dark"] .hero-signature__img {
 .pub-slide-tabs {
   display: inline-flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 4px;
 }
 
 .pub-slide-tab {
-  padding: 3px 9px;
+  padding: 3px 8px;
   border-radius: 999px;
   border: 1px solid #e2e8f0;
   background: #f8fafc;
