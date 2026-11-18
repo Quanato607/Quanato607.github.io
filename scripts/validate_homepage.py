@@ -114,7 +114,10 @@ def check_content_and_safety() -> None:
 
     require("<em>Medical Image Analysis</em>, 2026 · First author" in index_html, "AdaMM must be labeled First author on index.html")
     require('class="calligraphy-mark"' not in index_html, "Old top-right calligraphy-mark watermark must be removed")
-    require('class="hero-signature"' in index_html, "Calligraphy signature block below bio is missing")
+    require('class="side"' in index_html and 'class="axis"' in index_html, "Two-column monograph shell (.side + .axis) is required in index.html")
+    require('class="inscription hero-signature"' in index_html and 'class="seal"' in index_html, "Side-bottom calligraphy inscription and vermilion seal are missing")
+    require("sz-ink-theme" in index_html and "sz-ink-theme" in js_text, "Default Xuan-paper theme key sz-ink-theme must be wired")
+    require("#f7f4ed" in css_text and "#141311" in css_text, "Both Xuan-paper light (#f7f4ed) and lacquer-black dark (#141311) tokens must exist in modern-home.css")
 
     # Check every publication card has >= 2 slides and unpublished cards do not expose coauthor/advisor names
     pub_cards = re.findall(r'<article class="pub-card".*?</article>', index_html, re.S)

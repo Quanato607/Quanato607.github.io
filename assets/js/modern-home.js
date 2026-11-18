@@ -2,7 +2,7 @@
   "use strict";
 
   const EMAIL_ADDRESS = "22320220@hdu.edu.cn";
-  const THEME_STORAGE_KEY = "sz-theme";
+  const THEME_STORAGE_KEY = "sz-ink-theme";
 
   const BIBTEX_MAP = {
     xpatient: `@misc{zhu2026idearl,
@@ -94,21 +94,33 @@
   function initTheme() {
     const toggleBtn = document.getElementById("theme-toggle");
     const root = document.documentElement;
+
     const applyTheme = (theme) => {
-      root.setAttribute("data-theme", theme);
+      const normalized = theme === "dark" ? "dark" : "light";
+      root.setAttribute("data-theme", normalized);
       if (toggleBtn) {
-        const nextLabel = theme === "dark" ? "Switch to light theme" : "Switch to dark theme";
+        const nextLabel = normalized === "dark"
+          ? "Switch to Xuan-paper light mode"
+          : "Switch to lacquer-black dark mode";
         toggleBtn.setAttribute("aria-label", nextLabel);
-        toggleBtn.setAttribute("aria-pressed", String(theme === "dark"));
+        toggleBtn.setAttribute("title", nextLabel);
+        toggleBtn.setAttribute("aria-pressed", String(normalized === "dark"));
       }
       const metaTheme = document.querySelector('meta[name="theme-color"]');
       if (metaTheme) {
-        metaTheme.setAttribute("content", theme === "dark" ? "#090d1a" : "#1e40af");
+        metaTheme.setAttribute("content", normalized === "dark" ? "#141311" : "#f7f4ed");
       }
     };
 
-    const current = root.getAttribute("data-theme") || "light";
-    applyTheme(current);
+    let savedTheme = "light";
+    try {
+      if (localStorage.getItem(THEME_STORAGE_KEY) === "dark") {
+        savedTheme = "dark";
+      }
+    } catch (_err) {
+      savedTheme = root.getAttribute("data-theme") === "dark" ? "dark" : "light";
+    }
+    applyTheme(savedTheme);
 
     if (toggleBtn) {
       toggleBtn.addEventListener("click", () => {
@@ -120,86 +132,6 @@
         }
         applyTheme(next);
       });
-    }
-  }
-
-  function initScrollAndNav() {
-    const progressEl = document.getElementById("scroll-progress");
-    const mobileBtn = document.getElementById("mobile-menu-btn");
-    const drawer = document.getElementById("mobile-drawer");
-    const navLinks = Array.from(document.querySelectorAll(".nav-link[data-section], .mobile-drawer a[data-section]"));
-
-    let ticking = false;
-    const updateProgress = () => {
-      ticking = false;
-      if (!progressEl) return;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const pct = docHeight > 0 ? Math.min(100, Math.max(0, (window.scrollY / docHeight) * 100)) : 0;
-      progressEl.style.width = `${pct.toFixed(1)}%`;
-    };
-
-    window.addEventListener("scroll", () => {
-      if (!ticking) {
-        window.requestAnimationFrame(updateProgress);
-        ticking = true;
-      }
-    }, { passive: true });
-    updateProgress();
-
-    if (mobileBtn && drawer) {
-      mobileBtn.addEventListener("click", () => {
-        const isOpen = drawer.classList.toggle("is-open");
-        mobileBtn.setAttribute("aria-expanded", String(isOpen));
-      });
-      drawer.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
-          drawer.classList.remove("is-open");
-          mobileBtn.setAttribute("aria-expanded", "false");
-        });
-      });
-    }
-
-    const sections = Array.from(document.querySelectorAll("section[id]"));
-    if ("IntersectionObserver" in window && sections.length && navLinks.length) {
-      const setActive = (id) => {
-        navLinks.forEach((link) => {
-          link.classList.toggle("is-active", link.getAttribute("data-section") === id);
-        });
-      };
-      const spy = new IntersectionObserver(
-        (entries) => {
-          const visible = entries
-            .filter((entry) => entry.isIntersecting)
-            .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-          if (visible.length) {
-            setActive(visible[0].target.id);
-          }
-        },
-        { rootMargin: "-25% 0px -55% 0px", threshold: [0.1, 0.35, 0.6] }
-      );
-      sections.forEach((sec) => spy.observe(sec));
-    }
-  }
-
-  function initReveal() {
-    const revealEls = Array.from(document.querySelectorAll(".reveal"));
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if ("IntersectionObserver" in window && !reducedMotion) {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("is-visible");
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { rootMargin: "0px 0px -40px 0px", threshold: 0.05 }
-      );
-      revealEls.forEach((el) => observer.observe(el));
-    } else {
-      revealEls.forEach((el) => el.classList.add("is-visible"));
     }
   }
 
@@ -249,7 +181,6 @@
 
       let activeIndex = 0;
       let wipeTimer = null;
-      let autoInterval = null;
       let paused = false;
 
       const updateUi = (idx) => {
@@ -313,7 +244,7 @@
 
       if (!reducedMotion) {
         window.setTimeout(() => {
-          autoInterval = window.setInterval(() => {
+          window.setInterval(() => {
             if (paused || document.hidden || card.classList.contains("is-hidden")) return;
             goToSlide(activeIndex + 1, true);
           }, 4200);
@@ -552,8 +483,6 @@
 
   document.addEventListener("DOMContentLoaded", () => {
     initTheme();
-    initScrollAndNav();
-    initReveal();
     initPublications();
     initPubSlideshows();
     initModals();

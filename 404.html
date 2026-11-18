@@ -4,30 +4,30 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Page Not Found | Shenghao Zhu</title>
+  <meta name="theme-color" content="#f7f4ed">
   <link rel="icon" href="/images/favicon.ico" sizes="any">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&amp;family=Ubuntu+Mono:wght@400&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/modern-home.css">
   <script>
     (function () {
       try {
-        var saved = localStorage.getItem("sz-theme");
-        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-        document.documentElement.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
+        var saved = localStorage.getItem("sz-ink-theme");
+        document.documentElement.setAttribute("data-theme", saved === "dark" ? "dark" : "light");
       } catch (e) {}
     })();
   </script>
 </head>
 <body>
-  <div class="ambient-backdrop" aria-hidden="true"></div>
-  <main class="container" style="min-height: 75vh; display: grid; place-items: center;">
-    <section class="glass-card hero-main" style="max-width: 560px; text-align: center; align-items: center;">
-      <p class="section-eyebrow">404 · Not Found</p>
-      <h1 class="hero-title" style="margin-top: 8px;">Page Not Found</h1>
-      <p style="color: var(--ink-secondary); margin: 8px 0 22px;">
-        The requested page could not be found on Shenghao Zhu’s academic homepage.
-      </p>
-      <div class="hero-actions" style="margin-top: 0; justify-content: center;">
-        <a class="action-btn action-btn--primary" href="/">Return to Homepage</a>
-        <a class="action-btn" href="/cv/">View CV</a>
+  <main class="mono-wrap">
+    <section class="mono-notfound" aria-labelledby="notfound-heading">
+      <p class="contact" style="margin: 0;">404 · Not Found</p>
+      <h1 id="notfound-heading">Page Not Found</h1>
+      <p>The requested page could not be found on Shenghao Zhu’s academic homepage.</p>
+      <div class="mono-notfound-actions">
+        <a href="/">Return to Homepage</a>
+        <a href="/cv/">Curriculum Vitae</a>
       </div>
     </section>
   </main>
