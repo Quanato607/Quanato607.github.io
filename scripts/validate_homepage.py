@@ -123,6 +123,9 @@ def check_content_and_safety() -> None:
         require(item in index_html, f"index.html is missing required fact: {item}")
 
     require("<em>Medical Image Analysis</em>, 2026 · First author" in index_html, "AdaMM must be labeled First author on index.html")
+    require("Track I" in index_html and "Track II" in index_html and "Track III" in index_html, "Overview must contain Track I, Track II, and Track III")
+    require("patient world models" in index_html.lower() and "doctor consultation and diagnosis models" in index_html.lower(), "Track III must describe patient world models for doctor consultation and diagnosis models")
+    require(len(re.findall(r'class="focus-item(?:\s|")', index_html)) == 3, "Overview focus ledger must contain exactly 3 tracks")
     require('class="calligraphy-mark"' not in index_html, "Old top-right calligraphy-mark watermark must be removed")
     require('class="seal"' not in index_html and 'class="seal"' not in cv_html, "Vermilion seal (.seal) must be removed")
     require("Set in Crimson Pro" not in index_html and "Set in Crimson Pro" not in cv_html, "Removed Crimson Pro colophon attribution must not appear")
