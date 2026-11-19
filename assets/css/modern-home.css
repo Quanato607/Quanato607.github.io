@@ -423,51 +423,26 @@ button {
   text-decoration-color: var(--ink-1);
 }
 
-/* Three-track Research Focus & Future Direction ledger inside Overview */
-.focus-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.25rem;
+/* Concise Future Research Direction note inside Overview */
+.future-direction {
   margin-top: 1.05rem;
-  padding-top: 0.95rem;
-  border-top: 1px dashed var(--rule);
+  padding: 0.14rem 0 0.14rem 0.95rem;
+  border-left: 2px solid var(--accent);
 }
 
-.focus-item {
-  min-width: 0;
-}
-
-.focus-item--future {
-  padding-left: 1.05rem;
-  border-left: 1px solid var(--rule);
-}
-
-.focus-kicker {
-  margin: 0 0 0.28rem;
+.future-kicker {
+  margin: 0 0 0.24rem;
   font: 700 0.7rem/1.35 var(--sans);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--accent);
 }
 
-.focus-tag {
-  display: inline-block;
-  margin-left: 0.28rem;
-  padding: 2px 5px;
-  border-radius: 2px;
-  background: var(--accent-soft);
-  color: var(--accent);
-  font: 500 0.6rem/1.1 var(--mono);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  vertical-align: 1px;
-}
-
-.focus-text {
+.future-text {
   margin: 0;
-  font-size: 0.9rem;
-  line-height: 1.52;
-  color: var(--ink-2);
+  font-size: 0.95rem;
+  line-height: 1.58;
+  color: var(--ink-1);
 }
 
 /* Custom small rotated square markers */
@@ -1365,20 +1340,6 @@ button {
   }
 }
 
-@media (max-width: 760px) {
-  .focus-grid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0.85rem;
-  }
-
-  .focus-item--future {
-    padding-left: 0;
-    border-left: 0;
-    padding-top: 0.75rem;
-    border-top: 1px dashed var(--rule);
-  }
-}
-
 @media (max-width: 640px) {
   .side {
     flex-direction: column;
@@ -1387,11 +1348,6 @@ button {
 
   .inscription {
     width: 7.4rem;
-  }
-
-  .focus-grid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0.9rem;
   }
 
   .pub-card {

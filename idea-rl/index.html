@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en" data-theme="light" data-anon="false">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>No Critic, Which Clue? — IDEA-RL Project Page | Shenghao Zhu</title>
+  <meta name="description" content="IDEA-RL pairs structured clinical simulation (XPatient) with critic-free Evidence Advantage Policy Optimization (EAPO) for interactive medical diagnosis.">
+  <meta name="keywords" content="IDEA-RL, XPatient, EAPO, interactive diagnosis, clinical consultation, reinforcement learning, medical LLM">
+  <meta name="theme-color" content="#1e40af">
+
+  <link rel="icon" type="image/png" href="./static/images/favicon.png">
+  <link rel="apple-touch-icon" href="./static/images/favicon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+
+  <!-- Prevent theme / anonymous-mode flash before paint -->
+  <script>
+    (function () {
+      try {
+        var params = new URLSearchParams(window.location.search);
+        if (params.get("anon") === "1") {
+          document.documentElement.setAttribute("data-anon", "true");
+          document.title = "No Critic, Which Clue? — IDEA-RL Project Page (Anonymous)";
+        }
+        var saved = localStorage.getItem("sz-theme");
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script defer src="./static/js/index.js"></script>
+</head>
+<body>
+  <div class="ambient-backdrop" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Minimalist Sticky Top Bar -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <div class="header-brand-group">
+        <a class="brand-pill" href="#top">
+          <span class="brand-pill__dot" aria-hidden="true"></span>
+          <span>IDEA-RL</span>
+        </a>
+        <a class="back-home-chip" href="../" data-named-only>
+          <i class="fas fa-arrow-left" aria-hidden="true"></i>
+          <span>Shenghao Zhu</span>
+        </a>
+      </div>
+
+      <nav class="header-nav" aria-label="Section navigation">
+        <a href="#overview">Overview</a>
+        <a href="#method">Method</a>
+        <a href="#results">Results</a>
+        <a href="#video">Video</a>
+      </nav>
+
+      <div class="header-controls">
+        <button class="mode-toggle-btn" id="anon-toggle" type="button" aria-pressed="false" title="Toggle between Named Author view and Anonymous Double-Blind view (?anon=1)">
+          <i class="fas fa-user-secret" aria-hidden="true"></i>
+          <span id="anon-toggle-label">Named View</span>
+        </button>
+
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+          <svg class="theme-icon-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+          </svg>
+          <svg class="theme-icon-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Anonymous Double-Blind Banner -->
+  <div class="anon-banner" data-anon-only role="status">
+    <strong>Double-Blind Anonymous Mode Active (<code>?anon=1</code>):</strong>
+    Author names, affiliations, and personal homepage links are hidden. For anonymous review links, host this portable <code>./idea-rl/</code> directory on an anonymous static host rather than a personal domain.
+  </div>
+
+  <main id="top">
+    <!-- 1. Centered Hero -->
+    <section class="paper-hero">
+      <div class="paper-hero__container">
+        <div class="venue-eyebrow">
+          <span data-named-only>IDEA-RL · Interactive Clinical Diagnosis</span>
+          <span data-anon-only>IDEA-RL · Anonymous Submission</span>
+        </div>
+
+        <h1 class="title publication-title">
+          No Critic, Which Clue?<br>
+          Quantifying Evidence Advantages in Interactive Diagnosis
+        </h1>
+
+        <div class="publication-authors" data-named-only>
+          <span class="author-block"><a href="../">Shenghao Zhu</a></span>
+          <span class="author-block">· Advised by <strong>Liyue Shen</strong></span>
+        </div>
+        <div class="publication-affiliations" data-named-only>
+          <span>University of Michigan</span>
+        </div>
+
+        <div class="publication-authors" data-anon-only>
+          <span class="author-block">Anonymous Authors</span>
+        </div>
+        <div class="publication-affiliations" data-anon-only>
+          <span>Anonymous Submission · Double-Blind Review Mode</span>
+        </div>
+
+        <div class="publication-links">
+          <a class="action-pill" href="../" data-named-only>
+            <i class="fas fa-home" aria-hidden="true"></i>
+            <span>Author Homepage</span>
+          </a>
+          <a class="action-pill action-pill--primary" href="#video">
+            <i class="fas fa-play-circle" aria-hidden="true"></i>
+            <span>Explainer Video</span>
+          </a>
+          <button class="action-pill action-pill--subtle" id="code-coming-soon-btn" type="button">
+            <i class="fab fa-github" aria-hidden="true"></i>
+            <span>Code (Coming Soon)</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Teaser & Core Insight Overview -->
+    <section class="page-section--compact" id="overview">
+      <div class="section-container">
+        <div class="figure-card">
+          <div
+            class="figure-frame"
+            data-lightbox-trigger
+            data-lightbox-title="Figure 1. IDEA-RL Overview (XPatient + EAPO)"
+            data-lightbox-caption="IDEA-RL pairs structured clinical simulation (XPatient) with critic-free Evidence Advantage Policy Optimization (EAPO) to turn cross-trajectory diagnostic outcomes into turn-level inquiry credit."
+          >
+            <img src="./static/images/idea-rl-overview.png" alt="Overview of XPatient case evidence graph and EAPO critic-free credit assignment">
+            <span class="figure-zoom-badge">Click to zoom</span>
+          </div>
+          <p class="figure-caption">
+            <strong>Figure 1.</strong> <strong>IDEA-RL</strong> pairs structured clinical simulation (<strong>XPatient</strong>) with critic-free <strong>Evidence Advantage Policy Optimization (EAPO)</strong> to turn cross-trajectory diagnostic outcomes into turn-level inquiry credit.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section page-section--tinted">
+      <div class="section-container--narrow">
+        <h2 class="title section-heading">Overview</h2>
+        <p class="prose-block" style="margin-bottom: 0;">
+          Interactive clinical diagnosis requires an agent to actively ask questions and order tests before committing to a decision. Standard LLM patient simulators often leak unrequested symptoms, while outcome-only reinforcement learning rewards final diagnoses without revealing which earlier inquiries uncovered decisive clues. <strong>IDEA-RL</strong> addresses both challenges: <strong>XPatient</strong> restricts every reply to specifically requested case facts, and <strong>EAPO</strong> compares trajectories on the same case to credit newly discovered evidence and propagate feedback backward without a critic network. Across three clinical benchmarks, a compact <strong>4B</strong> agent learns to gather more informative clues per case and outperforms frontier proprietary models and 32B medical specialists.
+        </p>
+      </div>
+    </section>
+
+    <!-- 3. Method -->
+    <section class="page-section" id="method">
+      <div class="section-container">
+        <h2 class="title section-heading">Method</h2>
+
+        <div class="subsection-block">
+          <h3 class="section-subheading">Reliable Evidence Tracking (XPatient)</h3>
+          <p class="prose-block">
+            When prompted directly with raw health records, LLM patients frequently volunteer hidden symptoms on broad questions or drift across follow-ups, obscuring what an agent actually learned. <strong>XPatient</strong> grounds patient replies in structured clinical facts, separates objective test lookups from dialogue, and tracks newly uncovered clues turn by turn so repeated questions earn no extra credit.
+          </p>
+
+          <div class="figure-card">
+            <div
+              class="figure-frame"
+              data-lightbox-trigger
+              data-lightbox-title="Figure 2. XPatient Interaction Capabilities"
+              data-lightbox-caption="Across five clinical interaction dimensions, XPatient prevents unrequested symptom leakage while consistently outperforming existing AI patient frameworks and raw-EHR LLMs."
+            >
+              <img src="./static/images/xpatient-capability-bars.png" alt="Comparison of XPatient against existing AI patient frameworks and raw-EHR LLMs">
+              <span class="figure-zoom-badge">Click to zoom</span>
+            </div>
+            <p class="figure-caption">
+              <strong>Figure 2.</strong> Across five clinical interaction dimensions, <strong>XPatient</strong> prevents unrequested symptom leakage while consistently outperforming existing AI patient frameworks and raw-EHR LLMs.
+            </p>
+          </div>
+        </div>
+
+        <div class="subsection-block">
+          <h3 class="section-subheading">Critic-Free Process Credit (EAPO)</h3>
+          <p class="prose-block">
+            Supervising only the final diagnosis leaves an agent guessing which question or test mattered. <strong>EAPO</strong> pools diagnostic outcomes across rollouts on the same case to reward clues at their first acquisition, keeps routine unrecorded inquiries neutral rather than penalized, and propagates turn-level credit backward along the consultation—matching lightweight critic-free training cost.
+          </p>
+
+          <div class="figure-card">
+            <div
+              class="figure-frame"
+              data-lightbox-trigger
+              data-lightbox-title="Figure 3. Effective Inquiries and Compute Efficiency"
+              data-lightbox-caption="Process-level evidence credit steadily increases effective inquiries while cutting wasted actions, matching GRPO's lightweight update cost at substantially higher OOD diagnosis Jaccard."
+            >
+              <img src="./static/images/figure1-compute-actions.png" alt="Effective vs ineffective actions and compute efficiency comparison">
+              <span class="figure-zoom-badge">Click to zoom</span>
+            </div>
+            <p class="figure-caption">
+              <strong>Figure 3.</strong> Process-level evidence credit steadily increases effective inquiries while cutting wasted actions, matching GRPO's lightweight update cost at substantially higher OOD diagnosis Jaccard.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Results (Only Diagnosis Jaccard + Effective Turns) -->
+    <section class="page-section page-section--tinted" id="results">
+      <div class="section-container">
+        <h2 class="title section-heading">Results</h2>
+        <p class="prose-block">
+          Stronger diagnosis stems from higher-yield evidence gathering rather than model scale alone. Across MIMIC-IV, DDxPlus, and out-of-distribution PMC-Patients-v2, our <strong>Qwen3-4B</strong> agent uncovers more effective clues per case and achieves the highest <strong>Diagnosis Jaccard</strong> over proprietary models and 32B medical specialists.
+        </p>
+
+        <!-- Dual-Metric Visual Card -->
+        <div class="bench-card">
+          <div class="bench-toolbar">
+            <div class="pill-group" role="group" aria-label="Select benchmark dataset">
+              <button type="button" class="filter-pill is-active" data-bench-ds="pmc" aria-pressed="true">PMC-Patients-v2 (OOD)</button>
+              <button type="button" class="filter-pill" data-bench-ds="mimic" aria-pressed="false">MIMIC-IV</button>
+              <button type="button" class="filter-pill" data-bench-ds="ddx" aria-pressed="false">DDxPlus</button>
+            </div>
+            <div class="bench-legend" aria-hidden="true">
+              <span class="bench-legend-item"><i class="bench-swatch bench-swatch--jac"></i> Diagnosis Jaccard</span>
+              <span class="bench-legend-item"><i class="bench-swatch bench-swatch--eff"></i> Effective Turns</span>
+            </div>
+          </div>
+
+          <div class="bench-head">
+            <span>Model</span>
+            <span>Diagnosis Jaccard</span>
+            <span>Effective Turns</span>
+          </div>
+
+          <div class="bench-bars" id="bench-bars"></div>
+          <p class="bench-note" id="bench-note"></p>
+        </div>
+
+        <div class="figure-card">
+          <div
+            class="figure-frame"
+            data-lightbox-trigger
+            data-lightbox-title="Figure 4. Training Dynamics"
+            data-lightbox-caption="Combining first-acquisition evidence rewards with backward credit propagation sustains high inquiry and examination efficiency throughout training without collapsing into redundant questioning."
+          >
+            <img src="./static/images/training-dynamics.png" alt="Training dynamics comparing action counts, efficiency, and diagnosis Jaccard">
+            <span class="figure-zoom-badge">Click to zoom</span>
+          </div>
+          <p class="figure-caption">
+            <strong>Figure 4.</strong> Combining first-acquisition evidence rewards with backward credit propagation sustains high inquiry and examination efficiency throughout training without collapsing into redundant questioning.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Single-Case Mechanism Explainer Video -->
+    <section class="page-section" id="video">
+      <div class="section-container">
+        <h2 class="title section-heading">Single-Case Mechanism Video</h2>
+        <p class="prose-block" style="max-width: 780px; margin: 0 auto 22px; text-align: center;">
+          A 59-second narrated walkthrough showing how <strong>XPatient</strong> links each inquiry to structured case nodes before replying, and how <strong>EAPO</strong> converts unlocked nodes across same-case rollouts into turn-level credit.
+        </p>
+
+        <div class="video-card">
+          <div class="video-frame">
+            <video
+              id="explainer-video"
+              controls
+              playsinline
+              preload="metadata"
+              poster="./static/images/explainer-poster.png"
+              aria-label="IDEA-RL single-case mechanism explainer video covering XPatient graph routing and EAPO turn-level rewards"
+            >
+              <source src="./static/videos/idea-rl-explainer.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="video-chapters" role="group" aria-label="Jump to video chapter">
+            <button type="button" class="chapter-pill is-active" data-video-seek="0.0">01 · Case Setup (0:00)</button>
+            <button type="button" class="chapter-pill" data-video-seek="7.11">02 · Graph Routing (0:07)</button>
+            <button type="button" class="chapter-pill" data-video-seek="19.14">03 · Hierarchy &amp; Exams (0:19)</button>
+            <button type="button" class="chapter-pill" data-video-seek="31.35">04 · Unrecorded Neutral (0:31)</button>
+            <button type="button" class="chapter-pill" data-video-seek="40.66">05 · Rollout Node Score (0:41)</button>
+            <button type="button" class="chapter-pill" data-video-seek="48.95">06 · Turn Credit (0:49)</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="section-container">
+      <p style="margin-bottom: 6px;" data-named-only>
+        <strong>IDEA-RL</strong> · <a href="../">Shenghao Zhu</a> (University of Michigan)
+      </p>
+      <p style="margin-bottom: 6px;" data-anon-only>
+        <strong>IDEA-RL</strong> · Anonymous Project Page View
+      </p>
+      <p style="margin: 0;">
+        Built upon the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener">Academic Project Page Template</a> (adapted from <a href="https://nerfies.github.io" target="_blank" rel="noopener">Nerfies</a>), licensed under <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div class="modal-backdrop" id="lightbox-modal" role="dialog" aria-modal="true" aria-labelledby="lightbox-title" aria-hidden="true">
+    <div class="modal-panel">
+      <div class="modal-header">
+        <h3 id="lightbox-title">Figure Preview</h3>
+        <button class="modal-close" type="button" data-modal-close aria-label="Close preview">×</button>
+      </div>
+      <div class="lightbox-stage">
+        <img id="lightbox-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="">
+      </div>
+      <p class="lightbox-caption" id="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <button class="scroll-to-top" id="scroll-to-top" type="button" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up" aria-hidden="true"></i>
+  </button>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

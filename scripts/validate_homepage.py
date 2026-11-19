@@ -50,6 +50,8 @@ def check_structure() -> None:
         "about.html",
         "404.html",
         "sitemap.xml",
+        "idea-rl/index.html",
+        "idea-rl/static/videos/idea-rl-explainer.mp4",
         "files/Shenghao_Zhu_CV.pdf",
         "images/github-calligraphy-signature.png",
         "images/publications/idea-rl.png",
@@ -123,9 +125,10 @@ def check_content_and_safety() -> None:
         require(item in index_html, f"index.html is missing required fact: {item}")
 
     require("<em>Medical Image Analysis</em>, 2026 · First author" in index_html, "AdaMM must be labeled First author on index.html")
-    require("Track I" in index_html and "Track II" in index_html and "Track III" in index_html, "Overview must contain Track I, Track II, and Track III")
-    require("patient world models" in index_html.lower() and "doctor consultation and diagnosis models" in index_html.lower(), "Track III must describe patient world models for doctor consultation and diagnosis models")
-    require(len(re.findall(r'class="focus-item(?:\s|")', index_html)) == 3, "Overview focus ledger must contain exactly 3 tracks")
+    require("Track I" not in index_html and "Track II" not in index_html and "Track III" not in index_html, "Track I-III must be removed from Overview")
+    require('class="focus-grid"' not in index_html, "Old .focus-grid must be replaced by .future-direction")
+    require("Future Research Direction" in index_html, "Overview must include Future Research Direction")
+    require("patient world models" in index_html.lower() and "deployable ai doctor models" in index_html.lower(), "Future Research Direction must cover patient world models and deployable AI doctor models")
     require('class="calligraphy-mark"' not in index_html, "Old top-right calligraphy-mark watermark must be removed")
     require('class="seal"' not in index_html and 'class="seal"' not in cv_html, "Vermilion seal (.seal) must be removed")
     require("Set in Crimson Pro" not in index_html and "Set in Crimson Pro" not in cv_html, "Removed Crimson Pro colophon attribution must not appear")
@@ -136,7 +139,8 @@ def check_content_and_safety() -> None:
     require("#f7f4ed" in css_text and "#141311" in css_text, "Both Xuan-paper light (#f7f4ed) and lacquer-black dark (#141311) tokens must exist in modern-home.css")
 
     require("No Critic, Which Clue? Quantifying Evidence Advantages in Interactive Diagnosis" in cv_html, "cv/index.html must include real IDEA-RL title")
-    require("In preparation for ICML" in index_html and "In preparation for ICML" in cv_html, "IDEA-RL venue must read 'In preparation for ICML'")
+    require("ICML Submission" in index_html and "ICML Submission" in cv_html, "IDEA-RL venue must read 'ICML Submission'")
+    require("In preparation for ICML" not in index_html and "In preparation for ICML" not in cv_html, "Old 'In preparation for ICML' IDEA-RL venue must be replaced")
     require("Preprint, 2026" not in index_html, "Old 'Preprint, 2026' IDEA-RL venue must be replaced")
     require("★" not in index_html and "Code (" not in index_html, "Star counts next to Code buttons must be removed")
     require('id="lightbox-modal"' not in index_html and 'class="zoom-hint"' not in index_html, "Figure Lightbox zoom must be removed in favor of direct paper/repo links")
