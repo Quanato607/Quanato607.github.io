@@ -205,7 +205,9 @@ button {
   color: var(--ink-3);
 }
 
-.role a {
+.role a,
+.role strong {
+  font-weight: 500;
   color: var(--ink-2);
   text-decoration: none;
   transition: color 0.2s ease;
